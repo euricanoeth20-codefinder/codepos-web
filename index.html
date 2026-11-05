@@ -35,6 +35,8 @@
       color: #F4F8FC;
       font-family: 'Space Grotesk', sans-serif;
       -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
     }
     .custom-scroll::-webkit-scrollbar {
       width: 4px;
@@ -48,17 +50,18 @@
 <body class="min-h-screen flex justify-center bg-slate-950 text-slate-100">
 
   <!-- Mobile Frame Container (Max 430px for Phone Screens) -->
-  <div class="w-full max-w-[430px] min-h-screen bg-[#0B1422] flex flex-col relative pb-12 shadow-2xl">
+  <div class="w-full max-w-[430px] min-h-screen bg-[#0B1422] flex flex-col relative pb-8 shadow-2xl">
 
     <!-- Top Sticky Header Bar -->
     <header class="sticky top-0 z-40 bg-[#0B1422]/95 backdrop-blur-md border-b border-[#14283A] px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2.5">
         <!-- Official CodeFinder Logo in Header -->
-        <div class="w-9 h-9 rounded-lg bg-[#101F33] border border-[#14283A] p-1 flex items-center justify-center overflow-hidden shadow-inner">
+        <div class="w-10 h-10 rounded-xl bg-[#101F33] border border-[#14283A] p-1 flex items-center justify-center overflow-hidden shadow-inner">
           <svg viewBox="0 0 100 100" class="w-full h-full" fill="none">
-            <circle cx="50" cy="50" r="44" stroke="#48D4D0" stroke-width="6" stroke-dasharray="12 4"/>
-            <circle cx="44" cy="44" r="22" stroke="#F4F8FC" stroke-width="6"/>
-            <line x1="60" y1="60" x2="80" y2="80" stroke="#48D4D0" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="44" stroke="#48D4D0" stroke-width="5" stroke-dasharray="10 4"/>
+            <circle cx="44" cy="44" r="20" stroke="#F4F8FC" stroke-width="5"/>
+            <circle cx="44" cy="44" r="10" fill="#48D4D0" fill-opacity="0.3"/>
+            <line x1="58" y1="58" x2="80" y2="80" stroke="#48D4D0" stroke-width="7" stroke-linecap="round"/>
           </svg>
         </div>
         <div>
@@ -73,7 +76,7 @@
         </div>
       </div>
 
-      <!-- Action Buttons in Header -->
+      <!-- Header Action Buttons -->
       <div class="flex items-center gap-2">
         <button onclick="switchView('signin-view')" id="header-signin-btn" class="text-xs bg-[#101F33] hover:bg-[#14283A] border border-[#14283A] text-slate-200 px-2.5 py-1.5 rounded-lg font-medium transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
@@ -86,7 +89,9 @@
       </div>
     </header>
 
-    <!-- MAIN HOME / SPLASH VIEW -->
+    <!-- ========================================== -->
+    <!-- 1. MAIN HOME / SPLASH VIEW (STANDALONE)     -->
+    <!-- ========================================== -->
     <main id="home-view" class="p-4 space-y-6">
 
       <!-- Hero Section with Center Graphic Logo -->
@@ -95,7 +100,7 @@
 
         <!-- Center CodePOS Graphic Logo Representation -->
         <div class="mx-auto w-36 h-28 mb-3 flex items-center justify-center relative">
-          <div class="w-28 h-28 rounded-full border border-[#48D4D0]/30 flex items-center justify-center shadow-[0_0_25px_rgba(72,212,208,0.2)] bg-[#0B1422]/60">
+          <div class="w-28 h-28 rounded-full border border-[#48D4D0]/40 flex items-center justify-center shadow-[0_0_30px_rgba(72,212,208,0.25)] bg-[#0B1422]">
             <div class="flex flex-col items-center">
               <svg class="w-12 h-12 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
@@ -122,7 +127,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
           </div>
           <div class="text-left">
-            <h4 class="text-xs font-semibold text-white">Customer & Employee Portal</h4>
+            <h4 class="text-xs font-semibold text-white">Owner & Customer Portal</h4>
             <p class="text-[11px] text-[#8E9EAF]">Role authorization, PIN access & Admin sign-in</p>
           </div>
         </div>
@@ -139,7 +144,7 @@
           NO EXPENSIVE HARDWARE NEEDED
         </div>
         <p class="text-xs text-slate-300 leading-relaxed font-medium">
-          Turning Any Standard Smartphone Android, Huawei, Apple And Windows Desktop Into A Handheld POS
+          Turning Any Standard Smartphone (Android, Huawei, Apple And Windows Desktop Into A Handheld POS
         </p>
 
         <!-- 3 Device Badges -->
@@ -277,25 +282,27 @@
 
     </main>
 
-    <!-- SIGN-IN VIEW (Customer & Employee Sign-In Portal) -->
+    <!-- ========================================== -->
+    <!-- 2. SIGN-IN VIEW (STANDALONE ONLY WHEN CLICKED) -->
+    <!-- ========================================== -->
     <section id="signin-view" class="p-4 space-y-6 hidden">
 
-      <!-- Breadcrumb Navigation Back to Home -->
+      <!-- Breadcrumb Back to Package Options -->
       <button onclick="switchView('home-view')" class="text-xs text-[#8E9EAF] hover:text-[#48D4D0] flex items-center gap-1.5 transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
         <span>Back to Package Options & Hub</span>
       </button>
 
       <!-- Center Dual Logos -->
-      <div class="flex items-center justify-center gap-4 py-2">
-        <div class="bg-[#101F33] border border-[#14283A] px-3 py-1.5 rounded-xl flex items-center gap-2">
+      <div class="flex items-center justify-center gap-4 py-1">
+        <div class="bg-[#101F33] border border-[#14283A] px-3.5 py-2 rounded-xl flex items-center gap-2">
           <div class="w-5 h-5 rounded-full border border-[#48D4D0]/40 flex items-center justify-center">
             <div class="w-2.5 h-2.5 rounded-full bg-[#48D4D0]"></div>
           </div>
           <span class="font-bold text-xs tracking-wider text-white">CodeFinder</span>
         </div>
         <span class="text-slate-600">|</span>
-        <div class="bg-[#101F33] border border-[#14283A] px-3 py-1.5 rounded-xl flex items-center gap-2">
+        <div class="bg-[#101F33] border border-[#14283A] px-3.5 py-2 rounded-xl flex items-center gap-2">
           <span class="font-bold text-xs tracking-wider text-[#48D4D0]">CodePOS</span>
         </div>
       </div>
@@ -312,7 +319,7 @@
           <p class="text-xs text-[#8E9EAF]">Enter Credentials To Manage Your CodePOS</p>
         </div>
 
-        <!-- Pending Approval Notice Banner (Centered Stacked Facts) -->
+        <!-- Pending Approval Notice Banner (Positioned Directly Under Header) -->
         <div class="bg-amber-950/20 border border-amber-500/30 rounded-xl p-3.5 text-center space-y-1">
           <div class="flex items-center justify-center gap-1.5 text-amber-400 font-bold text-xs">
             <span>⏳</span>
@@ -323,7 +330,7 @@
           <p class="text-[10px] text-[#48D4D0] font-mono">Instant Verification Ping Sent To Administrator</p>
         </div>
 
-        <!-- Sign-In Form -->
+        <!-- Sign-In Form (No Switcher Buttons) -->
         <form onsubmit="handleSignIn(event)" class="space-y-4 text-left">
           <div>
             <label class="block text-xs font-mono font-medium text-[#8E9EAF] mb-1.5 uppercase text-center">Username / Business Email</label>
@@ -395,7 +402,7 @@
     </section>
 
     <!-- Footer Copyright & Developer Credentials -->
-    <footer class="mt-auto px-4 pt-6 pb-4 border-t border-[#14283A] text-center space-y-2">
+    <footer class="mt-auto px-4 pt-6 pb-2 border-t border-[#14283A] text-center space-y-2">
       <div class="flex items-center justify-center gap-4 text-[11px] font-mono text-[#8E9EAF]">
         <span class="flex items-center gap-1">
           <svg class="w-3 h-3 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -546,32 +553,34 @@
 
   <!-- INTERACTIVE JAVASCRIPT CONTROLLERS -->
   <script>
-    // View Switcher (Home vs Sign-In)
+    // Robust View Switcher (Strict One-Page Display)
     function switchView(viewId) {
-      document.getElementById('home-view').classList.add('hidden');
-      document.getElementById('signin-view').classList.add('hidden');
-      
-      const target = document.getElementById(viewId);
-      if (target) {
-        target.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      // Update header button label
+      const homeView = document.getElementById('home-view');
+      const signinView = document.getElementById('signin-view');
       const headerBtn = document.getElementById('header-signin-btn');
+
       if (viewId === 'signin-view') {
-        headerBtn.innerHTML = `
-          <svg class="w-3.5 h-3.5 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-          Home
-        `;
-        headerBtn.setAttribute('onclick', "switchView('home-view')");
+        homeView.classList.add('hidden');
+        signinView.classList.remove('hidden');
+        if (headerBtn) {
+          headerBtn.innerHTML = `
+            <svg class="w-3.5 h-3.5 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            Home
+          `;
+          headerBtn.setAttribute('onclick', "switchView('home-view')");
+        }
       } else {
-        headerBtn.innerHTML = `
-          <svg class="w-3.5 h-3.5 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-          Sign In
-        `;
-        headerBtn.setAttribute('onclick', "switchView('signin-view')");
+        signinView.classList.add('hidden');
+        homeView.classList.remove('hidden');
+        if (headerBtn) {
+          headerBtn.innerHTML = `
+            <svg class="w-3.5 h-3.5 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+            Sign In
+          `;
+          headerBtn.setAttribute('onclick', "switchView('signin-view')");
+        }
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Toggle Menu & Legal Drawer
