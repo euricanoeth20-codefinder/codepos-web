@@ -55,23 +55,30 @@
     <!-- Top Sticky Header Bar -->
     <header class="sticky top-0 z-40 bg-[#0B1422]/95 backdrop-blur-md border-b border-[#14283A] px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2.5">
-        <!-- Official CodeFinder Logo in Header -->
-        <div class="w-10 h-10 rounded-xl bg-[#101F33] border border-[#14283A] p-1 flex items-center justify-center overflow-hidden shadow-inner">
-          <svg viewBox="0 0 100 100" class="w-full h-full" fill="none">
-            <circle cx="50" cy="50" r="44" stroke="#48D4D0" stroke-width="5" stroke-dasharray="10 4"/>
-            <circle cx="44" cy="44" r="20" stroke="#F4F8FC" stroke-width="5"/>
-            <circle cx="44" cy="44" r="10" fill="#48D4D0" fill-opacity="0.3"/>
-            <line x1="58" y1="58" x2="80" y2="80" stroke="#48D4D0" stroke-width="7" stroke-linecap="round"/>
+        <!-- Official CodeFinder Logo in Header (Top Left) -->
+        <div class="h-9 flex items-center">
+          <svg viewBox="0 0 280 80" class="h-8 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cfHeaderGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#48D4D0"/>
+                <stop offset="100%" stop-color="#00A3FF"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="40" r="26" stroke="#48D4D0" stroke-width="6"/>
+            <circle cx="40" cy="40" r="16" fill="#0B1422" stroke="#F4F8FC" stroke-width="4"/>
+            <circle cx="40" cy="40" r="8" fill="#48D4D0" fill-opacity="0.4"/>
+            <line x1="58" y1="58" x2="74" y2="74" stroke="#48D4D0" stroke-width="8" stroke-linecap="round"/>
+            <text x="88" y="47" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#F4F8FC" letter-spacing="-0.5">Code<tspan fill="url(#cfHeaderGrad)">Finder</tspan></text>
+            <text x="89" y="66" font-family="'Space Grotesk', sans-serif" font-size="9.5" font-weight="600" fill="#8E9EAF" letter-spacing="3">SEARCH • SCAN • FIND</text>
           </svg>
         </div>
-        <div>
+        <div class="flex flex-col">
           <div class="flex items-center gap-1.5">
-            <span class="font-bold text-sm tracking-wide text-white">CodePOS</span>
-            <span class="text-[10px] bg-[#48D4D0]/15 text-[#48D4D0] border border-[#48D4D0]/30 px-1.5 py-0.5 rounded font-mono font-semibold">MOBILE</span>
+            <span class="text-[9px] bg-[#48D4D0]/15 text-[#48D4D0] border border-[#48D4D0]/30 px-1.5 py-0.5 rounded font-mono font-semibold">MOBILE</span>
           </div>
-          <div class="flex items-center gap-1.5 text-[11px] text-[#8E9EAF]">
+          <div class="flex items-center gap-1 text-[10px] text-[#8E9EAF]">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Terminal Active • Live</span>
+            <span>Live</span>
           </div>
         </div>
       </div>
@@ -94,20 +101,65 @@
     <!-- ========================================== -->
     <main id="home-view" class="p-4 space-y-6">
 
-      <!-- Hero Section with Center Graphic Logo -->
+      <!-- Hero Section with Center Official CodePOS Logo -->
       <div class="bg-[#101F33] border border-[#14283A] rounded-2xl p-6 text-center shadow-lg relative overflow-hidden">
         <div class="absolute -top-20 -left-20 w-48 h-48 bg-[#48D4D0]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- Center CodePOS Graphic Logo Representation -->
-        <div class="mx-auto w-36 h-28 mb-3 flex items-center justify-center relative">
-          <div class="w-28 h-28 rounded-full border border-[#48D4D0]/40 flex items-center justify-center shadow-[0_0_30px_rgba(72,212,208,0.25)] bg-[#0B1422]">
-            <div class="flex flex-col items-center">
-              <svg class="w-12 h-12 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-              </svg>
-              <span class="text-xs font-bold tracking-wider text-white mt-1">CodePOS</span>
-            </div>
-          </div>
+        <!-- Center Official CodePOS Logo -->
+        <div class="mx-auto w-full max-w-[280px] mb-4 flex items-center justify-center relative">
+          <svg viewBox="0 0 460 300" class="w-full h-auto max-h-48 drop-shadow-[0_0_25px_rgba(72,212,208,0.3)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="posRingGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#48D4D0"/>
+                <stop offset="100%" stop-color="#00A3FF"/>
+              </linearGradient>
+              <linearGradient id="posScreenGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#14283A"/>
+                <stop offset="100%" stop-color="#0B1422"/>
+              </linearGradient>
+              <linearGradient id="posWordGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="100%" stop-color="#C5D2DF"/>
+              </linearGradient>
+            </defs>
+            <!-- Glowing Ambient Ring -->
+            <ellipse cx="230" cy="130" rx="160" ry="110" stroke="url(#posRingGrad)" stroke-width="7" stroke-opacity="0.85"/>
+            <!-- Till Screen Body -->
+            <rect x="140" y="55" width="165" height="110" rx="14" fill="url(#posScreenGrad)" stroke="#48D4D0" stroke-width="4"/>
+            <rect x="152" y="67" width="141" height="86" rx="8" fill="#0B1422"/>
+            <!-- Till Screen Icons Grid -->
+            <rect x="160" y="75" width="36" height="32" rx="4" fill="#101F33" stroke="#48D4D0" stroke-width="1.5"/>
+            <path d="M171 85h14l-2 9h-10z" fill="#48D4D0"/>
+            <rect x="204" y="75" width="36" height="32" rx="4" fill="#101F33" stroke="#48D4D0" stroke-width="1.5"/>
+            <path d="M217 83v16m-4-12h8" stroke="#48D4D0" stroke-width="2" stroke-linecap="round"/>
+            <rect x="248" y="75" width="36" height="32" rx="4" fill="#101F33" stroke="#48D4D0" stroke-width="1.5"/>
+            <circle cx="266" cy="91" r="7" stroke="#48D4D0" stroke-width="2"/>
+            <!-- Till Receipt Paper Spool -->
+            <rect x="195" y="32" width="55" height="24" rx="4" fill="#F4F8FC"/>
+            <line x1="202" y1="39" x2="243" y2="39" stroke="#0B1422" stroke-width="2"/>
+            <line x1="202" y1="45" x2="235" y2="45" stroke="#0B1422" stroke-width="2"/>
+            <!-- Barcode & Red Laser Line -->
+            <g transform="translate(305, 95)">
+              <rect x="0" y="0" width="3" height="42" fill="#F4F8FC"/>
+              <rect x="6" y="0" width="6" height="42" fill="#F4F8FC"/>
+              <rect x="15" y="0" width="3" height="42" fill="#F4F8FC"/>
+              <rect x="21" y="0" width="5" height="42" fill="#F4F8FC"/>
+              <rect x="29" y="0" width="8" height="42" fill="#F4F8FC"/>
+              <rect x="40" y="0" width="3" height="42" fill="#F4F8FC"/>
+              <line x1="-8" y1="21" x2="52" y2="21" stroke="#FF4D4D" stroke-width="3"/>
+            </g>
+            <!-- Handheld Gun Scanner -->
+            <path d="M295 82c12-14 26-10 26 5l-8 32h-14z" fill="#14283A" stroke="#48D4D0" stroke-width="2"/>
+            <!-- Main Typography: CodePOS -->
+            <text x="35" y="228" font-family="'Space Grotesk', sans-serif" font-size="64" font-weight="700" fill="url(#posWordGrad)" letter-spacing="-1">Code<tspan fill="#48D4D0">POS</tspan></text>
+            <!-- Shopping Cart Icon inside 'O' -->
+            <circle cx="340" cy="207" r="16" fill="#101F33" stroke="#48D4D0" stroke-width="3"/>
+            <path d="M332 203h16l-3 9h-10z" fill="#48D4D0"/>
+            <!-- Bottom Slogan & Accent Rules -->
+            <line x1="35" y1="250" x2="110" y2="250" stroke="#48D4D0" stroke-width="3"/>
+            <text x="125" y="254" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#F4F8FC" letter-spacing="4">SCAN • SELL • MANAGE</text>
+            <line x1="365" y1="250" x2="435" y2="250" stroke="#48D4D0" stroke-width="3"/>
+          </svg>
         </div>
 
         <div class="flex items-center justify-center gap-2 text-[11px] font-mono tracking-widest text-[#48D4D0] uppercase font-semibold mb-2">
