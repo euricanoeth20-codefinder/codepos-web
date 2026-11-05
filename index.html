@@ -2,81 +2,431 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodePOS & CodeFinder South Africa</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CodePOS & CodeFinder — Mobile Opening Splash, Subscription & Legal Hub</title>
+  
+  <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B1422',
+              card: '#101F33',
+              input: '#14283A',
+              border: '#132B40',
+              cyan: '#48D4D0',
+              cyanHover: '#38b2ae',
+              cyanGlow: 'rgba(72, 212, 208, 0.25)',
+              textMuted: '#8E9EAF',
+            }
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  
   <style>
-    body { font-family: 'Space Grotesk', sans-serif; background-color: #0B1422; color: #F4F8FC; }
+    body {
+      background-color: #0B1422;
+      color: #F4F8FC;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .neon-border {
+      border: 1.5px solid #48D4D0;
+      box-shadow: 0 0 16px rgba(72, 212, 208, 0.2);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 20px rgba(72, 212, 208, 0.35);
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-6">
-  <header class="max-w-4xl mx-auto w-full flex items-center justify-between py-6 border-b border-[#14283A]">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-[#101F33] border border-[#48D4D0]/40 flex items-center justify-center text-[#48D4D0] font-bold text-xl">
-        CP
-      </div>
-      <div>
-        <h1 class="text-xl font-bold tracking-tight">CodePOS &amp; CodeFinder</h1>
-        <p class="text-xs text-[#8E9EAF]">Zero-Hardware POS &amp; AI Product Lookup • South Africa</p>
-      </div>
-    </div>
-    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#48D4D0]/10 text-[#48D4D0] border border-[#48D4D0]/30">
-      Production Ready
-    </span>
-  </header>
+<body class="min-h-screen flex flex-col items-center justify-start antialiased selection:bg-brand-cyan selection:text-brand-navy">
 
-  <main class="max-w-4xl mx-auto w-full my-12">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
-        Turn Any Smartphone Into a <span class="text-[#48D4D0]">Smart Till &amp; Scanner</span>
-      </h2>
-      <p class="text-base md:text-lg text-[#8E9EAF] max-w-2xl mx-auto">
-        Built for South African Spaza Shops, Cafes, Bakeries, Delis, Guesthouses &amp; Flea Markets. Zero expensive hardware registers. Instant WhatsApp slips.
+  <!-- Mobile Container Wrapper -->
+  <div class="w-full max-w-md min-h-screen flex flex-col bg-brand-navy border-x border-brand-border/40 shadow-2xl relative pb-16">
+    
+    <!-- ========================================================================= -->
+    <!-- 1. STICKY TOP HEADER -->
+    <!-- ========================================================================= -->
+    <header class="sticky top-0 z-30 flex items-center justify-between px-4 py-3 bg-brand-navy/95 backdrop-blur-md border-b border-brand-border/60">
+      <div class="flex items-center space-x-2">
+        <span class="px-2 py-0.5 rounded text-xs font-bold bg-brand-cyan text-brand-navy uppercase tracking-wider">CodePOS MOBILE</span>
+        <span class="flex items-center text-xs text-brand-textMuted">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span>
+          Terminal Active • Live
+        </span>
+      </div>
+      
+      <!-- Menu & Legal Button -->
+      <button onclick="toggleMenuDrawer()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-brand-cyanHover transition-all glow-cyan active:scale-95 shadow">
+        <span>📖</span>
+        <span>MENU & LEGAL</span>
+      </button>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- 2. BRAND HERO & CENTRAL LOGO SECTION -->
+    <!-- ========================================================================= -->
+    <section class="flex flex-col items-center px-4 pt-6 pb-4 text-center">
+      <!-- Centered Official Logo -->
+      <div class="w-full max-w-[340px] rounded-2xl overflow-hidden p-2 bg-gradient-to-b from-brand-card/80 to-brand-navy border border-brand-border/80 shadow-2xl relative group">
+        <img src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80" 
+             alt="CodePOS Terminal" 
+             class="w-full h-auto rounded-xl object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.02]"
+             onerror="this.onerror=null; this.src='https://placehold.co/600x400/0B1422/48D4D0?text=CodePOS+Scan+Sell+Manage';"/>
+        <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-brand-cyan/20 pointer-events-none"></div>
+      </div>
+
+      <!-- Slogan & Subtitle -->
+      <div class="mt-4 flex items-center justify-center space-x-2 text-xs font-mono font-semibold tracking-widest text-brand-cyan uppercase">
+        <span>• SCAN</span>
+        <span>• SELL</span>
+        <span>• MANAGE •</span>
+      </div>
+      <p class="mt-1 text-xs text-brand-textMuted max-w-xs leading-relaxed">
+        The All In One Code Finder Product Search And Affordable Point Of Sale Solution
       </p>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. ZERO-HARDWARE VALUE PROPOSITION CARD -->
+    <!-- ========================================================================= -->
+    <section class="px-4 py-2">
+      <div class="p-4 rounded-xl bg-brand-card/90 border border-brand-border/80 text-center relative overflow-hidden">
+        <!-- Badge -->
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-brand-cyan/15 border border-brand-cyan/40 text-brand-cyan text-xs font-mono font-bold uppercase tracking-wider mb-2.5">
+          <span>⚡</span>
+          <span>NO EXPENSIVE HARDWARE NEEDED</span>
+        </div>
+        
+        <!-- Value Statement -->
+        <p class="text-xs text-slate-200 leading-relaxed font-medium px-2">
+          Turning Any Standard Smartphone (Android, Huawei, Apple And Windows Desktop Into A Handheld POS
+        </p>
+
+        <!-- 3 Device Compatibility Badges -->
+        <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-brand-border/60">
+          <div class="flex flex-col items-center p-2 rounded-lg bg-brand-input/70 border border-brand-border/60">
+            <span class="text-base mb-0.5">📱</span>
+            <span class="text-xs font-bold text-slate-100">Android</span>
+            <span class="text-[10px] text-brand-textMuted">Phone</span>
+          </div>
+          <div class="flex flex-col items-center p-2 rounded-lg bg-brand-input/70 border border-brand-border/60">
+            <span class="text-base mb-0.5">🍎</span>
+            <span class="text-xs font-bold text-slate-100">Apple</span>
+            <span class="text-[10px] text-brand-textMuted">Phone</span>
+          </div>
+          <div class="flex flex-col items-center p-2 rounded-lg bg-brand-input/70 border border-brand-border/60">
+            <span class="text-base mb-0.5">💻</span>
+            <span class="text-xs font-bold text-slate-100">Windows</span>
+            <span class="text-[10px] text-brand-textMuted">Laptop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. PACKAGE OPTIONS (ALL 3 HIGHLIGHTED TEAL/GREEN CARDS) -->
+    <!-- ========================================================================= -->
+    <section class="px-4 py-4 space-y-4">
+      
+      <!-- Section Title Badge -->
+      <div class="text-center pt-2">
+        <div class="inline-block px-4 py-1 rounded-full bg-brand-card border border-brand-cyan/50 text-brand-cyan font-mono text-xs font-bold tracking-widest uppercase">
+          • PACKAGE OPTIONS •
+        </div>
+        <p class="text-xs text-brand-textMuted mt-1.5 font-medium">Select Your Licence Tier Option</p>
+      </div>
+
+      <!-- CARD 1: Starter Package -->
+      <div class="p-4 rounded-xl bg-brand-card neon-border relative flex flex-col justify-between transition-all hover:shadow-cyan-glow">
+        <div>
+          <div class="flex items-center justify-between border-b border-brand-border/60 pb-3">
+            <div class="flex items-center space-x-2">
+              <span class="p-2 rounded-lg bg-brand-cyan/20 text-brand-cyan text-sm">🏪</span>
+              <div>
+                <h3 class="text-sm font-bold text-slate-100 whitespace-nowrap">Starter Package</h3>
+                <span class="inline-block text-[10px] font-mono text-brand-cyan uppercase bg-brand-cyan/10 px-1.5 py-0.5 rounded mt-0.5">ESSENTIAL</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold font-mono text-brand-cyan">R 249</span>
+              <span class="text-xs text-brand-textMuted">/ mo</span>
+            </div>
+          </div>
+          
+          <div class="my-4 text-center px-2">
+            <p class="text-xs text-slate-200 font-medium leading-relaxed">
+              Manual Product Search, Barcode And Product Picture Scan
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-2 text-center">
+          <button onclick="openPlanModal('Starter Package', 'R 249 / mo', 'Essential entry tier for small counters. Includes manual SKU lookup, smartphone camera barcode scanner, and AI visual picture scan for staff lookups.')" class="w-full py-2.5 rounded-lg bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-brand-cyanHover transition-all flex items-center justify-center space-x-1.5 active:scale-95 shadow">
+            <span>View More Info</span>
+            <span>➔</span>
+          </button>
+          <span class="block text-[10px] text-brand-cyan/80 font-mono mt-1.5">Month-To-Month PayFast</span>
+        </div>
+      </div>
+
+      <!-- CARD 2: Standard Package -->
+      <div class="p-4 rounded-xl bg-brand-card neon-border relative flex flex-col justify-between transition-all hover:shadow-cyan-glow">
+        <div>
+          <div class="flex items-center justify-between border-b border-brand-border/60 pb-3">
+            <div class="flex items-center space-x-2">
+              <span class="p-2 rounded-lg bg-brand-cyan/20 text-brand-cyan text-sm">📠</span>
+              <div>
+                <h3 class="text-sm font-bold text-slate-100 whitespace-nowrap">Standard Package</h3>
+                <span class="inline-block text-[10px] font-mono text-brand-cyan uppercase bg-brand-cyan/10 px-1.5 py-0.5 rounded mt-0.5">POPULAR</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold font-mono text-brand-cyan">R 399</span>
+              <span class="text-xs text-brand-textMuted">/ mo</span>
+            </div>
+          </div>
+          
+          <div class="my-4 text-center px-2">
+            <p class="text-xs text-slate-200 font-medium leading-relaxed">
+              The 3 Scan Options: Manual Product Name Input, AI Phone Search, Barcode Search Via Camera. Full Customer Access To Product Creation Database With Editing Abilities (Owner Only, Restricted For Employees), Plus Recipe Creation Within Products.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-2 text-center">
+          <button onclick="openPlanModal('Standard Package', 'R 399 / mo', 'The full CodeFinder vision: all 3 search modes (Type, Barcode, AI Camera Photo Lookup), customer catalog creation database (Owner access only), plus interactive culinary recipe building with ingredient costing.')" class="w-full py-2.5 rounded-lg bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-brand-cyanHover transition-all flex items-center justify-center space-x-1.5 active:scale-95 shadow">
+            <span>View More Info</span>
+            <span>➔</span>
+          </button>
+          <span class="block text-[10px] text-brand-cyan/80 font-mono mt-1.5">Month-To-Month PayFast</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: Elite Package -->
+      <div class="p-4 rounded-xl bg-brand-card neon-border relative flex flex-col justify-between transition-all hover:shadow-cyan-glow">
+        <div>
+          <div class="flex items-center justify-between border-b border-brand-border/60 pb-3">
+            <div class="flex items-center space-x-2">
+              <span class="p-2 rounded-lg bg-brand-cyan/20 text-brand-cyan text-sm">🏢</span>
+              <div>
+                <h3 class="text-sm font-bold text-slate-100 whitespace-nowrap">Elite Package</h3>
+                <span class="inline-block text-[10px] font-mono text-brand-cyan uppercase bg-brand-cyan/10 px-1.5 py-0.5 rounded mt-0.5">FULL POWER</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold font-mono text-brand-cyan">R 749</span>
+              <span class="text-xs text-brand-textMuted">/ mo</span>
+            </div>
+          </div>
+          
+          <div class="my-4 text-center px-2">
+            <p class="text-xs text-slate-200 font-medium leading-relaxed">
+              Multi-Terminal POS, All 3 Search Modes And Unlimited Staff PINs
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-2 text-center">
+          <button onclick="openPlanModal('Elite Package', 'R 749 / mo', 'For busy venues and growing stores. Multi-lane terminal tills, all 4 venue layouts (Restaurant, Guesthouse Folio, Speed Cafe, Quick Queue), unlimited 4-digit staff PINs, and automated daily Z-Report cash-up.')" class="w-full py-2.5 rounded-lg bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-brand-cyanHover transition-all flex items-center justify-center space-x-1.5 active:scale-95 shadow">
+            <span>View More Info</span>
+            <span>➔</span>
+          </button>
+          <span class="block text-[10px] text-brand-cyan/80 font-mono mt-1.5">Month-To-Month PayFast</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. DEVELOPER & FOUNDER CREDENTIALS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="px-4 py-4">
+      <div class="p-4 rounded-xl bg-gradient-to-b from-brand-card to-brand-input/90 border border-brand-cyan/30 text-center shadow-lg relative">
+        <div class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-brand-cyan/15 text-brand-cyan text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
+          <span>&lt;/&gt;</span>
+          <span>SOFTWARE DEVELOPER</span>
+        </div>
+        
+        <h4 class="text-xs font-bold text-slate-100 uppercase tracking-wide">Developed & Engineered by Eurica Noeth</h4>
+        <p class="text-[11px] text-brand-textMuted mt-0.5">Software Developer & Founder | CodePOS & CodeFinder South Africa</p>
+
+        <!-- Direct Contact Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mt-3 pt-3 border-t border-brand-border/60">
+          <a href="mailto:codefindersa@gmail.com" class="w-full sm:w-auto px-3 py-1.5 rounded-lg bg-brand-input hover:bg-brand-border text-brand-cyan border border-brand-cyan/30 text-xs font-mono font-medium flex items-center justify-center space-x-1.5 transition-all">
+            <span>✉️</span>
+            <span>codefindersa@gmail.com</span>
+          </a>
+          <a href="https://wa.me/27671296775" target="_blank" class="w-full sm:w-auto px-3 py-1.5 rounded-lg bg-brand-input hover:bg-brand-border text-emerald-400 border border-emerald-500/30 text-xs font-mono font-medium flex items-center justify-center space-x-1.5 transition-all">
+            <span>📞</span>
+            <span>+27 67 129 6775</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. CENTERED FOOTER & LEGAL COMPLIANCE -->
+    <!-- ========================================================================= -->
+    <footer class="mt-auto px-4 pt-4 pb-8 text-center text-xs text-brand-textMuted border-t border-brand-border/40 font-mono space-y-1">
+      <p class="font-medium text-slate-300">© 2025 CodePOS & CodeFinder South Africa.</p>
+      <p class="text-[11px] text-slate-400">All Rights Reserved.</p>
+      <div class="pt-2 flex items-center justify-center space-x-2 text-[10px] text-brand-cyan">
+        <span>🟢 POPIA Compliant</span>
+        <span>•</span>
+        <span>PayFast PCI-DSS Level 1 Secure</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VIEW MORE INFO POPUP -->
+  <!-- ========================================================================= -->
+  <div id="planModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="w-full max-w-sm rounded-2xl bg-brand-card border-2 border-brand-cyan p-5 shadow-2xl relative text-left">
+      <button onclick="closePlanModal()" class="absolute top-3 right-3 text-brand-textMuted hover:text-white p-1 rounded-lg">
+        ✕
+      </button>
+
+      <div class="flex items-center space-x-2 mb-2">
+        <span class="text-xl">📦</span>
+        <h3 id="modalPlanTitle" class="text-base font-bold text-white">Starter Package</h3>
+      </div>
+      <p id="modalPlanPrice" class="text-sm font-mono text-brand-cyan font-bold mb-3">R 249 / mo</p>
+      
+      <div class="p-3 rounded-lg bg-brand-input border border-brand-border/60 text-xs text-slate-200 leading-relaxed mb-4" id="modalPlanDescription">
+        Detailed description...
+      </div>
+
+      <div class="space-y-2">
+        <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20would%20like%20to%20subscribe%20to%20the%20package" target="_blank" class="w-full py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs flex items-center justify-center space-x-2 transition-all shadow">
+          <span>💬</span>
+          <span>Activate via WhatsApp Instant Setup</span>
+        </a>
+        <button onclick="closePlanModal()" class="w-full py-2 rounded-lg bg-brand-input hover:bg-brand-border text-brand-textMuted text-xs font-semibold">
+          Close Preview
+        </button>
+      </div>
     </div>
+  </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Tier 1 -->
-      <div class="bg-[#101F33] p-6 rounded-2xl border border-[#14283A] hover:border-[#48D4D0]/40 transition">
-        <div class="text-[#48D4D0] font-semibold text-xs tracking-wider uppercase mb-2">Tier 1 • Master Admin</div>
-        <h3 class="text-xl font-bold mb-2">Eurica's Control Panel</h3>
-        <p class="text-sm text-[#8E9EAF] mb-6">Master company accounts, active subscribers, and monthly recurring revenue.</p>
-        <div class="text-xs text-[#48D4D0] font-medium flex items-center gap-1">Desktop Portal &rarr;</div>
+  <!-- ========================================================================= -->
+  <!-- SLIDE-OVER DRAWER: MENU & LEGAL / POPIA -->
+  <!-- ========================================================================= -->
+  <div id="menuDrawer" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex-col justify-end sm:justify-center items-center p-0 sm:p-4">
+    <div class="w-full max-w-md bg-brand-card border-t-2 sm:border-2 border-brand-cyan rounded-t-2xl sm:rounded-2xl p-5 shadow-2xl max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-brand-border/60 pb-3 mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-lg">📖</span>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider">Operational & Legal Portal</h3>
+        </div>
+        <button onclick="toggleMenuDrawer()" class="text-brand-textMuted hover:text-white px-2 py-1 rounded bg-brand-input text-xs font-bold">
+          ✕ CLOSE
+        </button>
       </div>
 
-      <!-- Tier 2 -->
-      <div class="bg-[#101F33] p-6 rounded-2xl border border-[#14283A] hover:border-[#48D4D0]/40 transition">
-        <div class="text-[#48D4D0] font-semibold text-xs tracking-wider uppercase mb-2">Tier 2 • Store Owner</div>
-        <h3 class="text-xl font-bold mb-2">Owner Back-Office</h3>
-        <p class="text-sm text-[#8E9EAF] mb-6">Manage product catalog, recipe GP% calculator, inventory, and cashier 4-digit PINs.</p>
-        <div class="text-xs text-[#48D4D0] font-medium flex items-center gap-1">Web Dashboard &rarr;</div>
+      <!-- Legal Accordion Cards -->
+      <div class="space-y-3 text-xs">
+        <div class="p-3 rounded-xl bg-brand-input/80 border border-brand-border/60">
+          <h4 class="font-bold text-brand-cyan flex items-center space-x-1.5 mb-1">
+            <span>🛡️</span>
+            <span>POPI Act Compliance (South Africa)</span>
+          </h4>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Customer cell numbers collected for WhatsApp receipts are encrypted and strictly confidential. Zero customer information is shared or sold.
+          </p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-brand-input/80 border border-brand-border/60">
+          <h4 class="font-bold text-brand-cyan flex items-center space-x-1.5 mb-1">
+            <span>🧾</span>
+            <span>Commercial Invoicing & 15% SA VAT</span>
+          </h4>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            All transaction slips dynamically compute the standard 15% South African VAT. Full support for thermal print slips, email PDF delivery, and End-of-Day cash-up Z-Reports.
+          </p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-brand-input/80 border border-brand-border/60">
+          <h4 class="font-bold text-brand-cyan flex items-center space-x-1.5 mb-1">
+            <span>💳</span>
+            <span>PayFast South Africa Subscription Terms</span>
+          </h4>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Subscriptions are processed month-to-month through PayFast PCI-DSS Level 1 secure billing. No fixed long-term contracts; cancel anytime directly.
+          </p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-brand-input/80 border border-brand-border/60">
+          <h4 class="font-bold text-brand-cyan flex items-center space-x-1.5 mb-1">
+            <span>📘</span>
+            <span>Complete Operational Manual</span>
+          </h4>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Includes Cashier fast PIN login, 3 lookup modes (Type, Barcode, AI Camera Photo Scan), recipe ingredient margin calculator, and daily register balancing.
+          </p>
+        </div>
       </div>
 
-      <!-- Tier 3 -->
-      <div class="bg-[#101F33] p-6 rounded-2xl border border-[#48D4D0]/40 shadow-lg shadow-[#48D4D0]/5">
-        <div class="text-[#48D4D0] font-semibold text-xs tracking-wider uppercase mb-2">Tier 3 • Staff Terminal</div>
-        <h3 class="text-xl font-bold mb-2">Mobile Till &amp; AI Scanner</h3>
-        <p class="text-sm text-[#8E9EAF] mb-6">Camera photo product lookup, barcode scanning, fast cart ring-up, and WhatsApp receipts.</p>
-        <div class="text-xs text-[#48D4D0] font-medium flex items-center gap-1">Mobile Smartphone PWA &rarr;</div>
+      <div class="mt-5 pt-3 border-t border-brand-border/60 text-center">
+        <button onclick="toggleMenuDrawer()" class="w-full py-2.5 rounded-lg bg-brand-cyan text-brand-navy font-bold text-xs uppercase tracking-wider hover:bg-brand-cyanHover transition-all">
+          Return to Splash Screen
+        </button>
       </div>
     </div>
+  </div>
 
-    <!-- Pricing Strip -->
-    <div class="mt-12 bg-[#101F33]/60 border border-[#14283A] rounded-2xl p-6 text-center">
-      <h4 class="text-sm uppercase tracking-wider text-[#8E9EAF] font-bold mb-4">South African PayFast Subscription Tiers</h4>
-      <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
-        <span class="px-4 py-2 rounded-xl bg-[#0B1422] border border-[#14283A]">Starter Till: <strong class="text-[#48D4D0]">R99 / mo</strong></span>
-        <span class="px-4 py-2 rounded-xl bg-[#0B1422] border border-[#48D4D0]/40 text-[#F4F8FC]">Standard Retail: <strong class="text-[#48D4D0]">R249 / mo</strong></span>
-        <span class="px-4 py-2 rounded-xl bg-[#0B1422] border border-[#14283A]">Enterprise Venue: <strong class="text-[#48D4D0]">R549 / mo</strong></span>
-      </div>
-    </div>
-  </main>
+  <!-- JavaScript for Modals & Interactive Drawers -->
+  <script>
+    function toggleMenuDrawer() {
+      const drawer = document.getElementById('menuDrawer');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        drawer.classList.add('flex');
+      } else {
+        drawer.classList.add('hidden');
+        drawer.classList.remove('flex');
+      }
+    }
 
-  <footer class="max-w-4xl mx-auto w-full text-center text-xs text-[#8E9EAF] py-6 border-t border-[#14283A]">
-    &copy; 2025 CodePOS &amp; CodeFinder South Africa • Founder &amp; CEO: Eurica Noeth • POPIA &amp; 15% VAT Compliant
-  </footer>
+    function openPlanModal(title, price, description) {
+      document.getElementById('modalPlanTitle').innerText = title;
+      document.getElementById('modalPlanPrice').innerText = price;
+      document.getElementById('modalPlanDescription').innerText = description;
+      
+      const modal = document.getElementById('planModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closePlanModal() {
+      const modal = document.getElementById('planModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Close on backdrop click
+    window.onclick = function(event) {
+      const modal = document.getElementById('planModal');
+      const drawer = document.getElementById('menuDrawer');
+      if (event.target === modal) closePlanModal();
+      if (event.target === drawer) toggleMenuDrawer();
+    }
+  </script>
 </body>
 </html>
