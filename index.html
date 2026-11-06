@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>CodePOS & CodeFinder — Point of Sale & Product Search Solution</title>
   
-  <!-- Official App Icon & Web Favicon -->
-  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDqbRrjonhAbveiCxMof4hp_8SfaJh9WJxfHcUHExuwAEgY_kVRKGaEiatDJHRqbTFE98hrHRWPLu9VRgp03dJiWLzdxBlD3k1qS10J-cmbpdsK3M3Gbc38-ZJH8IM6DK0wTesuB1aEl_p5OxyJ1JqRcyWbUKmTITvFLHy0iAI3rJWa6GtW-A6mGLUDSIentfTshiS_9v-EGzQ6Pkkwr0bYrtFuHniLrLKdYc81dR47sMEkaxkM-oiY">
-  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDqbRrjonhAbveiCxMof4hp_8SfaJh9WJxfHcUHExuwAEgY_kVRKGaEiatDJHRqbTFE98hrHRWPLu9VRgp03dJiWLzdxBlD3k1qS10J-cmbpdsK3M3Gbc38-ZJH8IM6DK0wTesuB1aEl_p5OxyJ1JqRcyWbUKmTITvFLHy0iAI3rJWa6GtW-A6mGLUDSIentfTshiS_9v-EGzQ6Pkkwr0bYrtFuHniLrLKdYc81dR47sMEkaxkM-oiY">
+  <!-- Browser Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B1422'/><rect x='4' y='4' width='92' height='92' rx='18' fill='none' stroke='%2348D4D0' stroke-width='4'/><path d='M30 40h40v30H30z' fill='%23101F33' stroke='%2348D4D0' stroke-width='3'/><circle cx='50' cy='55' r='8' fill='%2348D4D0'/></svg>">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="CodePOS">
@@ -52,7 +51,13 @@
     }
     .package-glow {
       border: 1.5px solid #48D4D0;
-      box-shadow: 0 0 20px rgba(72, 212, 208, 0.25);
+      box-shadow: 0 0 20px rgba(72, 212, 208, 0.22);
+    }
+    .neon-text-glow {
+      text-shadow: 0 0 14px rgba(72, 212, 208, 0.65), 0 0 28px rgba(72, 212, 208, 0.35);
+    }
+    .laser-line {
+      box-shadow: 0 0 8px #FF4D4D, 0 0 16px #FF4D4D;
     }
   </style>
 </head>
@@ -61,13 +66,31 @@
   <!-- Mobile Viewport Container -->
   <div class="w-full max-w-md min-h-screen flex flex-col justify-between p-4 sm:p-5 relative">
     
-    <!-- Top Header -->
+    <!-- Top Header with Prominent CodeFinder Logo -->
     <header class="w-full flex items-center justify-between py-2 border-b border-brand-border/60 pb-3">
+      <!-- Embedded CodeFinder Brandmark (Never fails to render) -->
       <div class="flex items-center gap-2">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3jM1843R00M3iP2rU2j-2W-LwM2y8Yyq5s1Ym1Kx7T9x4m7G3w5K8t4E7A2b5Y4R6b8t9k7A6b8" alt="CodeFinder" class="h-6 w-auto object-contain">
-        <span class="text-[11px] font-mono tracking-wider text-brand-teal uppercase px-1.5 py-0.5 rounded bg-brand-teal/10 border border-brand-teal/30">MOBILE</span>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#101F33] to-[#14283A] border border-brand-teal/50 shadow-md">
+          <!-- Stylized Magnifying Glass + Optical Reticle SVG -->
+          <svg class="w-6 h-6 text-brand-teal shrink-0" viewBox="0 0 32 32" fill="none">
+            <circle cx="14" cy="14" r="10" stroke="#48D4D0" stroke-width="3" fill="#0B1422"/>
+            <circle cx="14" cy="14" r="6" stroke="#6FF3EF" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M22 22L30 30" stroke="#48D4D0" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M10 10V18M14 11V17M17 9V19" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="flex flex-col text-left leading-none">
+            <span class="text-base font-extrabold tracking-tight text-white font-sans">
+              Code<span class="text-brand-teal neon-text-glow">Finder</span>
+            </span>
+            <span class="text-[8px] font-mono tracking-widest text-brand-muted uppercase mt-0.5">
+              SEARCH • SCAN • FIND
+            </span>
+          </div>
+        </div>
+        <span class="text-[10px] font-mono tracking-widest text-brand-teal uppercase px-1.5 py-0.5 rounded bg-brand-teal/10 border border-brand-teal/30">MOBILE</span>
       </div>
-      <div class="flex items-center gap-2">
+
+      <div class="flex items-center gap-1.5">
         <button onclick="toggleAuthModal()" class="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full bg-brand-teal text-brand-navy hover:bg-brand-tealGlow transition shadow-sm active:scale-95">
           <span class="material-symbols-outlined text-sm">login</span>
           SIGN IN
@@ -80,14 +103,69 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center justify-center my-6 text-center space-y-6">
+    <main class="flex-1 flex flex-col items-center justify-center my-5 text-center space-y-5">
       
-      <!-- Center Prominent CodePOS Brandmark -->
+      <!-- Big Centered CodePOS Hero Brand Logo (Permanent Vector & Artwork) -->
       <div class="w-full flex flex-col items-center justify-center">
-        <div class="relative p-2 rounded-2xl bg-gradient-to-b from-brand-card/80 to-brand-navy border border-brand-teal/30 shadow-2xl">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ_aD8pXm9oM1Z2rT4vX8rM5y6K7A8t9k4b1Y5w8b4E7A2b5Y4R6b8t9k7A6b8t9k7" alt="CodePOS" class="w-56 sm:w-64 h-auto object-contain drop-shadow-[0_0_20px_rgba(72,212,208,0.35)]">
+        <div class="w-full max-w-[340px] p-5 rounded-2xl bg-gradient-to-b from-[#13243B] via-[#0E1A2C] to-[#0A1320] border-2 border-brand-teal/60 shadow-[0_0_35px_rgba(72,212,208,0.28)] relative overflow-hidden">
+          
+          <!-- Background Radial Neon Glow -->
+          <div class="absolute -top-12 -right-12 w-36 h-36 bg-brand-teal/15 rounded-full blur-2xl pointer-events-none"></div>
+
+          <!-- Retail Terminal Hardware Graphic & Scanner Reticle -->
+          <div class="flex items-center justify-center gap-3.5 mb-2.5">
+            <!-- Modern POS Touch Terminal with Receipt -->
+            <div class="relative w-20 h-14 rounded-xl bg-[#08101C] border-2 border-brand-teal flex flex-col items-center justify-between p-1.5 shadow-lg">
+              <!-- Touch Screen Icons Grid -->
+              <div class="w-full grid grid-cols-3 gap-1 px-0.5">
+                <span class="h-2 rounded-sm bg-brand-teal"></span>
+                <span class="h-2 rounded-sm bg-brand-tealGlow"></span>
+                <span class="h-2 rounded-sm bg-brand-teal"></span>
+              </div>
+              <div class="w-full flex items-center justify-between text-[7px] font-mono text-brand-teal px-1">
+                <span>R</span><span>%</span><span>POS</span>
+              </div>
+              <div class="w-5 h-0.5 bg-brand-border rounded-full"></div>
+              <!-- Paper Receipt Spooling at Top -->
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-3.5 bg-white rounded-t-sm border border-brand-border text-[6px] text-brand-navy font-mono font-bold flex items-center justify-center tracking-tighter shadow-sm">
+                RECEIPT
+              </div>
+            </div>
+
+            <!-- Optical Barcode Array with Active Laser Beam -->
+            <div class="flex flex-col items-center">
+              <svg class="w-12 h-12 text-brand-teal" viewBox="0 0 32 32" fill="none">
+                <rect x="2" y="6" width="3" height="20" fill="#48D4D0"/>
+                <rect x="7" y="6" width="2" height="20" fill="#48D4D0"/>
+                <rect x="11" y="6" width="4" height="20" fill="#48D4D0"/>
+                <rect x="17" y="6" width="2" height="20" fill="#48D4D0"/>
+                <rect x="21" y="6" width="5" height="20" fill="#48D4D0"/>
+                <rect x="28" y="6" width="2" height="20" fill="#48D4D0"/>
+              </svg>
+              <!-- Glowing Red Laser Scan Line -->
+              <div class="w-20 h-0.5 bg-[#FF4D4D] laser-line -mt-1"></div>
+            </div>
+          </div>
+
+          <!-- Bold High-Impact CodePOS Wordmark & Shopping Cart Badge -->
+          <div class="flex items-center justify-center gap-1 mt-1">
+            <span class="text-4xl font-extrabold tracking-tight text-white font-sans drop-shadow-md">
+              Code
+            </span>
+            <span class="text-4xl font-extrabold tracking-tight text-brand-teal font-sans neon-text-glow">
+              POS
+            </span>
+            <!-- Cyan Cart Badge -->
+            <span class="ml-1.5 p-1 rounded-lg bg-brand-teal/20 border border-brand-teal/50 text-brand-teal flex items-center justify-center shadow-inner">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </span>
+          </div>
+
         </div>
-        <p class="text-[12px] font-mono uppercase tracking-widest text-brand-teal mt-3">
+
+        <p class="text-[12px] font-mono uppercase tracking-widest text-brand-teal mt-3 font-bold">
           • SCAN • SELL • MANAGE •
         </p>
         <p class="text-xs text-brand-muted mt-1 max-w-xs font-medium">
@@ -96,7 +174,7 @@
       </div>
 
       <!-- Value Proposition Card -->
-      <div class="w-full p-4 rounded-xl bg-brand-card/70 border border-brand-border/80 shadow-md">
+      <div class="w-full p-4 rounded-xl bg-brand-card/80 border border-brand-border shadow-md">
         <div class="inline-flex items-center gap-1 text-[11px] font-semibold tracking-wider text-brand-teal uppercase px-2 py-0.5 rounded bg-brand-teal/10 border border-brand-teal/20 mb-2">
           ⚡ NO EXPENSIVE HARDWARE NEEDED
         </div>
@@ -106,18 +184,18 @@
         
         <!-- Platform Devices Row -->
         <div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-brand-border/50 text-[11px] font-mono">
-          <div class="flex flex-col items-center p-1.5 rounded bg-brand-input/40 border border-brand-border/40">
-            <span class="text-brand-teal text-sm">📱</span>
+          <div class="flex flex-col items-center p-2 rounded-lg bg-brand-input/40 border border-brand-border/40">
+            <span class="text-brand-teal text-base">📱</span>
             <span class="text-brand-text font-semibold mt-0.5">Android</span>
             <span class="text-[9px] text-brand-muted">Phone</span>
           </div>
-          <div class="flex flex-col items-center p-1.5 rounded bg-brand-input/40 border border-brand-border/40">
-            <span class="text-brand-teal text-sm">🍏</span>
+          <div class="flex flex-col items-center p-2 rounded-lg bg-brand-input/40 border border-brand-border/40">
+            <span class="text-brand-teal text-base">🍏</span>
             <span class="text-brand-text font-semibold mt-0.5">Apple</span>
             <span class="text-[9px] text-brand-muted">iPhone</span>
           </div>
-          <div class="flex flex-col items-center p-1.5 rounded bg-brand-input/40 border border-brand-border/40">
-            <span class="text-brand-teal text-sm">💻</span>
+          <div class="flex flex-col items-center p-2 rounded-lg bg-brand-input/40 border border-brand-border/40">
+            <span class="text-brand-teal text-base">💻</span>
             <span class="text-brand-text font-semibold mt-0.5">Windows</span>
             <span class="text-[9px] text-brand-muted">Laptop</span>
           </div>
@@ -125,7 +203,7 @@
       </div>
 
       <!-- Package Options Section -->
-      <div class="w-full space-y-3 pt-2">
+      <div class="w-full space-y-3 pt-1">
         <div class="flex flex-col items-center">
           <span class="text-xs font-mono font-bold uppercase tracking-widest text-brand-teal px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/30">
             • PACKAGE OPTIONS •
@@ -209,7 +287,7 @@
     <footer class="w-full pt-4 border-t border-brand-border/60 flex flex-col items-center text-center space-y-3">
       
       <!-- Official Contacts Grid -->
-      <div class="w-full bg-brand-card/90 p-3 rounded-xl border border-brand-border/70 text-left space-y-2">
+      <div class="w-full bg-brand-card/90 p-3.5 rounded-xl border border-brand-border/70 text-left space-y-2">
         <div class="flex items-center justify-between">
           <span class="text-[11px] font-mono font-bold text-brand-teal uppercase tracking-wider flex items-center gap-1">
             <span class="material-symbols-outlined text-sm">alternate_email</span> Official Email Directory
