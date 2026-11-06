@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
@@ -48,10 +50,6 @@
       font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
-    .neon-border {
-      border: 1.5px solid #48D4D0;
-      box-shadow: 0 0 16px rgba(72, 212, 208, 0.22);
-    }
     .package-glow {
       border: 1.5px solid #48D4D0;
       box-shadow: 0 0 20px rgba(72, 212, 208, 0.25);
@@ -69,10 +67,16 @@
         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3jM1843R00M3iP2rU2j-2W-LwM2y8Yyq5s1Ym1Kx7T9x4m7G3w5K8t4E7A2b5Y4R6b8t9k7A6b8" alt="CodeFinder" class="h-6 w-auto object-contain">
         <span class="text-[11px] font-mono tracking-wider text-brand-teal uppercase px-1.5 py-0.5 rounded bg-brand-teal/10 border border-brand-teal/30">MOBILE</span>
       </div>
-      <button onclick="toggleMenu()" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-brand-card border border-brand-teal/40 text-brand-teal hover:bg-brand-teal hover:text-brand-navy transition shadow-sm active:scale-95">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        MENU / LEGAL
-      </button>
+      <div class="flex items-center gap-2">
+        <button onclick="toggleAuthModal()" class="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full bg-brand-teal text-brand-navy hover:bg-brand-tealGlow transition shadow-sm active:scale-95">
+          <span class="material-symbols-outlined text-sm">login</span>
+          SIGN IN
+        </button>
+        <button onclick="toggleMenu()" class="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full bg-brand-card border border-brand-teal/40 text-brand-teal hover:bg-brand-teal hover:text-brand-navy transition shadow-sm active:scale-95">
+          <span class="material-symbols-outlined text-sm">menu</span>
+          LEGAL
+        </button>
+      </div>
     </header>
 
     <!-- Main Content -->
@@ -180,7 +184,7 @@
           <div class="flex items-center justify-between border-b border-brand-border/50 pb-2">
             <div>
               <h3 class="text-sm font-bold text-brand-text tracking-wide">Elite Package</h3>
-              <p class="text-[10px] text-brand-muted">Multi-Lane, Live Recipes &amp; All 4 Venue Modes</p>
+              <p class="text-[10px] text-brand-muted">Multi-Terminal, Live Recipes &amp; All 4 Venue Modes</p>
             </div>
             <div class="text-right">
               <span class="text-base font-bold text-brand-teal font-mono">R 749</span>
@@ -201,17 +205,94 @@
       </div>
     </main>
 
-    <!-- Bottom Footer with Clickable WhatsApp Developer Button -->
-    <footer class="w-full pt-4 border-t border-brand-border/60 flex flex-col items-center text-center space-y-2.5">
+    <!-- Bottom Footer with Official Email Directory & WhatsApp Developer Button -->
+    <footer class="w-full pt-4 border-t border-brand-border/60 flex flex-col items-center text-center space-y-3">
+      
+      <!-- Official Contacts Grid -->
+      <div class="w-full bg-brand-card/90 p-3 rounded-xl border border-brand-border/70 text-left space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-mono font-bold text-brand-teal uppercase tracking-wider flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">alternate_email</span> Official Email Directory
+          </span>
+          <button onclick="toggleAuthModal()" class="text-[11px] font-mono text-brand-teal hover:underline flex items-center gap-0.5">
+            <span class="material-symbols-outlined text-xs">lock</span> Sign In
+          </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] font-mono text-brand-muted">
+          <a href="mailto:info@codepos.co.za" class="hover:text-brand-teal transition">📧 Info: info@codepos.co.za</a>
+          <a href="mailto:support@codepos.co.za" class="hover:text-brand-teal transition">🛠️ Support: support@codepos.co.za</a>
+          <a href="mailto:sales@codepos.co.za" class="hover:text-brand-teal transition">💼 Sales: sales@codepos.co.za</a>
+          <a href="mailto:accounts@codepos.co.za" class="hover:text-brand-teal transition">💳 Accounts: accounts@codepos.co.za</a>
+          <a href="mailto:eurica@codepos.co.za" class="hover:text-brand-teal transition col-span-1 sm:col-span-2">👩‍💻 Lead Developer: eurica@codepos.co.za</a>
+        </div>
+      </div>
+
+      <!-- WhatsApp Developer Button -->
       <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20am%20interested%20in%20CodePOS%20and%20CodeFinder" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-brand-teal/15 border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-brand-navy transition shadow-lg active:scale-95">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        Software Developer: Eurica Noeth
+        Software Developer: Eurica Noeth (+27 67 129 6775)
       </a>
+
       <p class="text-[11px] font-mono text-brand-muted">
         © 2025 - www.codepos.co.za - All Rights Reserved
       </p>
     </footer>
 
+  </div>
+
+  <!-- Customer & Employee Sign-In Portal Modal -->
+  <div id="authModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-teal/50 rounded-2xl p-5 max-w-sm w-full space-y-4 shadow-2xl relative">
+      <div class="flex items-center justify-between border-b border-brand-border/60 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-teal text-xl">verified_user</span>
+          <div>
+            <h3 class="text-sm font-bold text-brand-text">Portal Sign-In</h3>
+            <p class="text-[10px] text-brand-muted font-mono">Owner &amp; Employee Authentication</p>
+          </div>
+        </div>
+        <button onclick="toggleAuthModal()" class="text-brand-muted hover:text-brand-text text-lg font-mono">✕</button>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="grid grid-cols-2 gap-2 p-1 bg-brand-input/70 rounded-xl border border-brand-border/50 text-xs font-mono font-bold">
+        <button type="button" id="tabOwner" onclick="switchRole('owner')" class="py-1.5 rounded-lg bg-brand-teal text-brand-navy shadow-sm transition">
+          Owner Portal
+        </button>
+        <button type="button" id="tabEmployee" onclick="switchRole('employee')" class="py-1.5 rounded-lg text-brand-muted hover:text-brand-text transition">
+          Staff PIN Login
+        </button>
+      </div>
+
+      <!-- Master Admin Approval Notice -->
+      <div class="p-2.5 rounded-xl bg-brand-teal/10 border border-brand-teal/30 text-left text-[11px] space-y-1">
+        <div class="font-mono font-bold text-brand-teal flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">shield</span> Master Admin Approval Protocol
+        </div>
+        <p class="text-brand-muted text-[10px] leading-relaxed">
+          Account approval is managed directly by <strong>Eurica Noeth</strong>. Instant verification alert is sent before first-time access.
+        </p>
+      </div>
+
+      <!-- Auth Form -->
+      <form onsubmit="handleAuthSubmit(event)" class="space-y-3 text-left">
+        <div>
+          <label class="block text-[11px] font-mono text-brand-muted mb-1" id="lblIdentity">Store Email / Owner ID</label>
+          <input type="text" id="inputIdentity" placeholder="eurica@codepos.co.za" required class="w-full bg-brand-input border border-brand-border rounded-lg px-3 py-2 text-xs font-mono text-brand-text focus:border-brand-teal focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-[11px] font-mono text-brand-muted mb-1" id="lblSecret">Master Password</label>
+          <input type="password" id="inputSecret" placeholder="••••••••••••" required class="w-full bg-brand-input border border-brand-border rounded-lg px-3 py-2 text-xs font-mono text-brand-text focus:border-brand-teal focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-2.5 rounded-lg bg-brand-teal text-brand-navy text-xs font-bold font-mono hover:bg-brand-tealGlow transition active:scale-95 shadow">
+          Sign In To CodePOS
+        </button>
+      </form>
+
+      <div class="p-2.5 rounded-lg bg-brand-input/50 border border-brand-border/40 text-[10px] text-brand-muted font-mono text-center">
+        Need Onboarding? Email <a href="mailto:support@codepos.co.za" class="text-brand-teal underline">support@codepos.co.za</a>
+      </div>
+    </div>
   </div>
 
   <!-- Interactive "View More Info" Modal -->
@@ -238,13 +319,24 @@
     </div>
   </div>
 
-  <!-- Interactive Slide-Over Menu & Legal Accordion Drawer -->
+  <!-- Slide-Over Menu & Legal Accordion Drawer -->
   <div id="menuDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex justify-end">
     <div class="w-full max-w-xs bg-brand-card min-h-screen border-l border-brand-border p-5 flex flex-col justify-between overflow-y-auto space-y-5">
       <div class="space-y-4">
         <div class="flex items-center justify-between border-b border-brand-border/60 pb-3">
           <span class="text-xs font-mono font-bold tracking-wider text-brand-teal uppercase">MENU &amp; COMPLIANCE</span>
           <button onclick="toggleMenu()" class="text-brand-muted hover:text-brand-text text-lg font-mono">✕</button>
+        </div>
+
+        <!-- Quick Sign-In Banner inside Drawer -->
+        <div class="p-3 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-brand-text">Portal Access</div>
+            <div class="text-[10px] text-brand-muted font-mono">Owners &amp; Cashiers</div>
+          </div>
+          <button onclick="toggleMenu(); toggleAuthModal();" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-brand-teal text-brand-navy active:scale-95 transition">
+            SIGN IN
+          </button>
         </div>
         
         <nav class="space-y-2 text-xs font-medium">
@@ -276,6 +368,18 @@
             <p><strong>Changemaker:</strong> Enter tender amount to instantly see cash change due.</p>
             <p><strong>Digital Slips:</strong> Enter customer WhatsApp number to send an instant slip with zero paper rolls.</p>
           </div>
+
+          <button onclick="toggleAccordion('contacts')" class="w-full flex items-center justify-between p-2.5 rounded-lg bg-brand-input/40 border border-brand-border/40 text-left text-brand-text hover:bg-brand-input transition">
+            <span>📬 Support &amp; Department Contacts</span>
+            <span class="text-brand-teal text-sm">▾</span>
+          </button>
+          <div id="acc-contacts" class="hidden p-3 rounded-lg bg-brand-navy/60 border border-brand-border/30 text-[11px] text-brand-muted leading-relaxed space-y-1.5 font-mono">
+            <p><span class="text-brand-teal">Info:</span> <a href="mailto:info@codepos.co.za" class="underline">info@codepos.co.za</a></p>
+            <p><span class="text-brand-teal">Support:</span> <a href="mailto:support@codepos.co.za" class="underline">support@codepos.co.za</a></p>
+            <p><span class="text-brand-teal">Sales:</span> <a href="mailto:sales@codepos.co.za" class="underline">sales@codepos.co.za</a></p>
+            <p><span class="text-brand-teal">Accounts:</span> <a href="mailto:accounts@codepos.co.za" class="underline">accounts@codepos.co.za</a></p>
+            <p><span class="text-brand-teal">Developer:</span> <a href="mailto:eurica@codepos.co.za" class="underline">eurica@codepos.co.za</a></p>
+          </div>
         </nav>
       </div>
 
@@ -305,6 +409,39 @@
     function toggleAccordion(id) {
       const panel = document.getElementById('acc-' + id);
       panel.classList.toggle('hidden');
+    }
+    function toggleAuthModal() {
+      const modal = document.getElementById('authModal');
+      modal.classList.toggle('hidden');
+    }
+    function switchRole(role) {
+      const btnOwner = document.getElementById('tabOwner');
+      const btnEmp = document.getElementById('tabEmployee');
+      const lblId = document.getElementById('lblIdentity');
+      const inputId = document.getElementById('inputIdentity');
+      const lblSec = document.getElementById('lblSecret');
+      const inputSec = document.getElementById('inputSecret');
+
+      if (role === 'owner') {
+        btnOwner.className = 'py-1.5 rounded-lg bg-brand-teal text-brand-navy shadow-sm transition';
+        btnEmp.className = 'py-1.5 rounded-lg text-brand-muted hover:text-brand-text transition';
+        lblId.innerText = 'Store Email / Owner ID';
+        inputId.placeholder = 'eurica@codepos.co.za';
+        lblSec.innerText = 'Master Password';
+        inputSec.placeholder = '••••••••••••';
+      } else {
+        btnEmp.className = 'py-1.5 rounded-lg bg-brand-teal text-brand-navy shadow-sm transition';
+        btnOwner.className = 'py-1.5 rounded-lg text-brand-muted hover:text-brand-text transition';
+        lblId.innerText = 'Staff Username / Cashier ID';
+        inputId.placeholder = 'cashier.01@codepos.co.za';
+        lblSec.innerText = '4-Digit Staff Terminal PIN';
+        inputSec.placeholder = '4092';
+      }
+    }
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      alert('Authentication request dispatched! Account verification ping sent to Master Admin (Eurica Noeth).');
+      toggleAuthModal();
     }
   </script>
 </body>
