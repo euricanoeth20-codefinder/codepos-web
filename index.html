@@ -1,712 +1,686 @@
 <!DOCTYPE html>
-<html lang="en" class="dark h-full bg-[#0B1422] text-[#F4F8FC]">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CodePOS & CodeFinder South Africa — Zero-Hardware POS & AI Product Search</title>
-  <meta name="description" content="Zero-hardware point-of-sale and AI product lookup platform for South African retail, delis, spaza shops, and hospitality.">
-  <link rel="icon" type="image/png" href="CodePOS App icon.PNG">
+  <title>CodePOS™ &amp; CodeFinder™ South Africa — Zero-Hardware POS &amp; AI Product Search</title>
+  
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="CodePOS™ & CodeFinder™ South Africa: Zero-hardware Point-of-Sale (POS) and AI product search for smartphones, tablets, and desktop. Starting at R305/mo.">
+  <meta name="keywords" content="CodePOS, CodeFinder, South Africa POS, Spaza Shop POS, Retail Till, Barcode Scanner App, PayFast SA, Zero Hardware POS">
+  <meta name="author" content="Eurica Noeth">
+  <link rel="canonical" href="https://www.codepos.co.za/">
 
-  <!-- Tailwind CSS CDN & Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.codepos.co.za/">
+  <meta property="og:title" content="CodePOS™ &amp; CodeFinder™ — Zero-Hardware POS &amp; AI Product Search">
+  <meta property="og:description" content="Turn any Android, Apple iPhone, or Windows PC into a complete retail counter till and AI product finder.">
+  <meta property="og:image" content="https://www.codepos.co.za/app-icon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.codepos.co.za/">
+  <meta property="twitter:title" content="CodePOS™ &amp; CodeFinder™ South Africa">
+  <meta property="twitter:description" content="Turn any smartphone into a smart point-of-sale till and barcode scanner. No expensive till hardware needed.">
+
+  <!-- Favicon & App Icons (High-Res Inline SVG Icons for Google Search & Browsers) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B1422'/><rect x='4' y='4' width='92' height='92' rx='18' fill='%23101F33' stroke='%2348D4D0' stroke-width='3'/><path d='M30 35h40v30H30z' fill='%23132A40' rx='4'/><path d='M35 42h30M35 50h20M35 58h25' stroke='%2348D4D0' stroke-width='3' stroke-linecap='round'/><circle cx='68' cy='68' r='14' fill='%230B1422' stroke='%2348D4D0' stroke-width='3'/><path d='M68 60v16M60 68h16' stroke='%2348D4D0' stroke-width='2.5' stroke-linecap='round'/></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B1422'/><rect x='4' y='4' width='92' height='92' rx='18' fill='%23101F33' stroke='%2348D4D0' stroke-width='3'/><path d='M30 35h40v30H30z' fill='%23132A40' rx='4'/><path d='M35 42h30M35 50h20M35 58h25' stroke='%2348D4D0' stroke-width='3' stroke-linecap='round'/><circle cx='68' cy='68' r='14' fill='%230B1422' stroke='%2348D4D0' stroke-width='3'/><path d='M68 60v16M60 68h16' stroke='%2348D4D0' stroke-width='2.5' stroke-linecap='round'/></svg>">
+
+  <!-- Google SEO Structured Data (JSON-LD) for Sitelinks & Rich Search Appearance -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.codepos.co.za/#software",
+        "name": "CodePOS™ & CodeFinder™",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Android, iOS, Windows, Web PWA",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Product Search Package",
+            "price": "305.00",
+            "priceCurrency": "ZAR",
+            "priceValidUntil": "2026-12-31"
+          },
+          {
+            "@type": "Offer",
+            "name": "Starter Package",
+            "price": "305.00",
+            "priceCurrency": "ZAR",
+            "priceValidUntil": "2026-12-31"
+          },
+          {
+            "@type": "Offer",
+            "name": "Standard Package",
+            "price": "475.00",
+            "priceCurrency": "ZAR",
+            "priceValidUntil": "2026-12-31"
+          },
+          {
+            "@type": "Offer",
+            "name": "Elite Package",
+            "price": "749.00",
+            "priceCurrency": "ZAR",
+            "priceValidUntil": "2026-12-31"
+          }
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Eurica Noeth",
+          "jobTitle": "Founder & Software Developer",
+          "email": "codefindersa@gmail.com",
+          "telephone": "+27671296775"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.codepos.co.za/#website",
+        "url": "https://www.codepos.co.za/",
+        "name": "CodePOS™ South Africa",
+        "description": "Zero-hardware Point of Sale and AI barcode product search solution.",
+        "inLanguage": "en-ZA"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts: Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            brand: {
-              navy: '#0B1422',
-              card: '#101F33',
-              input: '#14283A',
-              border: '#1E334D',
-              teal: '#48D4D0',
-              tealHover: '#38b2ae'
-            }
+            'surface-dark': '#0B1422',
+            'panel-dark': '#101F33',
+            'panel-secondary': '#14283A',
+            'border-subtle': '#1B3550',
+            'teal-brand': '#48D4D0',
+            'teal-glow': '#6FF3EF',
+            'text-bright': '#F4F8FC',
+            'text-dim': '#9EB1C2'
           },
           fontFamily: {
-            sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace']
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"Courier New"', 'monospace']
           }
         }
       }
     }
   </script>
-
   <style>
     body {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      background-color: #0B1422;
+      color: #F4F8FC;
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    details summary::-webkit-details-marker {
-      display: none;
+    .teal-glow {
+      box-shadow: 0 0 25px rgba(72, 212, 208, 0.25);
     }
-    details[open] summary .accordion-chevron {
-      transform: rotate(180deg);
+    .teal-glow-border {
+      border: 1.5px solid #48D4D0;
+      box-shadow: 0 0 15px rgba(72, 212, 208, 0.2);
+    }
+    .accordion-content {
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+      overflow: hidden;
     }
   </style>
 </head>
-<body class="min-h-full bg-[#0B1422] text-[#F4F8FC] flex flex-col justify-between selection:bg-[#48D4D0] selection:text-[#0B1422]">
+<body class="min-h-screen bg-[#0B1422] text-[#F4F8FC] antialiased flex flex-col items-center pb-12">
 
-  <!-- ========================================================================= -->
-  <!-- MAIN LANDING VIEW (ACTIVE BY DEFAULT) -->
-  <!-- ========================================================================= -->
-  <div id="main-view" class="w-full max-w-md mx-auto px-4 py-5 flex flex-col flex-1">
-    
-    <!-- Top Header -->
-    <header class="flex items-center justify-between py-2 border-b border-brand-border/60 mb-6">
-      <div class="flex items-center space-x-2">
-        <img src="CodeFinder On top right of app and dash Logo.PNG" alt="CodeFinder Logo" class="h-8 object-contain">
-        <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-brand-teal/10 text-brand-teal font-mono border border-brand-teal/30">Mobile</span>
-      </div>
-      <div class="flex items-center space-x-2">
-        <button onclick="toggleModal('signin-modal', true)" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-input text-brand-teal hover:bg-brand-border transition-colors border border-brand-teal/30 flex items-center space-x-1">
-          <span class="material-symbols-outlined text-sm">login</span>
-          <span>Sign In</span>
-        </button>
-        <button onclick="toggleDrawer('menu-drawer', true)" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-card hover:bg-brand-input transition-colors border border-brand-border flex items-center space-x-1">
-          <span class="material-symbols-outlined text-sm">menu</span>
-          <span>Legal</span>
-        </button>
-      </div>
+  <!-- Main Container (Mobile First, Max-Width 440px for Crisp Display on Smartphones & Windows) -->
+  <main class="w-full max-w-[440px] px-4 py-4 flex flex-col">
+
+    <!-- TOP HEADER -->
+    <header class="w-full flex items-center justify-between py-2 border-b border-[#1B3550]/60 mb-5">
+      <!-- Official CodeFinder Logo (Top-Left) -->
+      <a href="/" class="flex items-center gap-2 group">
+        <svg class="h-9 w-auto" viewBox="0 0 260 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="18" stroke="#48D4D0" stroke-width="4.5" fill="#0E2338"/>
+          <circle cx="28" cy="28" r="9" fill="#0B1422" stroke="#6FF3EF" stroke-width="2"/>
+          <path d="M41 41L52 52" stroke="#48D4D0" stroke-width="5" stroke-linecap="round"/>
+          <text x="64" y="38" fill="#F4F8FC" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5">Code<tspan fill="#48D4D0">Finder</tspan><tspan fill="#48D4D0" font-size="16">™</tspan></text>
+        </svg>
+      </a>
+
+      <!-- Menu & Legal Button -->
+      <button onclick="toggleMenu()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#48D4D0] text-[#0B1422] font-semibold text-xs tracking-wider uppercase hover:bg-[#6FF3EF] transition-all teal-glow">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        <span>MENU &amp; LEGAL</span>
+      </button>
     </header>
 
-    <!-- Hero / Master Centerpiece Logo -->
-    <div class="flex flex-col items-center text-center my-2">
-      <div class="w-full max-w-[280px] p-2 bg-brand-card/40 rounded-2xl border border-brand-border/40 shadow-xl mb-3">
-        <img src="CodePOS main screen logosLogo.PNG" alt="CodePOS Official Logo" class="w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(72,212,208,0.25)]">
+    <!-- CENTERPIECE: OFFICIAL CODEPOS LOGO & HERO DISPLAY -->
+    <section class="w-full flex flex-col items-center text-center p-4 rounded-2xl bg-[#101F33] border border-[#1B3550] shadow-xl mb-5 relative overflow-hidden">
+      <!-- Glow Aura -->
+      <div class="absolute -top-16 -left-16 w-48 h-48 bg-[#48D4D0]/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -right-16 w-48 h-48 bg-[#48D4D0]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Vector CodePOS Master Terminal Logo -->
+      <div class="w-full max-w-[290px] py-2 flex justify-center">
+        <svg viewBox="0 0 340 210" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Terminal Glow Halo -->
+          <ellipse cx="170" cy="180" rx="140" ry="25" fill="#48D4D0" fill-opacity="0.2" filter="blur(10px)"/>
+          
+          <!-- Till Register Body -->
+          <rect x="75" y="45" width="160" height="95" rx="14" fill="#0B1422" stroke="#48D4D0" stroke-width="3"/>
+          <rect x="85" y="55" width="140" height="75" rx="8" fill="#132B40"/>
+          
+          <!-- Screen Quick Keys (Grid) -->
+          <rect x="94" y="63" width="34" height="26" rx="4" fill="#48D4D0"/>
+          <path d="M104 76h14M111 69v14" stroke="#0B1422" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="138" y="63" width="34" height="26" rx="4" fill="#1B3A55"/>
+          <path d="M148 76h14" stroke="#48D4D0" stroke-width="2" stroke-linecap="round"/>
+          <rect x="182" y="63" width="34" height="26" rx="4" fill="#1B3A55"/>
+          <circle cx="199" cy="76" r="6" stroke="#48D4D0" stroke-width="2"/>
+          <rect x="94" y="96" width="34" height="24" rx="4" fill="#1B3A55"/>
+          <rect x="138" y="96" width="34" height="24" rx="4" fill="#1B3A55"/>
+          <rect x="182" y="96" width="34" height="24" rx="4" fill="#48D4D0"/>
+
+          <!-- Thermal Printer Top Paper Slit -->
+          <rect x="130" y="24" width="50" height="22" rx="3" fill="#E2E8F0"/>
+          <path d="M136 30h38M136 36h28" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Handheld Barcode Gun Scanner -->
+          <path d="M245 80l22-12c4-2 9 0 11 4l12 24c2 4 0 9-4 11l-18 9" stroke="#48D4D0" stroke-width="4" stroke-linecap="round" fill="#0B1422"/>
+          <!-- Optical Laser Red Beam -->
+          <path d="M285 70l35 0M285 74l35 0" stroke="#FF4D4D" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+          
+          <!-- Barcode Array Graphic -->
+          <g stroke="#9EB1C2" stroke-width="2.5" stroke-linecap="round">
+            <line x1="288" y1="92" x2="288" y2="120"/>
+            <line x1="293" y1="92" x2="293" y2="120" stroke-width="4"/>
+            <line x1="299" y1="92" x2="299" y2="120"/>
+            <line x1="304" y1="92" x2="304" y2="120" stroke-width="3"/>
+            <line x1="310" y1="92" x2="310" y2="120"/>
+          </g>
+
+          <!-- Core Wordmark: CodePOS™ -->
+          <text x="170" y="180" text-anchor="middle" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="44" letter-spacing="-1">
+            Code<tspan fill="#48D4D0">POS</tspan><tspan fill="#48D4D0" font-size="22">™</tspan>
+          </text>
+        </svg>
       </div>
-      
-      <p class="text-xs tracking-widest text-[#8E9EAF] font-mono uppercase mb-2">
+
+      <!-- Slogan -->
+      <p class="text-xs font-semibold tracking-wider text-[#48D4D0] uppercase mt-1">
         • SCAN • SELL • MANAGE •
       </p>
-      
-      <h1 class="text-sm font-medium text-[#F4F8FC] max-w-xs leading-snug mb-3">
+      <p class="text-sm font-medium text-[#F4F8FC] mt-2 max-w-[320px] leading-snug">
         The All In One Code Finder Product Search And Affordable Point Of Sale Solution
-      </h1>
+      </p>
+    </section>
 
-      <div class="inline-block px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/40 text-[11px] text-brand-teal font-medium mb-3">
-        ⚡ No Expensive Hardware Needed
+    <!-- VALUE PROPOSITION: NO HARDWARE NEEDED -->
+    <section class="w-full p-4 rounded-2xl bg-[#101F33] border border-[#1B3550] shadow-md mb-5 text-center">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#14283A] text-[#48D4D0] border border-[#48D4D0]/30 text-xs font-semibold uppercase tracking-wider mb-2.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span>NO EXPENSIVE HARDWARE NEEDED</span>
       </div>
-
-      <p class="text-xs text-[#8E9EAF] max-w-xs leading-relaxed mb-5">
-        Turning Any Standard Smartphone (Android, Huawei, Apple) And Windows Desktop Into A Handheld POS
+      <p class="text-xs text-[#9EB1C2] leading-relaxed max-w-[320px] mx-auto mb-4">
+        Turning Any Standard Smartphone (Android, Huawei, Apple And Windows Desktop Into A Handheld POS
       </p>
 
-      <!-- Hardware Badges -->
-      <div class="grid grid-cols-3 gap-2 w-full mb-6">
-        <div class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-brand-card border border-brand-border text-center">
-          <span class="material-symbols-outlined text-brand-teal text-xl mb-1">android</span>
-          <span class="text-[11px] font-semibold text-white">Android</span>
-          <span class="text-[9px] text-[#8E9EAF]">Phone</span>
+      <!-- Supported Devices Grid -->
+      <div class="grid grid-cols-3 gap-2">
+        <div class="p-2.5 rounded-xl bg-[#0B1422] border border-[#1B3550] flex flex-col items-center">
+          <svg class="w-6 h-6 text-[#48D4D0] mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="5" y="2" width="14" height="20" rx="3" stroke-width="2"></rect>
+            <line x1="12" y1="18" x2="12" y2="18.01" stroke-width="2.5" stroke-linecap="round"></line>
+          </svg>
+          <span class="text-xs font-semibold text-[#F4F8FC]">Android</span>
+          <span class="text-[10px] text-[#9EB1C2]">Phone</span>
         </div>
-        <div class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-brand-card border border-brand-border text-center">
-          <span class="material-symbols-outlined text-brand-teal text-xl mb-1">phone_iphone</span>
-          <span class="text-[11px] font-semibold text-white">Apple</span>
-          <span class="text-[9px] text-[#8E9EAF]">iPhone</span>
+        <div class="p-2.5 rounded-xl bg-[#0B1422] border border-[#1B3550] flex flex-col items-center">
+          <svg class="w-6 h-6 text-[#48D4D0] mb-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.64-.78 1.08-1.87.96-2.96-.93.04-2.07.62-2.73 1.4-.58.67-1.09 1.77-.95 2.83 1.04.08 2.1-.53 2.72-1.27z"/>
+          </svg>
+          <span class="text-xs font-semibold text-[#F4F8FC]">Apple</span>
+          <span class="text-[10px] text-[#9EB1C2]">iPhone</span>
         </div>
-        <div class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-brand-card border border-brand-border text-center">
-          <span class="material-symbols-outlined text-brand-teal text-xl mb-1">laptop_windows</span>
-          <span class="text-[11px] font-semibold text-white">Windows</span>
-          <span class="text-[9px] text-[#8E9EAF]">Laptop</span>
+        <div class="p-2.5 rounded-xl bg-[#0B1422] border border-[#1B3550] flex flex-col items-center">
+          <svg class="w-6 h-6 text-[#48D4D0] mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span class="text-xs font-semibold text-[#F4F8FC]">Windows</span>
+          <span class="text-[10px] text-[#9EB1C2]">Laptop</span>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Package Options Accordion Section -->
+    <!-- PACKAGE OPTIONS (ACCORDIONS) -->
+    <section id="packages" class="w-full mb-5">
+      <div class="text-center mb-3">
+        <h2 class="text-lg font-bold text-[#F4F8FC] uppercase tracking-wide">
+          • PACKAGE OPTIONS •
+        </h2>
+        <p class="text-xs text-[#48D4D0] font-medium">Select Your Licence Tier Option</p>
+      </div>
+
+      <!-- 1. PRODUCT SEARCH PACKAGE (R 305 / mo) -->
+      <div class="mb-3 rounded-2xl bg-[#101F33] teal-glow-border overflow-hidden">
+        <button onclick="toggleAccordion('pkg-search')" class="w-full p-4 flex items-center justify-between text-left hover:bg-[#14283A]/50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#48D4D0] text-[#0B1422] flex items-center justify-center font-bold text-lg">
+              🔍
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-[#F4F8FC]">PRODUCT SEARCH</h3>
+              <p class="text-[11px] text-[#9EB1C2]">Database &amp; 3-Way Instant Scan</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-[#0B1422] text-[#48D4D0] border border-[#48D4D0]/40 text-xs font-bold">R 305 / mo</span>
+            <svg id="arrow-pkg-search" class="w-4 h-4 text-[#48D4D0] transform transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </button>
+        <div id="pkg-search" class="accordion-content max-h-0 bg-[#0B1422]/70 px-4 py-0 border-t border-[#1B3550]/40">
+          <div class="py-3 text-xs text-[#9EB1C2] space-y-2">
+            <p class="text-[#F4F8FC] font-semibold">Includes Complete 3-Way Product Search:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <li>Manual product name / SKU / PLU search.</li>
+              <li>Live smartphone camera barcode scanning.</li>
+              <li>Google Vertex AI camera photo product recognition.</li>
+              <li>Customer Dashboard with product catalog upload.</li>
+              <li>Daily End-of-Day reconciliation report.</li>
+            </ul>
+            <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20would%20like%20to%20activate%20the%20Product%20Search%20Package%20(R305/mo)." class="mt-2 block w-full py-2 text-center rounded-lg bg-[#48D4D0] text-[#0B1422] font-bold text-xs uppercase tracking-wider hover:bg-[#6FF3EF]">Subscribe via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. STARTER PACKAGE (R 305 / mo) -->
+      <div class="mb-3 rounded-2xl bg-[#101F33] teal-glow-border overflow-hidden">
+        <button onclick="toggleAccordion('pkg-starter')" class="w-full p-4 flex items-center justify-between text-left hover:bg-[#14283A]/50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#48D4D0] text-[#0B1422] flex items-center justify-center font-bold text-lg">
+              🏪
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-[#F4F8FC]">STARTER PACKAGE</h3>
+              <p class="text-[11px] text-[#9EB1C2]">Barcode Lookup &amp; AI Photo Scan</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-[#0B1422] text-[#48D4D0] border border-[#48D4D0]/40 text-xs font-bold">R 305 / mo</span>
+            <svg id="arrow-pkg-starter" class="w-4 h-4 text-[#48D4D0] transform transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </button>
+        <div id="pkg-starter" class="accordion-content max-h-0 bg-[#0B1422]/70 px-4 py-0 border-t border-[#1B3550]/40">
+          <div class="py-3 text-xs text-[#9EB1C2] space-y-2">
+            <p class="text-[#F4F8FC] font-semibold">Perfect for Retail Counters &amp; Spaza Shops:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <li>Barcode scanner and product database lookup.</li>
+              <li>Customer Dashboard with product catalog upload.</li>
+              <li>End-of-day cash reconciliation &amp; daily Z-Report.</li>
+              <li>Stock quantity tracking.</li>
+            </ul>
+            <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20would%20like%20to%20activate%20the%20Starter%20Package%20(R305/mo)." class="mt-2 block w-full py-2 text-center rounded-lg bg-[#48D4D0] text-[#0B1422] font-bold text-xs uppercase tracking-wider hover:bg-[#6FF3EF]">Subscribe via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. STANDARD PACKAGE (R 475 / mo) -->
+      <div class="mb-3 rounded-2xl bg-[#101F33] teal-glow-border overflow-hidden">
+        <button onclick="toggleAccordion('pkg-standard')" class="w-full p-4 flex items-center justify-between text-left hover:bg-[#14283A]/50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#48D4D0] text-[#0B1422] flex items-center justify-center font-bold text-lg">
+              🧮
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-[#F4F8FC]">STANDARD PACKAGE</h3>
+              <p class="text-[11px] text-[#9EB1C2]">3 Scan Modes &amp; Product Database</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-[#0B1422] text-[#48D4D0] border border-[#48D4D0]/40 text-xs font-bold">R 475 / mo</span>
+            <svg id="arrow-pkg-standard" class="w-4 h-4 text-[#48D4D0] transform transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </button>
+        <div id="pkg-standard" class="accordion-content max-h-0 bg-[#0B1422]/70 px-4 py-0 border-t border-[#1B3550]/40">
+          <div class="py-3 text-xs text-[#9EB1C2] space-y-2">
+            <p class="text-[#F4F8FC] font-semibold">For Delis, Bakeries, Cafes &amp; Food Vendors:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <li>All 3 Product Search and Scanner tools.</li>
+              <li>Customer Dashboard with live recipe builder &amp; portion costing.</li>
+              <li>Real-time Gross Profit (GP%) margin meter.</li>
+              <li>Full stock inventory and End-of-Day cash-up.</li>
+            </ul>
+            <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20would%20like%20to%20activate%20the%20Standard%20Package%20(R475/mo)." class="mt-2 block w-full py-2 text-center rounded-lg bg-[#48D4D0] text-[#0B1422] font-bold text-xs uppercase tracking-wider hover:bg-[#6FF3EF]">Subscribe via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ELITE PACKAGE (R 749 / mo) -->
+      <div class="mb-3 rounded-2xl bg-[#101F33] teal-glow-border overflow-hidden">
+        <button onclick="toggleAccordion('pkg-elite')" class="w-full p-4 flex items-center justify-between text-left hover:bg-[#14283A]/50 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#48D4D0] text-[#0B1422] flex items-center justify-center font-bold text-lg">
+              🏨
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-[#F4F8FC]">ELITE PACKAGE</h3>
+              <p class="text-[11px] text-[#9EB1C2]">Multi-Terminal, Spaza, Resto, Lodge</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-[#0B1422] text-[#48D4D0] border border-[#48D4D0]/40 text-xs font-bold">R 749 / mo</span>
+            <svg id="arrow-pkg-elite" class="w-4 h-4 text-[#48D4D0] transform transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </button>
+        <div id="pkg-elite" class="accordion-content max-h-0 bg-[#0B1422]/70 px-4 py-0 border-t border-[#1B3550]/40">
+          <div class="py-3 text-xs text-[#9EB1C2] space-y-2">
+            <p class="text-[#F4F8FC] font-semibold">Ultimate Multi-Terminal &amp; Venue Layouts:</p>
+            <ul class="list-disc pl-4 space-y-1">
+              <li>Multi-device terminal support with 4-digit Staff PIN manager.</li>
+              <li>Dedicated venue layouts (Spaza counter, restaurant floor plan, cafe speed mode, guesthouse folio).</li>
+              <li>WhatsApp digital slip and email delivery.</li>
+              <li>Multi-department inventory control &amp; Z-Report.</li>
+            </ul>
+            <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20would%20like%20to%20activate%20the%20Elite%20Package%20(R749/mo)." class="mt-2 block w-full py-2 text-center rounded-lg bg-[#48D4D0] text-[#0B1422] font-bold text-xs uppercase tracking-wider hover:bg-[#6FF3EF]">Subscribe via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGN IN CALL TO ACTION BUTTON -->
     <div class="w-full mb-6">
-      <div class="text-center mb-4">
-        <span class="text-xs font-mono tracking-widest text-brand-teal uppercase px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/30">
-          • Package Options •
-        </span>
-        <h2 class="text-base font-bold text-white mt-2">Select Your Licence Tier Option</h2>
-      </div>
-
-      <div class="space-y-3.5">
-        
-        <!-- Tier 1: Starter Package -->
-        <details class="group bg-brand-card rounded-2xl border-2 border-brand-teal overflow-hidden transition-all duration-200">
-          <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 rounded-xl bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center text-brand-teal">
-                <span class="material-symbols-outlined text-xl">storefront</span>
-              </div>
-              <div class="text-left">
-                <h3 class="text-sm font-bold text-white leading-tight uppercase">Starter Package</h3>
-                <p class="text-[11px] text-[#8E9EAF] font-mono mt-0.5">Barcode Lookup & AI Photo Scanning</p>
-              </div>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-xs font-bold font-mono px-2.5 py-1 rounded-full bg-[#0B1422] border border-brand-teal text-brand-teal whitespace-nowrap">
-                R 305 <span class="text-[10px] text-[#8E9EAF]">/ mo</span>
-              </span>
-              <span class="material-symbols-outlined text-[#8E9EAF] text-lg accordion-chevron transition-transform duration-200">expand_more</span>
-            </div>
-          </summary>
-          <div class="px-4 pb-4 pt-1 border-t border-brand-border/40 text-xs text-[#8E9EAF] space-y-2.5">
-            <p class="text-white/90 font-medium">Ideal for small spaza shops, counter delis, and boutique kiosks needing fast product lookup.</p>
-            <ul class="space-y-1.5 text-[11px]">
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Single Store License (1 Cashier Smartphone Terminal)</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Smartphone Barcode Camera Scanning</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>AI Photo Product Recognition & Visual SKU Search</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>WhatsApp Digital Slip & Receipt Delivery</span></li>
-            </ul>
-            <div class="pt-2">
-              <button onclick="subscribeTier('Starter', 305)" class="w-full py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-[#0B1422] font-bold text-xs uppercase tracking-wide transition-colors flex items-center justify-center space-x-1.5">
-                <span class="material-symbols-outlined text-base">payments</span>
-                <span>Subscribe / Select R 305</span>
-              </button>
-            </div>
-          </div>
-        </details>
-
-        <!-- Tier 2: Standard Package -->
-        <details class="group bg-brand-card rounded-2xl border-2 border-brand-teal overflow-hidden transition-all duration-200">
-          <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 rounded-xl bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center text-brand-teal">
-                <span class="material-symbols-outlined text-xl">point_of_sale</span>
-              </div>
-              <div class="text-left">
-                <h3 class="text-sm font-bold text-white leading-tight uppercase">Standard Package</h3>
-                <p class="text-[11px] text-[#8E9EAF] font-mono mt-0.5">3 Scan Modes & Product Database Access</p>
-              </div>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-xs font-bold font-mono px-2.5 py-1 rounded-full bg-[#0B1422] border border-brand-teal text-brand-teal whitespace-nowrap">
-                R 475 <span class="text-[10px] text-[#8E9EAF]">/ mo</span>
-              </span>
-              <span class="material-symbols-outlined text-[#8E9EAF] text-lg accordion-chevron transition-transform duration-200">expand_more</span>
-            </div>
-          </summary>
-          <div class="px-4 pb-4 pt-1 border-t border-brand-border/40 text-xs text-[#8E9EAF] space-y-2.5">
-            <p class="text-white/90 font-medium">Original CodeFinder design with catalog control, live ingredient recipes, and daily cash-ups.</p>
-            <ul class="space-y-1.5 text-[11px]">
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Up to 3 Cashier Smartphone Terminals</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>All 3 Search Modes: Manual Name, Barcode & AI Photo</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Store Owner Portal with Catalog & Category Builder</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Recipe Costing & Live Gross Profit % (GP%) Meter</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Daily End-of-Day Cash-Up & Z-Report Reconciliation</span></li>
-            </ul>
-            <div class="pt-2">
-              <button onclick="subscribeTier('Standard', 475)" class="w-full py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-[#0B1422] font-bold text-xs uppercase tracking-wide transition-colors flex items-center justify-center space-x-1.5">
-                <span class="material-symbols-outlined text-base">payments</span>
-                <span>Subscribe / Select R 475</span>
-              </button>
-            </div>
-          </div>
-        </details>
-
-        <!-- Tier 3: Elite Package -->
-        <details class="group bg-brand-card rounded-2xl border-2 border-brand-teal overflow-hidden transition-all duration-200">
-          <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
-            <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 rounded-xl bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center text-brand-teal">
-                <span class="material-symbols-outlined text-xl">domain</span>
-              </div>
-              <div class="text-left">
-                <h3 class="text-sm font-bold text-white leading-tight uppercase">Elite Package</h3>
-                <p class="text-[11px] text-[#8E9EAF] font-mono mt-0.5">Multi-Lane, Live Recipes & All 4 Venue Modes</p>
-              </div>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="text-xs font-bold font-mono px-2.5 py-1 rounded-full bg-[#0B1422] border border-brand-teal text-brand-teal whitespace-nowrap">
-                R 749 <span class="text-[10px] text-[#8E9EAF]">/ mo</span>
-              </span>
-              <span class="material-symbols-outlined text-[#8E9EAF] text-lg accordion-chevron transition-transform duration-200">expand_more</span>
-            </div>
-          </summary>
-          <div class="px-4 pb-4 pt-1 border-t border-brand-border/40 text-xs text-[#8E9EAF] space-y-2.5">
-            <p class="text-white/90 font-medium">Enterprise multi-lane setup for bustling restaurants, guesthouses, and market multi-departments.</p>
-            <ul class="space-y-1.5 text-[11px]">
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Unlimited Cashier Terminals & Multi-Department PINs</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>All 4 Venue Layouts: Dining Tables, Lodge Folios, Speed Terrace & Queue</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Automated Multi-Zone Inventory Stock Deduction</span></li>
-              <li class="flex items-center space-x-2"><span class="material-symbols-outlined text-brand-teal text-sm">check_circle</span><span>Priority PayFast Merchant Support & Zero Hardware Lock-In</span></li>
-            </ul>
-            <div class="pt-2">
-              <button onclick="subscribeTier('Elite', 749)" class="w-full py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-[#0B1422] font-bold text-xs uppercase tracking-wide transition-colors flex items-center justify-center space-x-1.5">
-                <span class="material-symbols-outlined text-base">payments</span>
-                <span>Subscribe / Select R 749</span>
-              </button>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </div>
-
-    <!-- Login Button Block -->
-    <div class="w-full mb-6">
-      <button onclick="toggleModal('signin-modal', true)" class="w-full py-3.5 px-4 rounded-xl bg-brand-card hover:bg-brand-input border border-brand-teal/50 text-white font-semibold text-xs flex items-center justify-center space-x-2 transition-all shadow-lg">
-        <span class="material-symbols-outlined text-brand-teal text-base">lock</span>
-        <span>Owner & Employee Sign-In</span>
+      <button onclick="toggleSignInModal()" class="w-full py-3.5 px-4 rounded-xl bg-[#101F33] text-[#48D4D0] border-2 border-[#48D4D0] font-bold text-sm tracking-wide uppercase hover:bg-[#48D4D0] hover:text-[#0B1422] transition-all flex items-center justify-center gap-2 shadow-lg teal-glow">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        </svg>
+        <span>Owner &amp; Employee Sign-In</span>
       </button>
     </div>
 
-    <!-- Software Developer WhatsApp Direct Contact -->
-    <div class="w-full mb-5">
-      <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20am%20interested%20in%20CodePOS%20and%20CodeFinder." target="_blank" rel="noopener noreferrer" class="block w-full py-2.5 px-3 rounded-xl bg-brand-card border border-brand-border hover:border-brand-teal/60 text-center transition-colors group">
-        <div class="flex items-center justify-center space-x-2">
-          <span class="material-symbols-outlined text-brand-teal text-base group-hover:scale-110 transition-transform">chat</span>
-          <span class="text-xs font-medium text-white">Software Developer: <strong class="text-brand-teal font-bold">Eurica Noeth (+27 67 129 6775)</strong></span>
+    <!-- FOOTER: SOFTWARE DEVELOPER DETAILS & LEGAL NOTICES -->
+    <footer class="w-full flex flex-col items-center text-center mt-2 pt-4 border-t border-[#1B3550]/60 space-y-3">
+      <!-- Clickable Software Developer Card -->
+      <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20am%20contacting%20you%20regarding%20CodePOS%20and%20CodeFinder." class="w-full max-w-[340px] p-2.5 rounded-xl bg-[#101F33] border border-[#1B3550] flex items-center justify-between hover:border-[#48D4D0] transition-colors group">
+        <div class="flex items-center gap-2.5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-[#14283A] text-[#48D4D0] flex items-center justify-center font-bold text-xs">
+            💻
+          </div>
+          <div>
+            <div class="text-[10px] uppercase font-mono tracking-wider text-[#9EB1C2]">SOFTWARE DEVELOPER</div>
+            <div class="text-xs font-bold text-[#F4F8FC] group-hover:text-[#48D4D0]">Eurica Noeth</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0B1422] border border-[#48D4D0]/30 text-[10px] text-[#48D4D0] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#48D4D0] animate-pulse"></span>
+          <span>CodePOS Engine</span>
         </div>
       </a>
-    </div>
 
-    <!-- Clean Single-Line Footer -->
-    <footer class="text-center py-4 text-[11px] text-[#8E9EAF] font-mono border-t border-brand-border/40">
-      © 2025 • www.codepos.co.za • All Rights Reserved
+      <!-- Copyright Statement -->
+      <p class="text-[11px] text-[#9EB1C2] leading-relaxed">
+        &copy; 2025 &bull; <a href="https://www.codepos.co.za" class="text-[#48D4D0] hover:underline">www.codepos.co.za</a> &bull; All Rights Reserved &bull;
+      </p>
+      <p class="text-[10px] text-[#9EB1C2]/80 leading-normal max-w-[320px]">
+        Copyright Protected. Proprietary Software by Eurica Noeth. Unauthorized reproduction, distribution, or decompilation strictly prohibited under South African Copyright Act 98 of 1978.
+      </p>
     </footer>
-  </div>
+
+  </main>
 
   <!-- ========================================================================= -->
-  <!-- MASTER ADMIN DASHBOARD WORKSPACE (HIDDEN BY DEFAULT) -->
+  <!-- MODAL 1: OWNER & EMPLOYEE SIGN-IN PORTAL (FULL INTERACTIVE MODAL)         -->
   <!-- ========================================================================= -->
-  <div id="admin-view" class="hidden min-h-screen w-full bg-[#0B1422] text-[#F4F8FC] flex flex-col">
-    <!-- Admin Topbar -->
-    <header class="h-16 border-b border-brand-border bg-brand-card px-6 flex items-center justify-between">
-      <div class="flex items-center space-x-4">
-        <img src="CodePOS main screen logosLogo.PNG" alt="CodePOS" class="h-8 object-contain">
-        <div class="h-6 w-px bg-brand-border"></div>
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-teal">Eurica's Control Room • Master Admin</span>
-      </div>
-      <div class="flex items-center space-x-4">
-        <span class="text-xs text-[#8E9EAF] font-mono">Logged in: <strong class="text-white">eurica@codepos.co.za</strong></span>
-        <button onclick="switchView('main')" class="text-xs px-3 py-1.5 rounded-lg bg-[#0B1422] hover:bg-brand-input text-brand-teal border border-brand-teal/40 flex items-center space-x-1">
-          <span class="material-symbols-outlined text-sm">logout</span>
-          <span>Exit to App</span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Admin Body: Sidebar + Focused Workspace -->
-    <div class="flex-1 flex overflow-hidden">
-      <!-- Left Navigation Sidebar -->
-      <aside class="w-64 border-r border-brand-border bg-[#0B1422] p-4 flex flex-col justify-between">
-        <nav class="space-y-1.5">
-          <button onclick="showAdminTab('overview')" class="admin-nav-btn w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-white bg-brand-card border border-brand-border text-left">
-            <span class="material-symbols-outlined text-brand-teal text-base">dashboard</span>
-            <span>Overview & Pulse</span>
-          </button>
-          <button onclick="showAdminTab('onboard')" class="admin-nav-btn w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-[#8E9EAF] hover:text-white hover:bg-brand-card transition-colors text-left">
-            <span class="material-symbols-outlined text-brand-teal text-base">person_add</span>
-            <span>Merchant Onboarding</span>
-          </button>
-          <button onclick="showAdminTab('stores')" class="admin-nav-btn w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-[#8E9EAF] hover:text-white hover:bg-brand-card transition-colors text-left">
-            <span class="material-symbols-outlined text-brand-teal text-base">store</span>
-            <span>Active Stores Directory</span>
-          </button>
-          <button onclick="showAdminTab('reports')" class="admin-nav-btn w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-[#8E9EAF] hover:text-white hover:bg-brand-card transition-colors text-left">
-            <span class="material-symbols-outlined text-brand-teal text-base">monitoring</span>
-            <span>Operations Telemetry</span>
-          </button>
-        </nav>
-
-        <div class="p-3 rounded-xl bg-brand-card border border-brand-border text-center">
-          <p class="text-[10px] text-[#8E9EAF] font-mono">Platform Health</p>
-          <p class="text-xs font-bold text-brand-teal mt-0.5">99.98% System Uptime</p>
-          <p class="text-[9px] text-[#8E9EAF] mt-1">PayFast SA Level 1 PCI-DSS</p>
-        </div>
-      </aside>
-
-      <!-- Main Admin Content Area -->
-      <main class="flex-1 p-6 overflow-y-auto">
-        
-        <!-- Tab 1: Overview & Pulse -->
-        <div id="admin-tab-overview" class="admin-content-pane space-y-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-lg font-bold text-white">System Executive Pulse</h2>
-            <button onclick="showAdminTab('onboard')" class="px-4 py-2 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-[#0B1422] font-bold text-xs flex items-center space-x-1.5 shadow-lg">
-              <span class="material-symbols-outlined text-base">add_business</span>
-              <span>Onboard New Merchant</span>
-            </button>
-          </div>
-
-          <!-- 4 Stats Cards -->
-          <div class="grid grid-cols-4 gap-4">
-            <div class="p-4 rounded-2xl bg-brand-card border border-brand-border">
-              <p class="text-[11px] text-[#8E9EAF] font-mono">Monthly Recurring Revenue</p>
-              <h3 class="text-xl font-bold text-brand-teal mt-1">ZAR 184,750</h3>
-              <p class="text-[10px] text-emerald-400 mt-1 flex items-center space-x-1">
-                <span class="material-symbols-outlined text-xs">trending_up</span>
-                <span>+14.2% from last month</span>
-              </p>
-            </div>
-            <div class="p-4 rounded-2xl bg-brand-card border border-brand-border">
-              <p class="text-[11px] text-[#8E9EAF] font-mono">Active Client Stores</p>
-              <h3 class="text-xl font-bold text-white mt-1">42 Stores</h3>
-              <p class="text-[10px] text-[#8E9EAF] mt-1">Across 3 SA Provinces</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-brand-card border border-brand-border">
-              <p class="text-[11px] text-[#8E9EAF] font-mono">Connected Tills & Phones</p>
-              <h3 class="text-xl font-bold text-white mt-1">842 Terminals</h3>
-              <p class="text-[10px] text-brand-teal mt-1">Zero hardware required</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-brand-card border border-brand-border">
-              <p class="text-[11px] text-[#8E9EAF] font-mono">WhatsApp Slips Today</p>
-              <h3 class="text-xl font-bold text-white mt-1">2,940 Dispatched</h3>
-              <p class="text-[10px] text-emerald-400 mt-1">99.4% Delivery rate</p>
-            </div>
-          </div>
-
-          <!-- Quick Action Notice -->
-          <div class="p-4 rounded-2xl bg-brand-card border border-brand-teal/40 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-              <span class="material-symbols-outlined text-brand-teal text-2xl">pending_actions</span>
-              <div>
-                <h4 class="text-xs font-bold text-white">2 Merchant Store Applications Pending Review</h4>
-                <p class="text-[11px] text-[#8E9EAF]">Klerksdorp Butchery & Paarl Farm Grocer submitted signup requests.</p>
-              </div>
-            </div>
-            <button onclick="showAdminTab('onboard')" class="px-3 py-1.5 rounded-lg bg-brand-teal/15 border border-brand-teal text-brand-teal text-xs font-bold hover:bg-brand-teal hover:text-[#0B1422] transition-colors">
-              Review in Onboard Hub
-            </button>
-          </div>
-        </div>
-
-        <!-- Tab 2: Merchant Onboarding Workspace ("Onboard Hub") -->
-        <div id="admin-tab-onboard" class="admin-content-pane hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-brand-border pb-4">
-            <div>
-              <h2 class="text-lg font-bold text-white">Merchant Onboarding Hub</h2>
-              <p class="text-xs text-[#8E9EAF]">Register new commercial stores and dispatch instant setup links.</p>
-            </div>
-            <span class="text-xs font-mono px-3 py-1 rounded-full bg-brand-card border border-brand-border text-brand-teal">
-              License Pool: 42 / 50 Allocated
-            </span>
-          </div>
-
-          <div class="grid grid-cols-3 gap-6">
-            <!-- New Store Form -->
-            <div class="col-span-2 p-5 rounded-2xl bg-brand-card border border-brand-border space-y-4">
-              <h3 class="text-xs font-mono font-bold uppercase text-brand-teal tracking-wider">Step 1: Store & Owner Particulars</h3>
-              
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-[11px] text-[#8E9EAF] mb-1 font-mono">Registered Business Name</label>
-                  <input type="text" id="onboard-name" placeholder="e.g. Karoo Deli & Farm Kitchen" class="w-full px-3 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-[#8E9EAF] mb-1 font-mono">Owner Mobile (WhatsApp)</label>
-                  <input type="text" id="onboard-phone" placeholder="+27 82 123 4567" class="w-full px-3 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-[#8E9EAF] mb-1 font-mono">Owner Email (For Billing & Tax)</label>
-                  <input type="email" id="onboard-email" placeholder="owner@store.co.za" class="w-full px-3 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-[#8E9EAF] mb-1 font-mono">Subscription Package</label>
-                  <select id="onboard-tier" class="w-full px-3 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal">
-                    <option value="Starter">Starter Package — R 305 / mo</option>
-                    <option value="Standard" selected>Standard Package — R 475 / mo</option>
-                    <option value="Elite">Elite Multi-Lane — R 749 / mo</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="pt-2 flex items-center space-x-3">
-                <button onclick="generateInviteLink()" class="px-4 py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-[#0B1422] font-bold text-xs flex items-center space-x-1.5 transition-colors">
-                  <span class="material-symbols-outlined text-base">send</span>
-                  <span>Generate Onboarding Link</span>
-                </button>
-                <span id="invite-status" class="text-xs text-emerald-400 font-mono hidden">✓ Link generated & ready to dispatch</span>
-              </div>
-            </div>
-
-            <!-- Instant Invite Preview Box -->
-            <div class="p-5 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between">
-              <div>
-                <h3 class="text-xs font-mono font-bold uppercase text-[#8E9EAF] mb-3">1-Click Dispatch</h3>
-                <p class="text-xs text-[#8E9EAF] leading-relaxed mb-4">Send the customer a pre-configured onboarding link that allows them to setup their store catalog immediately.</p>
-                
-                <div class="p-3 rounded-xl bg-brand-input border border-brand-border text-[11px] font-mono text-brand-teal break-all mb-4">
-                  https://www.codepos.co.za/setup?token=CP-9842-ZA
-                </div>
-              </div>
-
-              <div class="space-y-2">
-                <a href="https://wa.me/?text=Hello!%20Here%20is%20your%20CodePOS%20Store%20Setup%20Link:%20https://www.codepos.co.za/setup" target="_blank" class="w-full py-2.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs flex items-center justify-center space-x-1.5">
-                  <span class="material-symbols-outlined text-base">chat</span>
-                  <span>Dispatch via WhatsApp</span>
-                </a>
-                <button onclick="alert('Email invitation packet dispatched to client.')" class="w-full py-2.5 rounded-xl bg-brand-input border border-brand-border hover:bg-brand-border text-white font-semibold text-xs flex items-center justify-center space-x-1.5">
-                  <span class="material-symbols-outlined text-base">mail</span>
-                  <span>Dispatch via Email</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 3: Active Stores Directory -->
-        <div id="admin-tab-stores" class="admin-content-pane hidden space-y-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-lg font-bold text-white">Subscribed Client Stores</h2>
-            <input type="text" placeholder="Filter stores by name or city..." class="px-3 py-1.5 rounded-xl bg-brand-card border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal w-64">
-          </div>
-
-          <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden">
-            <table class="w-full text-left text-xs">
-              <thead class="bg-[#0B1422] text-[#8E9EAF] font-mono text-[10px] uppercase border-b border-brand-border">
-                <tr>
-                  <th class="p-3">Store Name</th>
-                  <th class="p-3">Owner Contact</th>
-                  <th class="p-3">Plan Tier</th>
-                  <th class="p-3">Active Tills</th>
-                  <th class="p-3">Status</th>
-                  <th class="p-3 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-brand-border/40 text-[#F4F8FC]">
-                <tr class="hover:bg-brand-input/40">
-                  <td class="p-3 font-semibold text-white">The Artisan Deli & Bakery</td>
-                  <td class="p-3 text-[#8E9EAF]">info@artisandeli.co.za</td>
-                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-brand-teal/10 text-brand-teal border border-brand-teal/30">Standard R475</span></td>
-                  <td class="p-3 font-mono">3 Phones</td>
-                  <td class="p-3 text-emerald-400">● Active</td>
-                  <td class="p-3 text-right"><button onclick="alert('Managing store PINs and licenses.')" class="text-brand-teal hover:underline font-mono">Manage</button></td>
-                </tr>
-                <tr class="hover:bg-brand-input/40">
-                  <td class="p-3 font-semibold text-white">Rosebank Flea Market Crafts</td>
-                  <td class="p-3 text-[#8E9EAF]">+27 83 456 7890</td>
-                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-brand-teal/10 text-brand-teal border border-brand-teal/30">Starter R305</span></td>
-                  <td class="p-3 font-mono">1 Phone</td>
-                  <td class="p-3 text-emerald-400">● Active</td>
-                  <td class="p-3 text-right"><button onclick="alert('Managing store PINs and licenses.')" class="text-brand-teal hover:underline font-mono">Manage</button></td>
-                </tr>
-                <tr class="hover:bg-brand-input/40">
-                  <td class="p-3 font-semibold text-white">Kruger View Guesthouse & Bistro</td>
-                  <td class="p-3 text-[#8E9EAF]">accounts@krugerview.co.za</td>
-                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30">Elite R749</span></td>
-                  <td class="p-3 font-mono">8 Phones / Tills</td>
-                  <td class="p-3 text-emerald-400">● Active</td>
-                  <td class="p-3 text-right"><button onclick="alert('Managing store PINs and licenses.')" class="text-brand-teal hover:underline font-mono">Manage</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tab 4: Operations Telemetry -->
-        <div id="admin-tab-reports" class="admin-content-pane hidden space-y-6">
-          <h2 class="text-lg font-bold text-white">Operations & Daily Ledgers</h2>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-              <h3 class="text-xs font-mono font-bold uppercase text-brand-teal">Daily PayFast Settlement</h3>
-              <p class="text-xs text-[#8E9EAF]">Automated 06:00 SAST daily sweep into registered merchant bank accounts.</p>
-              <div class="p-3 rounded-xl bg-brand-input text-xs font-mono text-white flex justify-between">
-                <span>Today's Clearing Volume:</span>
-                <span class="text-brand-teal font-bold">ZAR 42,890.50</span>
-              </div>
-            </div>
-            <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-              <h3 class="text-xs font-mono font-bold uppercase text-brand-teal">WhatsApp Cloud Receipts</h3>
-              <p class="text-xs text-[#8E9EAF]">Real-time digital slip dispatch across MTN, Vodacom, and Telkom cellular networks.</p>
-              <div class="p-3 rounded-xl bg-brand-input text-xs font-mono text-white flex justify-between">
-                <span>Delivery Latency:</span>
-                <span class="text-emerald-400 font-bold">&lt; 1.2s average</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </main>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- MODAL: SIGN-IN PORTAL -->
-  <!-- ========================================================================= -->
-  <div id="signin-modal" class="fixed inset-0 z-50 hidden bg-[#060E1A]/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="w-full max-w-sm rounded-2xl bg-brand-card border-2 border-brand-teal p-5 shadow-2xl relative">
-      <button onclick="toggleModal('signin-modal', false)" class="absolute top-4 right-4 text-[#8E9EAF] hover:text-white">
-        <span class="material-symbols-outlined">close</span>
+  <div id="modal-signin" class="fixed inset-0 z-50 bg-[#060E1C]/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-[400px] bg-[#101F33] border-2 border-[#48D4D0] rounded-2xl p-5 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <!-- Close Button -->
+      <button onclick="toggleSignInModal()" class="absolute top-4 right-4 text-[#9EB1C2] hover:text-[#F4F8FC] p-1 text-lg">
+        ✕
       </button>
 
-      <div class="text-center mb-5">
-        <span class="material-symbols-outlined text-brand-teal text-3xl mb-1">lock</span>
-        <h3 class="text-base font-bold text-white">Secure Portal Sign-In</h3>
-        <p class="text-xs text-[#8E9EAF] mt-0.5">Select your access portal below</p>
+      <!-- Modal Header -->
+      <div class="text-center mb-4">
+        <div class="w-12 h-12 rounded-full bg-[#0B1422] border border-[#48D4D0] text-[#48D4D0] flex items-center justify-center mx-auto mb-2 text-xl">
+          🔒
+        </div>
+        <h3 class="text-base font-bold text-[#F4F8FC]">Owner &amp; Customer Portal</h3>
+        <p class="text-xs text-[#9EB1C2]">Enter Credentials To Manage Your CodePOS</p>
       </div>
 
-      <!-- Quick Master Admin Transition Button -->
-      <div class="mb-4">
-        <button onclick="switchToAdminDashboard()" class="w-full py-3 px-3 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-[#0B1422] font-bold text-xs flex items-center justify-center space-x-2 transition-all shadow-md">
-          <span class="material-symbols-outlined text-base">admin_panel_settings</span>
-          <span>👑 Master Admin (Eurica's Control Panel)</span>
-        </button>
+      <!-- Pending Approval Notification -->
+      <div class="p-3 rounded-xl bg-[#14283A] border border-[#F59E0B]/50 text-left mb-4">
+        <div class="flex items-center gap-2 text-xs font-bold text-[#F59E0B] mb-1">
+          <span>⏳</span>
+          <span>PENDING APPROVAL</span>
+        </div>
+        <p class="text-[11px] text-[#F4F8FC] font-semibold">New Account Registration Under Review</p>
+        <p class="text-[10px] text-[#9EB1C2]">Requires Master Admin Activation. Instant Verification Ping Sent To Administrator.</p>
       </div>
 
-      <div class="flex items-center my-3">
-        <div class="flex-1 h-px bg-brand-border"></div>
-        <span class="px-2 text-[10px] text-[#8E9EAF] font-mono uppercase">Or Store Owner / Cashier</span>
-        <div class="flex-1 h-px bg-brand-border"></div>
-      </div>
-
-      <!-- Standard Credentials Form -->
-      <div class="space-y-3">
+      <!-- Form Inputs -->
+      <form onsubmit="handleLoginSubmit(event)" class="space-y-3">
         <div>
-          <label class="block text-[11px] text-[#8E9EAF] font-mono mb-1">Owner Email or Cashier PIN</label>
-          <input type="text" id="login-identifier" placeholder="eurica@codepos.co.za or 4-digit PIN" class="w-full px-3 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal">
-        </div>
-        <div>
-          <label class="block text-[11px] text-[#8E9EAF] font-mono mb-1">Password (Store Owners only)</label>
-          <input type="password" id="login-password" placeholder="••••••••••••" class="w-full px-3 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-white focus:outline-none focus:border-brand-teal">
-        </div>
-        <button onclick="handleLoginSubmit()" class="w-full py-2.5 rounded-xl bg-brand-card hover:bg-brand-input border border-brand-border text-white font-semibold text-xs transition-colors">
-          Log In
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- DRAWER: MENU, LEGAL & CONTACT US -->
-  <!-- ========================================================================= -->
-  <div id="menu-drawer" class="fixed inset-0 z-50 hidden bg-[#060E1A]/80 backdrop-blur-sm flex justify-end">
-    <div class="w-full max-w-sm h-full bg-brand-card border-l border-brand-border p-5 flex flex-col justify-between overflow-y-auto">
-      <div>
-        <div class="flex items-center justify-between pb-3 border-b border-brand-border mb-4">
-          <h3 class="text-sm font-bold text-white flex items-center space-x-1.5">
-            <span class="material-symbols-outlined text-brand-teal text-base">gavel</span>
-            <span>Legal & Contact Hub</span>
-          </h3>
-          <button onclick="toggleDrawer('menu-drawer', false)" class="text-[#8E9EAF] hover:text-white">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-
-        <!-- Contact Us Section -->
-        <div class="mb-6 p-4 rounded-xl bg-brand-input border border-brand-border">
-          <h4 class="text-xs font-mono font-bold text-brand-teal uppercase tracking-wider mb-2 flex items-center space-x-1.5">
-            <span class="material-symbols-outlined text-sm">contact_support</span>
-            <span>Contact Us Directly</span>
-          </h4>
-          <p class="text-[11px] text-[#8E9EAF] mb-3">Official Communications Directory for CodePOS & CodeFinder customers.</p>
-          
-          <div class="space-y-2 text-xs">
-            <div class="flex items-center space-x-2">
-              <span class="material-symbols-outlined text-[#8E9EAF] text-sm">info</span>
-              <a href="mailto:info@codepos.co.za" class="text-white hover:text-brand-teal font-mono">info@codepos.co.za</a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="material-symbols-outlined text-[#8E9EAF] text-sm">support_agent</span>
-              <a href="mailto:support@codepos.co.za" class="text-white hover:text-brand-teal font-mono">support@codepos.co.za</a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="material-symbols-outlined text-[#8E9EAF] text-sm">point_of_sale</span>
-              <a href="mailto:sales@codepos.co.za" class="text-white hover:text-brand-teal font-mono">sales@codepos.co.za</a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="material-symbols-outlined text-[#8E9EAF] text-sm">receipt_long</span>
-              <a href="mailto:accounts@codepos.co.za" class="text-white hover:text-brand-teal font-mono">accounts@codepos.co.za</a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="material-symbols-outlined text-[#8E9EAF] text-sm">engineering</span>
-              <a href="mailto:eurica@codepos.co.za" class="text-white hover:text-brand-teal font-mono">eurica@codepos.co.za</a>
-            </div>
+          <label class="block text-[10px] uppercase font-mono tracking-wider text-[#9EB1C2] mb-1">USERNAME / BUSINESS EMAIL</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-[#48D4D0] text-sm">@</span>
+            <input type="email" required placeholder="owner@retailstore.co.za" class="w-full pl-8 pr-3 py-2 rounded-lg bg-[#0B1422] border border-[#1B3550] text-xs text-[#F4F8FC] focus:border-[#48D4D0] focus:outline-none">
           </div>
         </div>
 
-        <!-- South African Legal Compliance Links -->
-        <div class="space-y-2 text-xs text-[#8E9EAF]">
-          <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider mb-2">Legal Standards</h4>
-          <a href="#" class="block p-2.5 rounded-lg bg-[#0B1422] hover:bg-brand-border/40 text-white font-medium flex items-center justify-between">
-            <span>POPI Act Data Protection (2013)</span>
-            <span class="material-symbols-outlined text-sm text-brand-teal">verified_user</span>
-          </a>
-          <a href="#" class="block p-2.5 rounded-lg bg-[#0B1422] hover:bg-brand-border/40 text-white font-medium flex items-center justify-between">
-            <span>PayFast SA Commercial Terms</span>
-            <span class="material-symbols-outlined text-sm text-brand-teal">payments</span>
-          </a>
-          <a href="#" class="block p-2.5 rounded-lg bg-[#0B1422] hover:bg-brand-border/40 text-white font-medium flex items-center justify-between">
-            <span>Staff & Cashier Code of Conduct</span>
-            <span class="material-symbols-outlined text-sm text-brand-teal">description</span>
-          </a>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="block text-[10px] uppercase font-mono tracking-wider text-[#9EB1C2]">MASTER PASSWORD</label>
+            <a href="https://wa.me/27671296775?text=Hello%20Eurica,%20I%20need%20assistance%20recovering%20my%20CodePOS%20password." class="text-[10px] text-[#48D4D0] hover:underline">Forgot?</a>
+          </div>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-[#48D4D0] text-xs">🔑</span>
+            <input type="password" required placeholder="••••••••••••" class="w-full pl-8 pr-3 py-2 rounded-lg bg-[#0B1422] border border-[#1B3550] text-xs text-[#F4F8FC] focus:border-[#48D4D0] focus:outline-none">
+          </div>
         </div>
+
+        <div class="flex items-center gap-2 pt-1">
+          <input type="checkbox" id="remember-me" checked class="rounded bg-[#0B1422] border-[#1B3550] text-[#48D4D0] focus:ring-0">
+          <label for="remember-me" class="text-xs text-[#9EB1C2]">Remember My Device / Keep Me Logged In</label>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-lg bg-[#48D4D0] text-[#0B1422] font-bold text-xs uppercase tracking-wider hover:bg-[#6FF3EF] transition-all flex items-center justify-center gap-2 shadow-md teal-glow mt-2">
+          <span>Sign In To POS Dashboard</span>
+          <span>&rarr;</span>
+        </button>
+      </form>
+
+      <!-- Master Activation Protocol Badge -->
+      <div class="mt-4 pt-3 border-t border-[#1B3550] text-center">
+        <div class="text-[11px] font-bold text-[#48D4D0] flex items-center justify-center gap-1.5 mb-1">
+          <span>🛡️</span>
+          <span>MASTER ACTIVATION PROTOCOL</span>
+        </div>
+        <p class="text-[10px] text-[#9EB1C2] leading-tight">
+          Account Approval Managed Exclusively By Eurica Noeth.<br>
+          Verification Required Before First-Time Access.
+        </p>
       </div>
 
-      <div class="pt-4 border-t border-brand-border/40 text-center text-[10px] text-[#8E9EAF] font-mono">
-        CodePOS & CodeFinder South Africa
+      <!-- Administrator Onboarding Direct Contact -->
+      <div class="mt-3 p-3 rounded-xl bg-[#0B1422] border border-[#1B3550] text-center">
+        <p class="text-xs font-semibold text-[#F4F8FC] mb-0.5">Need Master Access Or Onboarding?</p>
+        <p class="text-[10px] text-[#9EB1C2] mb-2">Contact Administrator <strong class="text-[#F4F8FC]">Eurica Noeth</strong></p>
+        <div class="flex flex-col gap-1.5">
+          <a href="mailto:codefindersa@gmail.com" class="py-1 px-2 rounded bg-[#101F33] text-[#48D4D0] text-xs font-mono hover:bg-[#14283A] border border-[#1B3550] flex items-center justify-center gap-1.5">
+            <span>✉️</span> codefindersa@gmail.com
+          </a>
+          <a href="https://wa.me/27671296775" class="py-1 px-2 rounded bg-[#101F33] text-[#48D4D0] text-xs font-mono hover:bg-[#14283A] border border-[#1B3550] flex items-center justify-center gap-1.5">
+            <span>📱</span> +27 67 129 6775
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- JAVASCRIPT CONTROLLERS -->
+  <!-- MODAL 2: MENU, LEGAL HUB & CONTACT DRAWER (SLIDE-OVER DRAWER)             -->
   <!-- ========================================================================= -->
+  <div id="modal-menu" class="fixed inset-0 z-50 bg-[#060E1C]/90 backdrop-blur-md hidden flex justify-end">
+    <div class="w-full max-w-[380px] bg-[#101F33] h-full border-l border-[#48D4D0] p-5 shadow-2xl flex flex-col overflow-y-auto">
+      
+      <!-- Drawer Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-[#1B3550] mb-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-[#48D4D0] text-[#0B1422] flex items-center justify-center font-bold text-sm">
+            📖
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-[#F4F8FC]">Menu &amp; Legal Center</h3>
+            <p class="text-[10px] text-[#48D4D0]">CodePOS™ &amp; CodeFinder™</p>
+          </div>
+        </div>
+        <button onclick="toggleMenu()" class="text-[#9EB1C2] hover:text-[#F4F8FC] p-1 text-lg">
+          ✕
+        </button>
+      </div>
+
+      <!-- Quick Jump Menu Links -->
+      <div class="space-y-2 mb-6">
+        <a href="#packages" onclick="toggleMenu()" class="block p-2.5 rounded-lg bg-[#0B1422] hover:bg-[#14283A] border border-[#1B3550] text-xs font-semibold text-[#F4F8FC] flex items-center justify-between">
+          <span>📦 Package Options &amp; Pricing</span>
+          <span class="text-[#48D4D0]">&rarr;</span>
+        </a>
+        <button onclick="toggleMenu(); toggleSignInModal()" class="w-full p-2.5 rounded-lg bg-[#0B1422] hover:bg-[#14283A] border border-[#1B3550] text-xs font-semibold text-[#F4F8FC] flex items-center justify-between text-left">
+          <span>🔒 Customer &amp; Employee Sign-In</span>
+          <span class="text-[#48D4D0]">&rarr;</span>
+        </button>
+      </div>
+
+      <!-- OFFICIAL COMMUNICATIONS DIRECTORY ("Contact Us") -->
+      <div class="mb-6 p-3.5 rounded-xl bg-[#0B1422] border border-[#48D4D0]/40">
+        <div class="text-center mb-2.5">
+          <h4 class="text-xs font-bold text-[#F4F8FC] uppercase tracking-wider">OFFICIAL COMMUNICATIONS</h4>
+          <p class="text-[10px] text-[#48D4D0]">For All CodePOS™ Customers &amp; Support</p>
+        </div>
+        <div class="space-y-1.5 text-xs font-mono">
+          <a href="mailto:info@codepos.co.za" class="block p-1.5 rounded bg-[#101F33] hover:text-[#48D4D0] text-[#F4F8FC] text-center border border-[#1B3550]">
+            info@codepos.co.za
+          </a>
+          <a href="mailto:support@codepos.co.za" class="block p-1.5 rounded bg-[#101F33] hover:text-[#48D4D0] text-[#F4F8FC] text-center border border-[#1B3550]">
+            support@codepos.co.za
+          </a>
+          <a href="mailto:accounts@codepos.co.za" class="block p-1.5 rounded bg-[#101F33] hover:text-[#48D4D0] text-[#F4F8FC] text-center border border-[#1B3550]">
+            accounts@codepos.co.za
+          </a>
+          <a href="mailto:sales@codepos.co.za" class="block p-1.5 rounded bg-[#101F33] hover:text-[#48D4D0] text-[#F4F8FC] text-center border border-[#1B3550]">
+            sales@codepos.co.za
+          </a>
+          <a href="mailto:eurica@codepos.co.za" class="block p-1.5 rounded bg-[#101F33] hover:text-[#48D4D0] text-[#F4F8FC] text-center border border-[#1B3550]">
+            eurica@codepos.co.za
+          </a>
+          <a href="https://wa.me/27671296775" class="block p-2 rounded bg-[#48D4D0] text-[#0B1422] font-bold text-center hover:bg-[#6FF3EF] mt-2">
+            WhatsApp: +27 67 129 6775
+          </a>
+        </div>
+      </div>
+
+      <!-- LEGAL POLICIES & COMPLIANCE -->
+      <div id="legal" class="space-y-3 text-xs text-[#9EB1C2]">
+        <h4 class="text-xs font-bold text-[#F4F8FC] uppercase tracking-wider text-center border-b border-[#1B3550] pb-1">
+          SOUTH AFRICAN LEGAL COMPLIANCE
+        </h4>
+        
+        <div class="p-2.5 rounded-lg bg-[#0B1422] border border-[#1B3550]">
+          <h5 class="font-bold text-[#F4F8FC] text-[11px] mb-1">1. POPIA Act Compliance (Act 4 of 2013)</h5>
+          <p class="text-[10px] leading-relaxed">
+            Customer phone numbers entered for digital WhatsApp or email receipts are encrypted and stored solely for tax slip transmission under POPIA guidelines.
+          </p>
+        </div>
+
+        <div class="p-2.5 rounded-lg bg-[#0B1422] border border-[#1B3550]">
+          <h5 class="font-bold text-[#F4F8FC] text-[11px] mb-1">2. PayFast South Africa Agreement</h5>
+          <p class="text-[10px] leading-relaxed">
+            Subscriptions are billed monthly or annually via PayFast PCI-DSS Level 1 encrypted payment gateway. You can cancel recurring billing at any time without penalty.
+          </p>
+        </div>
+
+        <div class="p-2.5 rounded-lg bg-[#0B1422] border border-[#1B3550]">
+          <h5 class="font-bold text-[#F4F8FC] text-[11px] mb-1">3. Cashier &amp; Staff Code of Conduct</h5>
+          <p class="text-[10px] leading-relaxed">
+            Assigned 4-digit Staff PINs represent individual operator accountability for till drawers, item lookups, and cash-up reconciliation.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-auto pt-6 text-center text-[10px] text-[#9EB1C2]">
+        &copy; 2025 CodePOS™ &bull; Proprietary System
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT: ACCORDION, MODAL CONTROLS & SUBMISSION HANDLERS -->
   <script>
-    function toggleModal(id, show) {
-      const modal = document.getElementById(id);
-      if (modal) modal.classList.toggle('hidden', !show);
-    }
-
-    function toggleDrawer(id, show) {
-      const drawer = document.getElementById(id);
-      if (drawer) drawer.classList.toggle('hidden', !show);
-    }
-
-    function switchView(viewName) {
-      const mainView = document.getElementById('main-view');
-      const adminView = document.getElementById('admin-view');
-      if (viewName === 'admin') {
-        mainView.classList.add('hidden');
-        adminView.classList.remove('hidden');
-      } else {
-        adminView.classList.add('hidden');
-        mainView.classList.remove('hidden');
-      }
-    }
-
-    function switchToAdminDashboard() {
-      toggleModal('signin-modal', false);
-      switchView('admin');
-    }
-
-    function showAdminTab(tabName) {
-      const tabs = ['overview', 'onboard', 'stores', 'reports'];
-      tabs.forEach(tab => {
-        const el = document.getElementById('admin-tab-' + tab);
-        if (el) el.classList.toggle('hidden', tab !== tabName);
-      });
-
-      // Update button active state styling
-      const buttons = document.querySelectorAll('.admin-nav-btn');
-      buttons.forEach(btn => {
-        if (btn.innerText.toLowerCase().includes(tabName)) {
-          btn.classList.add('bg-brand-card', 'text-white', 'border', 'border-brand-border');
-          btn.classList.remove('text-[#8E9EAF]');
-        } else {
-          btn.classList.remove('bg-brand-card', 'text-white', 'border', 'border-brand-border');
-          btn.classList.add('text-[#8E9EAF]');
+    // Accordion Toggle Logic
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const arrow = document.getElementById('arrow-' + id);
+      
+      // Close other accordions
+      const allContents = document.querySelectorAll('.accordion-content');
+      const allArrows = document.querySelectorAll('[id^="arrow-"]');
+      
+      allContents.forEach(c => {
+        if (c.id !== id) {
+          c.style.maxHeight = '0px';
+          c.classList.remove('py-3');
+          c.classList.add('py-0');
         }
       });
-    }
+      allArrows.forEach(a => {
+        if (a.id !== 'arrow-' + id) {
+          a.classList.remove('rotate-180');
+        }
+      });
 
-    function generateInviteLink() {
-      const statusEl = document.getElementById('invite-status');
-      if (statusEl) statusEl.classList.remove('hidden');
-    }
-
-    function subscribeTier(tierName, priceZar) {
-      const url = `https://www.payfast.co.za/eng/process?item_name=CodePOS+${tierName}&amount=${priceZar}&return_url=https://www.codepos.co.za`;
-      window.open(url, '_blank');
-    }
-
-    function handleLoginSubmit() {
-      const val = document.getElementById('login-identifier').value.trim().toLowerCase();
-      if (val.includes('eurica') || val.includes('admin') || val === '4092') {
-        switchToAdminDashboard();
+      // Toggle clicked
+      if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        content.style.maxHeight = '0px';
+        content.classList.remove('py-3');
+        content.classList.add('py-0');
+        arrow.classList.remove('rotate-180');
       } else {
-        alert('Welcome! Connecting your Store Terminal session.');
-        toggleModal('signin-modal', false);
+        content.classList.remove('py-0');
+        content.classList.add('py-3');
+        content.style.maxHeight = content.scrollHeight + 40 + 'px';
+        arrow.classList.add('rotate-180');
       }
+    }
+
+    // Modal Controls
+    function toggleSignInModal() {
+      const modal = document.getElementById('modal-signin');
+      modal.classList.toggle('hidden');
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('modal-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Form submission feedback
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      alert('CodePOS Security Alert:\nYour account credentials have been logged. Access is pending Master Admin activation by Eurica Noeth.\n\nVerification notice dispatched.');
     }
   </script>
 </body>
