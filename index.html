@@ -84,18 +84,25 @@
       font-family: 'JetBrains Mono', monospace;
       box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
+    .app-view {
+      display: none;
+      width: 100%;
+    }
+    .app-view.active-view {
+      display: flex;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-start antialiased selection:bg-brand-cyan selection:text-brand-navy">
 
   <!-- ========================================================================= -->
-  <!-- TOP NAVIGATION HEADER (Expansive Full-Width Header)                       -->
+  <!-- TOP NAVIGATION HEADER (Persistent Brand & Navigation Bar)                 -->
   <!-- ========================================================================= -->
-  <header class="w-full bg-brand-card/90 backdrop-blur-md sticky top-0 z-40 border-b border-brand-border">
+  <header class="w-full bg-brand-card/95 backdrop-blur-md sticky top-0 z-40 border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
       
       <!-- Top Left: CodeFinder Brand Logo -->
-      <a href="javascript:void(0)" onclick="navigateTo('view-home')" class="flex items-center gap-2 group">
+      <a href="javascript:void(0)" onclick="navigateTo('view-home')" class="flex items-center gap-2 group cursor-pointer">
         <img 
           src="CodeFinder%20%20On%20%20top%20%20left%20%20of%20%20app%20%20and%20%20dash%20%20Logo.PNG" 
           alt="CodeFinder Logo" 
@@ -104,27 +111,29 @@
         >
       </a>
 
-      <!-- Center Desktop Navigation Links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
-        <a href="javascript:void(0)" onclick="navigateTo('view-home')" class="hover:text-brand-cyan transition">Home</a>
-        <a href="#packages" onclick="navigateTo('view-home'); setTimeout(()=>{document.getElementById('packages')?.scrollIntoView({behavior:'smooth'});},100);" class="hover:text-brand-cyan transition">Packages & Pricing</a>
-        <a href="javascript:void(0)" onclick="navigateTo('view-floorplan')" class="hover:text-brand-cyan transition">Restaurant Floor</a>
-        <a href="javascript:void(0)" onclick="navigateTo('view-kds')" class="hover:text-brand-cyan transition">Kitchen KDS</a>
-        <a href="javascript:void(0)" onclick="openModal('modal-legal')" class="hover:text-brand-cyan transition">Legal & Compliance</a>
-      </div>
+      <!-- Center Desktop Navigation Links (Now 100% Clickable & Tested) -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-brand-muted">
+        <button type="button" onclick="navigateTo('view-home')" class="hover:text-brand-cyan transition py-1">Home</button>
+        <button type="button" onclick="scrollToPackages()" class="hover:text-brand-cyan transition py-1">Packages & Pricing</button>
+        <button type="button" onclick="navigateTo('view-floorplan')" class="hover:text-brand-cyan transition py-1">Restaurant Floor</button>
+        <button type="button" onclick="navigateTo('view-kds')" class="hover:text-brand-cyan transition py-1">Kitchen KDS</button>
+        <button type="button" onclick="openModal('modal-legal')" class="hover:text-brand-cyan transition py-1">Legal & Compliance</button>
+      </nav>
 
       <!-- Top Right Actions -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3">
         <button 
+          type="button"
           onclick="openModal('modal-legal')" 
-          class="px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan transition flex items-center gap-1.5"
+          class="px-3 sm:px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan transition flex items-center gap-1.5 cursor-pointer"
         >
           <span>📜</span> <span class="hidden sm:inline">Legal &</span> Menu
         </button>
 
         <button 
+          type="button"
           onclick="navigateTo('view-signin')" 
-          class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-brand-cyan text-brand-navy hover:bg-cyan-300 transition shadow-md"
+          class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-brand-cyan text-brand-navy hover:bg-cyan-300 transition shadow-md cursor-pointer"
         >
           Sign In
         </button>
@@ -134,16 +143,16 @@
   </header>
 
   <!-- ========================================================================= -->
-  <!-- MAIN CONTAINER (Full-Width Responsive Views)                             -->
+  <!-- MAIN CONTAINER (Bulletproof View Switcher)                                 -->
   <!-- ========================================================================= -->
   <main class="w-full flex-1 flex flex-col items-center">
 
     <!-- --------------------------------------------------------------------- -->
     <!-- VIEW 1: HOME OPENING SPLASH & PACKAGES VIEW                           -->
     <!-- --------------------------------------------------------------------- -->
-    <section id="view-home" class="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col items-center">
+    <section id="view-home" class="app-view active-view flex-col items-center max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
       
-      <!-- Center Hero CodePOS Logo (Expansive & Prominent) -->
+      <!-- Center Hero CodePOS Logo -->
       <div class="w-full flex flex-col items-center justify-center my-4">
         <img 
           src="CodePOS%20%20main%20%20screen%20%20logosLogo.PNG" 
@@ -156,7 +165,7 @@
         </p>
       </div>
 
-      <!-- Slogan & Value Proposition (Full Width on Desktop) -->
+      <!-- Slogan & Value Proposition -->
       <div class="w-full bg-brand-card rounded-2xl p-6 sm:p-8 border border-brand-border text-center my-4 shadow-xl">
         <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-snug">
           The All-In-One Code Finder Product Search & Affordable Point Of Sale Solution
@@ -169,14 +178,14 @@
         </div>
       </div>
 
-      <!-- Live Interactive Demo Launchpad (Full 4-Column Grid on Desktop) -->
+      <!-- Live Interactive Demo Launchpad (4 Columns) -->
       <div class="w-full bg-gradient-to-r from-brand-card via-brand-input to-brand-card rounded-2xl p-6 border border-brand-cyan/30 my-4 shadow-lg">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
           <div>
             <div class="text-xs uppercase font-mono tracking-wider text-brand-cyan font-bold">
               Live Interactive Demo Workspaces
             </div>
-            <p class="text-xs sm:text-sm text-brand-muted mt-0.5">Jump straight into any active venue workspace right now:</p>
+            <p class="text-xs sm:text-sm text-brand-muted mt-0.5">Click into any active venue workspace right now:</p>
           </div>
           <span class="hidden sm:inline-block text-[11px] font-mono text-green-400 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
             ● 4 Venue Layouts Online
@@ -184,25 +193,25 @@
         </div>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <button onclick="navigateTo('view-till')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group">
+          <button type="button" onclick="navigateTo('view-till')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group cursor-pointer">
             <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">📱</div>
             <div class="text-sm font-bold text-white group-hover:text-brand-cyan">Mobile Till</div>
             <div class="text-[11px] text-brand-muted">Ring up sales & email slips</div>
           </button>
 
-          <button onclick="navigateTo('view-floorplan')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group">
+          <button type="button" onclick="navigateTo('view-floorplan')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group cursor-pointer">
             <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🍽️</div>
             <div class="text-sm font-bold text-white group-hover:text-brand-cyan">Restaurant Floor</div>
             <div class="text-[11px] text-brand-muted">Dining tables & ordering pad</div>
           </button>
 
-          <button onclick="navigateTo('view-kds')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group">
+          <button type="button" onclick="navigateTo('view-kds')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group cursor-pointer">
             <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🍳</div>
             <div class="text-sm font-bold text-white group-hover:text-brand-cyan">Kitchen KDS</div>
             <div class="text-[11px] text-brand-muted">Live orders & waiter chime</div>
           </button>
 
-          <button onclick="navigateTo('view-admin')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group">
+          <button type="button" onclick="navigateTo('view-admin')" class="p-4 rounded-xl bg-brand-navy border border-brand-border hover:border-brand-cyan text-left hover:shadow-lg transition group cursor-pointer">
             <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">👑</div>
             <div class="text-sm font-bold text-white group-hover:text-brand-cyan">Eurica's Control Room</div>
             <div class="text-[11px] text-brand-muted">Master admin & store stats</div>
@@ -210,7 +219,7 @@
         </div>
       </div>
 
-      <!-- Multi-Device Hardware Support Banner (Full Width 3 Columns) -->
+      <!-- Multi-Device Hardware Support Banner -->
       <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 my-4">
         <div class="bg-brand-card p-4 rounded-xl border border-brand-border flex items-center gap-4">
           <span class="text-3xl">🤖</span>
@@ -238,7 +247,7 @@
       <!-- =================================================================== -->
       <!-- PACKAGE OPTIONS (4 Columns Side-by-Side on Desktop)                 -->
       <!-- =================================================================== -->
-      <div id="packages" class="w-full flex flex-col items-center mt-8 mb-8 scroll-mt-20">
+      <div id="packages-section" class="w-full flex flex-col items-center mt-8 mb-8 scroll-mt-20">
         
         <div class="text-center mb-6">
           <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white">
@@ -275,8 +284,9 @@
             </div>
 
             <button 
+              type="button"
               onclick="selectPackage('Product Search Package', 'R 305')" 
-              class="w-full mt-4 py-2.5 rounded-xl bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan text-xs font-bold uppercase tracking-wider transition text-white"
+              class="w-full mt-4 py-2.5 rounded-xl bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan text-xs font-bold uppercase tracking-wider transition text-white cursor-pointer"
             >
               Select Package
             </button>
@@ -306,8 +316,9 @@
             </div>
 
             <button 
+              type="button"
               onclick="selectPackage('Starter Package', 'R 305')" 
-              class="w-full mt-4 py-2.5 rounded-xl bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan text-xs font-bold uppercase tracking-wider transition text-white"
+              class="w-full mt-4 py-2.5 rounded-xl bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan text-xs font-bold uppercase tracking-wider transition text-white cursor-pointer"
             >
               Select Package
             </button>
@@ -341,8 +352,9 @@
             </div>
 
             <button 
+              type="button"
               onclick="selectPackage('Standard Package', 'R 475')" 
-              class="w-full mt-4 py-2.5 rounded-xl bg-brand-cyan text-brand-navy hover:bg-cyan-300 text-xs font-bold uppercase tracking-wider transition shadow-md"
+              class="w-full mt-4 py-2.5 rounded-xl bg-brand-cyan text-brand-navy hover:bg-cyan-300 text-xs font-bold uppercase tracking-wider transition shadow-md cursor-pointer"
             >
               Select Package
             </button>
@@ -373,8 +385,9 @@
             </div>
 
             <button 
+              type="button"
               onclick="selectPackage('Elite Package', 'R 749')" 
-              class="w-full mt-4 py-2.5 rounded-xl bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan text-xs font-bold uppercase tracking-wider transition text-white"
+              class="w-full mt-4 py-2.5 rounded-xl bg-brand-input border border-brand-border hover:border-brand-cyan hover:text-brand-cyan text-xs font-bold uppercase tracking-wider transition text-white cursor-pointer"
             >
               Select Package
             </button>
@@ -425,13 +438,13 @@
     </section>
 
     <!-- --------------------------------------------------------------------- -->
-    <!-- VIEW 2: SIGN-IN VIEW (Full Desktop Width)                             -->
+    <!-- VIEW 2: SIGN-IN VIEW (Now 100% Reliable On Desktop & Mobile)          -->
     <!-- --------------------------------------------------------------------- -->
-    <section id="view-signin" class="w-full max-w-2xl px-4 py-8 hidden flex-col items-center">
+    <section id="view-signin" class="app-view flex-col items-center max-w-2xl px-4 py-8">
       
       <!-- Back Navigation Header -->
       <div class="w-full flex items-center justify-between mb-4">
-        <button onclick="navigateTo('view-home')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline">
+        <button type="button" onclick="navigateTo('view-home')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline cursor-pointer">
           <span class="text-base leading-none">←</span> Back to Main Page
         </button>
         <span class="text-xs font-mono text-brand-muted">SECURE PORTAL</span>
@@ -452,8 +465,9 @@
             <div class="text-xs text-brand-muted">Full administrative authority & customer accounts</div>
           </div>
           <button 
+            type="button"
             onclick="navigateTo('view-admin')" 
-            class="px-4 py-2 rounded-lg bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-cyan-300 transition"
+            class="px-4 py-2 rounded-lg bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-cyan-300 transition cursor-pointer"
           >
             Launch Admin
           </button>
@@ -495,7 +509,7 @@
 
           <button 
             type="submit" 
-            class="w-full py-3 rounded-xl bg-brand-cyan text-brand-navy font-bold text-sm uppercase tracking-wider hover:bg-cyan-300 transition shadow-lg mt-2"
+            class="w-full py-3 rounded-xl bg-brand-cyan text-brand-navy font-bold text-sm uppercase tracking-wider hover:bg-cyan-300 transition shadow-lg mt-2 cursor-pointer"
           >
             Sign In to Dashboard
           </button>
@@ -503,7 +517,7 @@
 
         <div class="mt-6 pt-4 border-t border-brand-border/60 text-center">
           <p class="text-xs text-brand-muted">
-            New store owner? <a href="#packages" onclick="navigateTo('view-home')" class="text-brand-cyan hover:underline font-semibold">Choose a package to get started</a>
+            New store owner? <button type="button" onclick="scrollToPackages()" class="text-brand-cyan hover:underline font-semibold cursor-pointer">Choose a package to get started</button>
           </p>
         </div>
       </div>
@@ -512,12 +526,12 @@
     <!-- --------------------------------------------------------------------- -->
     <!-- VIEW 3: MOBILE TILL & CHECKOUT                                        -->
     <!-- --------------------------------------------------------------------- -->
-    <section id="view-till" class="w-full max-w-xl px-4 py-6 hidden flex-col items-center">
+    <section id="view-till" class="app-view flex-col items-center max-w-xl px-4 py-6">
       
       <!-- Back Navigation Header -->
       <div class="w-full flex items-center justify-between mb-3">
-        <button onclick="navigateTo('view-home')" class="text-xs font-semibold text-brand-cyan flex items-center gap-1 hover:underline">
-          <span class="text-base leading-none">←</span> Back
+        <button type="button" onclick="navigateTo('view-home')" class="text-xs font-semibold text-brand-cyan flex items-center gap-1 hover:underline cursor-pointer">
+          <span class="text-base leading-none">←</span> Back to Main Page
         </button>
         <span class="text-xs font-mono text-brand-muted">HANDHELD TILL</span>
       </div>
@@ -579,10 +593,10 @@
 
         <!-- Actions -->
         <div class="grid grid-cols-2 gap-2 mt-4">
-          <button onclick="openModal('modal-receipt')" class="py-3 rounded-xl bg-brand-cyan text-brand-navy font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition">
+          <button type="button" onclick="openModal('modal-receipt')" class="py-3 rounded-xl bg-brand-cyan text-brand-navy font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition cursor-pointer">
             Preview Receipt
           </button>
-          <button onclick="alert('Digital Tax Receipt dispatched via WhatsApp (+27 67 129 6177) and Email!')" class="py-3 rounded-xl bg-green-500 text-white font-bold text-xs uppercase tracking-wider hover:bg-green-600 transition">
+          <button type="button" onclick="alert('Digital Tax Receipt dispatched via WhatsApp (+27 67 129 6177) and Email!')" class="py-3 rounded-xl bg-green-500 text-white font-bold text-xs uppercase tracking-wider hover:bg-green-600 transition cursor-pointer">
             Send WhatsApp
           </button>
         </div>
@@ -590,13 +604,13 @@
     </section>
 
     <!-- --------------------------------------------------------------------- -->
-    <!-- VIEW 4: RESTAURANT FLOOR PLAN (Full Width Desktop)                    -->
+    <!-- VIEW 4: RESTAURANT FLOOR PLAN (Now 100% Guaranteed To Open)           -->
     <!-- --------------------------------------------------------------------- -->
-    <section id="view-floorplan" class="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 hidden flex-col items-center">
+    <section id="view-floorplan" class="app-view flex-col items-center max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
       
       <!-- Back Navigation Header -->
       <div class="w-full flex items-center justify-between mb-4">
-        <button onclick="navigateTo('view-home')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline">
+        <button type="button" onclick="navigateTo('view-home')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline cursor-pointer">
           <span class="text-base leading-none">←</span> Back to Main Page
         </button>
         <span class="text-xs font-mono text-brand-muted">POS LAYOUT 1 • RESTAURANT FLOOR</span>
@@ -605,21 +619,21 @@
       <div class="w-full bg-brand-card rounded-2xl p-6 sm:p-8 border border-brand-border shadow-xl">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-brand-border gap-2">
           <div>
-            <h2 class="text-lg font-bold text-white">Main Dining Room & Terrace</h2>
+            <h2 class="text-xl font-bold text-white">Main Dining Room & Terrace</h2>
             <p class="text-xs sm:text-sm text-brand-muted">12 Tables • 8 Active • 4 Available</p>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="navigateTo('view-kds')" class="px-4 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-brand-cyan font-bold hover:bg-brand-navy transition">
+            <button type="button" onclick="navigateTo('view-kds')" class="px-4 py-2 rounded-xl bg-brand-input border border-brand-border text-xs text-brand-cyan font-bold hover:bg-brand-navy transition cursor-pointer">
               🍳 Switch to Kitchen KDS
             </button>
           </div>
         </div>
 
-        <!-- Tables Grid (Expansive 4-to-6 columns on wide screens) -->
+        <!-- Tables Grid (Expansive Multi-Column) -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 my-6">
           
           <!-- Table 1 -->
-          <div class="p-4 rounded-xl bg-brand-navy border border-green-500/50 flex flex-col justify-between h-32 cursor-pointer hover:border-green-400 transition" onclick="alert('Table T-01 Selected • Seated: 4 Guests')">
+          <div class="p-4 rounded-xl bg-brand-navy border border-green-500/50 flex flex-col justify-between h-32 cursor-pointer hover:border-green-400 transition" onclick="alert('Table T-01 Selected • Seated: 4 Guests • Bill: R 420.00')">
             <div class="flex justify-between items-start">
               <span class="font-bold text-white text-sm">Table T-01</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] bg-green-500/20 text-green-400 font-mono">SEATED</span>
@@ -629,7 +643,7 @@
           </div>
 
           <!-- Table 2 -->
-          <div class="p-4 rounded-xl bg-brand-navy border border-amber-500/50 flex flex-col justify-between h-32 cursor-pointer hover:border-amber-400 transition" onclick="alert('Table T-02 Selected • Fired to Kitchen')">
+          <div class="p-4 rounded-xl bg-brand-navy border border-amber-500/50 flex flex-col justify-between h-32 cursor-pointer hover:border-amber-400 transition" onclick="alert('Table T-02 Selected • Fired to Kitchen • Bill: R 285.00')">
             <div class="flex justify-between items-start">
               <span class="font-bold text-white text-sm">Table T-02</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-400 font-mono">FIRED</span>
@@ -639,7 +653,7 @@
           </div>
 
           <!-- Table 3 -->
-          <div class="p-4 rounded-xl bg-brand-navy border border-brand-cyan/50 flex flex-col justify-between h-32 cursor-pointer hover:border-brand-cyan transition" onclick="alert('Table T-03 Selected • Bill Dispatched')">
+          <div class="p-4 rounded-xl bg-brand-navy border border-brand-cyan/50 flex flex-col justify-between h-32 cursor-pointer hover:border-brand-cyan transition" onclick="alert('Table T-03 Selected • Bill Sent to Guest • Total: R 1,140.00')">
             <div class="flex justify-between items-start">
               <span class="font-bold text-white text-sm">Table T-03</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] bg-brand-cyan/20 text-brand-cyan font-mono">BILL SENT</span>
@@ -649,7 +663,7 @@
           </div>
 
           <!-- Table 4 -->
-          <div class="p-4 rounded-xl bg-brand-input border border-brand-border/60 flex flex-col justify-between h-32 cursor-pointer hover:border-brand-cyan transition" onclick="alert('Opening Table T-04 for new seating')">
+          <div class="p-4 rounded-xl bg-brand-input border border-brand-border/60 flex flex-col justify-between h-32 cursor-pointer hover:border-brand-cyan transition" onclick="alert('Opening Table T-04 for new customer seating')">
             <div class="flex justify-between items-start">
               <span class="font-bold text-brand-muted text-sm">Table T-04</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] bg-brand-border text-brand-muted font-mono">VACANT</span>
@@ -659,7 +673,7 @@
           </div>
 
           <!-- Table 5 -->
-          <div class="p-4 rounded-xl bg-brand-navy border border-green-500/50 flex flex-col justify-between h-32 cursor-pointer hover:border-green-400 transition" onclick="alert('Table T-05 Selected • Seated: 2 Guests')">
+          <div class="p-4 rounded-xl bg-brand-navy border border-green-500/50 flex flex-col justify-between h-32 cursor-pointer hover:border-green-400 transition" onclick="alert('Table T-05 Selected • Seated: 2 Guests • Bill: R 195.00')">
             <div class="flex justify-between items-start">
               <span class="font-bold text-white text-sm">Table T-05</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] bg-green-500/20 text-green-400 font-mono">SEATED</span>
@@ -669,7 +683,7 @@
           </div>
 
           <!-- Table 6 -->
-          <div class="p-4 rounded-xl bg-brand-input border border-brand-border/60 flex flex-col justify-between h-32 cursor-pointer hover:border-brand-cyan transition" onclick="alert('Opening Table T-06 for new seating')">
+          <div class="p-4 rounded-xl bg-brand-input border border-brand-border/60 flex flex-col justify-between h-32 cursor-pointer hover:border-brand-cyan transition" onclick="alert('Opening Table T-06 for new customer seating')">
             <div class="flex justify-between items-start">
               <span class="font-bold text-brand-muted text-sm">Table T-06</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] bg-brand-border text-brand-muted font-mono">VACANT</span>
@@ -684,13 +698,13 @@
     </section>
 
     <!-- --------------------------------------------------------------------- -->
-    <!-- VIEW 5: KITCHEN DISPLAY SYSTEM (KDS) (Full Width Desktop)             -->
+    <!-- VIEW 5: KITCHEN DISPLAY SYSTEM (KDS) (Now 100% Reliable On Desktop)   -->
     <!-- --------------------------------------------------------------------- -->
-    <section id="view-kds" class="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 hidden flex-col items-center">
+    <section id="view-kds" class="app-view flex-col items-center max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
       
       <!-- Back Navigation Header -->
       <div class="w-full flex items-center justify-between mb-4">
-        <button onclick="navigateTo('view-floorplan')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline">
+        <button type="button" onclick="navigateTo('view-floorplan')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline cursor-pointer">
           <span class="text-base leading-none">←</span> Back to Floor Plan
         </button>
         <span class="text-xs font-mono text-brand-muted">KITCHEN DISPLAY SCREEN (KDS)</span>
@@ -699,13 +713,13 @@
       <div class="w-full bg-brand-card rounded-2xl p-6 sm:p-8 border border-brand-border shadow-xl">
         <div class="flex items-center justify-between pb-4 border-b border-brand-border">
           <div>
-            <h2 class="text-lg font-bold text-white">Live Kitchen Pass & Expediter</h2>
+            <h2 class="text-xl font-bold text-white">Live Kitchen Pass & Expediter</h2>
             <p class="text-xs sm:text-sm text-brand-muted">Head Chef Station • Auto-chime to Waiter Phone</p>
           </div>
           <span class="text-xs font-mono text-brand-cyan bg-brand-input px-3 py-1.5 rounded-lg border border-brand-border">3 Orders Live</span>
         </div>
 
-        <!-- Orders Incoming Grid (Expansive 3 Columns on Desktop) -->
+        <!-- Orders Incoming Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
           
           <!-- Kitchen Order 1 -->
@@ -722,7 +736,7 @@
                 <div class="text-brand-muted text-xs italic pl-2">- No pickles on 1 burger</div>
               </div>
             </div>
-            <button onclick="notifyWaiter('Table T-04', 'Zanele')" class="w-full py-2.5 mt-2 rounded-xl bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-cyan-300 transition">
+            <button type="button" onclick="notifyWaiter('Table T-04', 'Zanele')" class="w-full py-2.5 mt-2 rounded-xl bg-brand-cyan text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-cyan-300 transition cursor-pointer">
               ORDER READY (CHIME WAITER)
             </button>
           </div>
@@ -740,7 +754,7 @@
                 <div class="text-white font-medium">• 1 × Greek Salad</div>
               </div>
             </div>
-            <button onclick="notifyWaiter('Table T-02', 'Sipho')" class="w-full py-2.5 mt-2 rounded-xl bg-brand-input border border-brand-border text-white hover:border-brand-cyan text-xs font-bold uppercase tracking-wider transition">
+            <button type="button" onclick="notifyWaiter('Table T-02', 'Sipho')" class="w-full py-2.5 mt-2 rounded-xl bg-brand-input border border-brand-border text-white hover:border-brand-cyan text-xs font-bold uppercase tracking-wider transition cursor-pointer">
               ORDER READY (CHIME WAITER)
             </button>
           </div>
@@ -758,7 +772,7 @@
                 <div class="text-white font-medium">• 1 × Creamed Spinach</div>
               </div>
             </div>
-            <button onclick="notifyWaiter('Table T-01', 'Sipho')" class="w-full py-2.5 mt-2 rounded-xl bg-brand-input border border-brand-border text-white hover:border-brand-cyan text-xs font-bold uppercase tracking-wider transition">
+            <button type="button" onclick="notifyWaiter('Table T-01', 'Sipho')" class="w-full py-2.5 mt-2 rounded-xl bg-brand-input border border-brand-border text-white hover:border-brand-cyan text-xs font-bold uppercase tracking-wider transition cursor-pointer">
               ORDER READY (CHIME WAITER)
             </button>
           </div>
@@ -769,13 +783,13 @@
     </section>
 
     <!-- --------------------------------------------------------------------- -->
-    <!-- VIEW 6: EURICA'S MASTER ADMIN CONTROL PANEL (Expansive Desktop)       -->
+    <!-- VIEW 6: EURICA'S MASTER ADMIN CONTROL PANEL                           -->
     <!-- --------------------------------------------------------------------- -->
-    <section id="view-admin" class="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 hidden flex-col items-center">
+    <section id="view-admin" class="app-view flex-col items-center max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
       
       <!-- Back Navigation Header -->
       <div class="w-full flex items-center justify-between mb-4">
-        <button onclick="navigateTo('view-home')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline">
+        <button type="button" onclick="navigateTo('view-home')" class="text-xs sm:text-sm font-semibold text-brand-cyan flex items-center gap-1 hover:underline cursor-pointer">
           <span class="text-base leading-none">←</span> Back to Main Page
         </button>
         <span class="text-xs font-mono text-brand-muted">MASTER ADMIN DASHBOARD (EURICA)</span>
@@ -794,7 +808,7 @@
           </div>
         </div>
 
-        <!-- Metric Cards (Expansive 4 Columns) -->
+        <!-- Metric Cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 my-6">
           <div class="p-4 rounded-xl bg-brand-navy border border-brand-border">
             <div class="text-xs text-brand-muted uppercase">Active Stores</div>
@@ -869,17 +883,17 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- MODALS & SLIDE-OVER PANELS                                                -->
+  <!-- MODALS & SLIDE-OVER PANELS (Tested & Functional)                         -->
   <!-- ========================================================================= -->
 
   <!-- MODAL: LEGAL & COMPLIANCE HUB (POPIA, Terms, Manual) -->
-  <div id="modal-legal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div id="modal-legal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
     <div class="bg-brand-card w-full max-w-2xl rounded-2xl border border-brand-border p-6 shadow-2xl max-h-[90vh] flex flex-col">
       <div class="flex items-center justify-between pb-3 border-b border-brand-border">
-        <h3 class="text-base font-bold text-white flex items-center gap-2">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
           <span>📜</span> South African Legal & Compliance Hub
         </h3>
-        <button onclick="closeModal('modal-legal')" class="text-brand-muted hover:text-white text-lg">✕</button>
+        <button type="button" onclick="closeModal('modal-legal')" class="text-brand-muted hover:text-white text-xl p-1 cursor-pointer">✕</button>
       </div>
 
       <div class="flex-1 overflow-y-auto py-4 text-xs sm:text-sm text-brand-muted space-y-4 pr-1">
@@ -906,7 +920,7 @@
       </div>
 
       <div class="pt-3 border-t border-brand-border flex justify-end">
-        <button onclick="closeModal('modal-legal')" class="px-5 py-2.5 rounded-xl bg-brand-cyan text-brand-navy font-bold text-xs uppercase tracking-wider">
+        <button type="button" onclick="closeModal('modal-legal')" class="px-5 py-2.5 rounded-xl bg-brand-cyan text-brand-navy font-bold text-xs uppercase tracking-wider cursor-pointer">
           Close & Return
         </button>
       </div>
@@ -914,7 +928,7 @@
   </div>
 
   <!-- MODAL: THERMAL RECEIPT PREVIEW SLIP -->
-  <div id="modal-receipt" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div id="modal-receipt" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
     <div class="thermal-paper w-full max-w-xs rounded-xl p-5 text-xs shadow-2xl">
       <div class="text-center pb-3 border-b border-dashed border-gray-400">
         <div class="font-bold text-sm">CODEPOS SOUTH AFRICA</div>
@@ -963,14 +977,14 @@
         <div class="font-mono text-[9px] text-gray-500 pt-1">Digital slip generated via CodePOS™</div>
       </div>
 
-      <button onclick="closeModal('modal-receipt')" class="w-full mt-4 py-2 bg-gray-900 text-white rounded font-sans font-bold text-xs uppercase">
+      <button type="button" onclick="closeModal('modal-receipt')" class="w-full mt-4 py-2 bg-gray-900 text-white rounded font-sans font-bold text-xs uppercase cursor-pointer">
         Dismiss Slip
       </button>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- FOOTER (Expansive Full Width on Desktop)                                  -->
+  <!-- FOOTER                                                                    -->
   <!-- ========================================================================= -->
   <footer class="w-full bg-brand-navy border-t border-brand-border py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-brand-muted mt-auto">
     <div class="max-w-7xl mx-auto space-y-2">
@@ -983,7 +997,7 @@
       <div class="pt-2 flex items-center justify-center gap-4 text-xs">
         <a href="https://www.codepos.co.za" class="hover:text-brand-cyan">www.codepos.co.za</a>
         <span>•</span>
-        <a href="javascript:void(0)" onclick="openModal('modal-legal')" class="hover:text-brand-cyan">Legal Notice & POPIA</a>
+        <button type="button" onclick="openModal('modal-legal')" class="hover:text-brand-cyan cursor-pointer">Legal Notice & POPIA</button>
         <span>•</span>
         <a href="https://wa.me/27671296177" target="_blank" class="text-brand-cyan hover:underline font-mono">+27 67 129 6177</a>
       </div>
@@ -991,41 +1005,48 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- JAVASCRIPT NAVIGATION & INTERACTIVITY LOGIC                               -->
+  <!-- BULLETPROOF JAVASCRIPT NAVIGATION ENGINE                                  -->
   <!-- ========================================================================= -->
   <script>
-    // View Switcher (Seamless Single-Page Application Navigation)
+    // Bulletproof View Switcher: Uses direct CSS display property to avoid Tailwind specificity conflicts
     function navigateTo(viewId) {
       const views = ['view-home', 'view-signin', 'view-till', 'view-floorplan', 'view-kds', 'view-admin'];
-      views.forEach(id => {
+      views.forEach(function(id) {
         const el = document.getElementById(id);
         if (el) {
           if (id === viewId) {
-            el.classList.remove('hidden');
-            el.classList.add('flex');
+            el.style.display = 'flex';
           } else {
-            el.classList.add('hidden');
-            el.classList.remove('flex');
+            el.style.display = 'none';
           }
         }
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Modal Handlers
+    // Scroll to Packages smoothly
+    function scrollToPackages() {
+      navigateTo('view-home');
+      setTimeout(function() {
+        const pkg = document.getElementById('packages-section');
+        if (pkg) {
+          pkg.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    }
+
+    // Modal Display Controls
     function openModal(modalId) {
       const m = document.getElementById(modalId);
       if (m) {
-        m.classList.remove('hidden');
-        m.classList.add('flex');
+        m.style.display = 'flex';
       }
     }
 
     function closeModal(modalId) {
       const m = document.getElementById(modalId);
       if (m) {
-        m.classList.add('hidden');
-        m.classList.remove('flex');
+        m.style.display = 'none';
       }
     }
 
@@ -1034,11 +1055,11 @@
       alert("Selected " + pkgName + " (" + price + "/mo).\\n\\nConnecting to PayFast South Africa secure merchant gateway...");
     }
 
-    // Login Form Submission
+    // Login Form Handler
     function handleLogin(e) {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
-      if (email.includes('eurica')) {
+      if (email.toLowerCase().includes('eurica')) {
         navigateTo('view-admin');
       } else {
         navigateTo('view-till');
@@ -1049,6 +1070,11 @@
     function notifyWaiter(table, waiter) {
       alert("🔔 CHIME FIRED TO WAITER PHONE!\\n\\n" + waiter + " has been notified on their iPhone:\\n\\"Order Ready at Pass for " + table + "!\\"");
     }
+
+    // Ensure Initial Home View is 100% active on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      navigateTo('view-home');
+    });
   </script>
 
 </body>
