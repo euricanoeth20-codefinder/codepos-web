@@ -11,9 +11,9 @@
   <meta name="author" content="Eurica Noeth">
   <link rel="canonical" href="https://www.codepos.co.za/">
 
-  <!-- Favicon & Touch Icons -->
-  <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=128&q=80">
-  <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=180&q=80">
+  <!-- Favicon & Touch Icons from your uploaded repository images -->
+  <link rel="icon" type="image/png" href="codepos-icon.png">
+  <link rel="apple-touch-icon" href="codepos-icon.png">
 
   <!-- Google SEO Schema Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -141,16 +141,13 @@
 <body class="min-h-screen flex flex-col items-center justify-start antialiased selection:bg-[#48D4D0] selection:text-[#0B1422]">
 
   <!-- Top Sticky Header -->
-  <header class="w-full sticky top-0 z-40 bg-[#0B1422]/95 backdrop-blur-md border-b border-[#1E314B] px-4 py-3 flex items-center justify-between">
-    <!-- Top-Left Official CodeFinder™ Branding -->
-    <a href="#" class="flex items-center space-x-2 group">
-      <div class="h-9 px-2.5 rounded-xl bg-[#101F33] border border-[#1E314B] flex items-center space-x-1.5 shadow-sm group-hover:border-[#48D4D0] transition-colors">
-        <svg class="w-5 h-5 text-[#48D4D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <span class="text-sm font-bold tracking-tight text-white">Code<span class="text-[#48D4D0]">Finder</span><span class="text-[9px] text-gray-400 align-super ml-0.5">™</span></span>
-      </div>
+  <header class="w-full sticky top-0 z-40 bg-[#0B1422]/95 backdrop-blur-md border-b border-[#1E314B] px-4 py-2.5 flex items-center justify-between">
+    <!-- Top-Left Official CodeFinder™ Logo (Loads directly from your repository) -->
+    <a href="#" class="flex items-center group">
+      <img src="codefinder-logo.png" 
+           onerror="this.onerror=null; this.src='CodeFinder Logo.PNG'; this.onerror=function(){this.src='CodeFinder On top left of app and dash Logo.PNG';};" 
+           alt="CodeFinder Logo" 
+           class="h-9 max-h-9 w-auto object-contain transition-transform group-hover:scale-105">
     </a>
 
     <!-- Top-Right Action Buttons -->
@@ -172,22 +169,17 @@
   <!-- Main Container -->
   <main class="w-full max-w-md px-4 py-5 flex flex-col items-center text-center space-y-5">
 
-    <!-- Centerpiece: Official CodePOS™ Retail Terminal Emblem -->
+    <!-- Centerpiece: Official CodePOS™ Retail Terminal Emblem (Loads directly from your repository) -->
     <div class="w-full p-4 rounded-3xl bg-[#101F33] border border-[#1E314B] shadow-xl relative overflow-hidden flex flex-col items-center">
       <!-- Glow backlight effect -->
       <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-[#48D4D0]/15 rounded-full blur-3xl pointer-events-none"></div>
 
       <!-- Center Logo Artwork Container -->
-      <div class="w-44 h-28 relative flex items-center justify-center my-1">
-        <div class="relative flex flex-col items-center justify-center">
-          <div class="w-16 h-14 rounded-2xl bg-[#0B1422] border-2 border-[#48D4D0] flex flex-col items-center justify-center shadow-[0_0_20px_rgba(72,212,208,0.4)] relative">
-            <svg class="w-8 h-8 text-[#48D4D0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-            </svg>
-            <div class="absolute -top-2 px-2 py-0.5 rounded-full bg-[#48D4D0] text-[#0B1422] text-[8px] font-bold">POS</div>
-          </div>
-          <div class="text-2xl font-black tracking-tight text-white mt-1">Code<span class="text-[#48D4D0]">POS</span><span class="text-xs text-gray-400 align-super ml-0.5">™</span></div>
-        </div>
+      <div class="w-full flex items-center justify-center my-2 relative z-10">
+        <img src="codepos-logo.png" 
+             onerror="this.onerror=null; this.src='CodePOS Logo.PNG'; this.onerror=function(){this.src='CodePOS main screen logosLogo.PNG';};" 
+             alt="CodePOS Official Logo" 
+             class="w-64 max-w-full h-auto max-h-36 object-contain drop-shadow-[0_0_25px_rgba(72,212,208,0.35)]">
       </div>
 
       <!-- Slogan -->
