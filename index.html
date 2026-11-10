@@ -1,962 +1,449 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>CodePOS™ & CodeFinder™ — Zero-Hardware POS & AI Product Lookup</title>
-  
-  <!-- Favicon & Touch Icon -->
-  <link rel="icon" type="image/png" href="CodePOS%20App%20icon.PNG" />
-  <link rel="apple-touch-icon" href="CodePOS%20App%20icon.PNG" />
-  
-  <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  
-  <!-- Tailwind CSS Play CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CodePOS™ — Zero-Hardware Mobile POS &amp; Product Search South Africa</title>
+  <meta name="description" content="CodePOS™ South Africa. Zero-hardware smartphone Point of Sale, AI SKU camera search, 7-day shift roster &amp; digital WhatsApp tax receipts.">
+
+  <!-- Favicon / App Icon -->
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/aida-public/AB6AXuB7_m7Ut8MPyfaGrjV6NPIT_OVN_nC2S1IHw2DeUS4DvGxkn2dbzSXguXGcat_RJEjp6y7N37F6YNBAr-YFT76lZrxd9hzxCn1PVYCaFH6rQnNV2i0OBC0-M43Fwp0FBU4DjZ7hVc8tdph5XSeuEiJ4CbTmbgiviMA-9w-YLZivJwXVJqYZLkRh5iE4zzEXqsl0b_uljW0nQzeGHpn3qcQtbaDrEkebyxcWNvUhdhm9NC5aFoOn3GdV">
+  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/aida-public/AB6AXuB7_m7Ut8MPyfaGrjV6NPIT_OVN_nC2S1IHw2DeUS4DvGxkn2dbzSXguXGcat_RJEjp6y7N37F6YNBAr-YFT76lZrxd9hzxCn1PVYCaFH6rQnNV2i0OBC0-M43Fwp0FBU4DjZ7hVc8tdph5XSeuEiJ4CbTmbgiviMA-9w-YLZivJwXVJqYZLkRh5iE4zzEXqsl0b_uljW0nQzeGHpn3qcQtbaDrEkebyxcWNvUhdhm9NC5aFoOn3GdV">
+
+  <!-- Tailwind CSS & Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            surface: {
-              DEFAULT: '#0B1422',
-              card: '#101F33',
-              input: '#14283A',
-              border: '#1F344D'
+            brand: {
+              DEFAULT: '#48d4d0',
+              glow: '#6ff3ef',
+              dark: '#1cb0ac',
             },
-            cyan: {
-              DEFAULT: '#48D4D0',
-              glow: '#6FF3EF',
-              dark: '#2AA6A3'
+            surface: {
+              base: '#0b1422',
+              panel: '#101f33',
+              input: '#14283a',
+              card: '#131c2a',
+              border: '#1f344d',
             }
           },
           fontFamily: {
             sans: ['"Space Grotesk"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
+            mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
       }
-    };
+    }
   </script>
 
   <style>
     body {
-      background-color: #0B1422;
-      color: #F4F8FC;
+      background-color: #0b1422;
+      color: #f4f8fc;
       font-family: 'Space Grotesk', sans-serif;
       overflow-x: hidden;
-      -webkit-tap-highlight-color: transparent;
     }
-    .glow-cyan {
+    .teal-glow {
       box-shadow: 0 0 25px rgba(72, 212, 208, 0.25);
     }
-    .glow-border {
+    .neon-border {
+      border: 1px solid rgba(72, 212, 208, 0.45);
+    }
+    .neon-pill {
+      background: rgba(72, 212, 208, 0.12);
       border: 1px solid rgba(72, 212, 208, 0.4);
-    }
-    /* Hide non-active views */
-    .view-container {
-      display: none;
-    }
-    .view-container.active {
-      display: block;
-    }
-    /* Custom Scrollbars */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0B1422;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1F344D;
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #48D4D0;
+      color: #48d4d0;
     }
   </style>
 </head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 bg-surface-base selection:bg-brand selection:text-surface-base text-base">
 
-<body class="min-h-screen bg-surface flex flex-col justify-between selection:bg-cyan selection:text-surface">
+  <!-- Top App Navigation Bar (Top-Left Logo Stretched Edge-to-Edge) -->
+  <header class="w-full max-w-md mx-auto flex items-center justify-between py-3 px-2 border-b border-surface-border/50 mb-4">
+    <!-- Top-Left Company Logo Stretched to Fill the Entire Box with Zero Side Margins -->
+    <a href="/" class="flex items-center group">
+      <div class="w-44 sm:w-52 h-12 flex items-center justify-center p-0 overflow-hidden rounded-xl bg-surface-panel/90 border border-brand/50 shadow-md">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlrg77BlbrgXdJRZ8mCh8Z8j4Y5qK8UdHHJ7_bTSXXwL1-wahRrf51YVA8juCmAnIuceytvhEyTt8dPZHr4-TaMMhViduC5Bfm9mZ_NV9NxCcqdjV5YvYSCKpjLg6z1JJ2FqF1FyZZbe4Q5o_k3YGMLsOqdd7iCT-CQLNyA6ZOPbKW9lqDfvFewK9zFdCt_N9bMyTcd-4VTRXD1lc1MQu6xZvI_kVYVUauG1lMAbw0jE0R1p9AnA3L" 
+             alt="Code-SA Logo" 
+             class="w-full h-full object-cover transform scale-105 drop-shadow-[0_0_12px_rgba(72,212,208,0.35)]">
+      </div>
+    </a>
 
-  <!-- ========================================================================= -->
-  <!-- GLOBAL HEADER (Present on every screen) -->
-  <!-- ========================================================================= -->
-  <header class="sticky top-0 z-50 bg-[#0B1422]/95 backdrop-blur border-b border-surface-border px-4 py-3">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      
-      <!-- Left: Official Code-SA™ Parent Logo & Navigation -->
-      <div class="flex items-center gap-4">
-        <a href="javascript:void(0)" onclick="switchView('view-home')" class="flex items-center gap-2 group">
-          <img src="Code-SA%20Logo%20.png" alt="Code-SA™ Logo" class="h-8 md:h-9 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='Code-SA Logo .png'; this.onerror=null;" />
-          <div class="hidden sm:flex flex-col text-left">
-            <span class="text-xs uppercase font-mono tracking-widest text-cyan font-semibold">Enterprise Software</span>
-            <span class="text-[10px] text-gray-400">South Africa</span>
-          </div>
-        </a>
+    <!-- Menu & Legal Button -->
+    <button onclick="toggleModal('legalModal')" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl neon-pill font-mono text-xs sm:text-sm font-bold hover:bg-brand/20 transition-all shrink-0">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+      </svg>
+      <span>MENU &amp; LEGAL</span>
+    </button>
+  </header>
+
+  <!-- Main Public Commercial Feed -->
+  <main class="w-full max-w-md mx-auto flex flex-col gap-4 text-center">
+
+    <!-- Hero Card with Centered CodePOS™ Logo & One-Line Tagline -->
+    <section class="bg-surface-panel/90 border border-surface-border rounded-2xl p-5 teal-glow flex flex-col items-center">
+      <div class="w-full max-w-md sm:max-w-lg flex items-center justify-center mb-3 mx-auto">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7_m7Ut8MPyfaGrjV6NPIT_OVN_nC2S1IHw2DeUS4DvGxkn2dbzSXguXGcat_RJEjp6y7N37F6YNBAr-YFT76lZrxd9hzxCn1PVYCaFH6rQnNV2i0OBC0-M43Fwp0FBU4DjZ7hVc8tdph5XSeuEiJ4CbTmbgiviMA-9w-YLZivJwXVJqYZLkRh5iE4zzEXqsl0b_uljW0nQzeGHpn3qcQtbaDrEkebyxcWNvUhdhm9NC5aFoOn3GdV" 
+             alt="CodePOS™" 
+             class="w-full max-w-sm sm:max-w-md h-auto object-contain mx-auto rounded-xl drop-shadow-[0_0_20px_rgba(72,212,208,0.25)] hover:scale-105 transition-transform duration-200">
       </div>
 
-      <!-- Center Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-1 bg-surface-card px-3 py-1.5 rounded-full border border-surface-border text-xs">
-        <button onclick="switchView('view-home')" class="px-3 py-1 rounded-full text-gray-300 hover:text-cyan hover:bg-surface-input transition">Home</button>
-        <button onclick="switchView('view-waiter-tables')" class="px-3 py-1 rounded-full text-gray-300 hover:text-cyan hover:bg-surface-input transition">📱 Waiter iPhone</button>
-        <button onclick="switchView('view-kds')" class="px-3 py-1 rounded-full text-gray-300 hover:text-cyan hover:bg-surface-input transition">🍳 Kitchen KDS</button>
-        <button onclick="switchView('view-restaurant-floor')" class="px-3 py-1 rounded-full text-gray-300 hover:text-cyan hover:bg-surface-input transition">🍽️ Floor Plan</button>
-        <button onclick="switchView('view-till')" class="px-3 py-1 rounded-full text-gray-300 hover:text-cyan hover:bg-surface-input transition">🛒 Mobile Till</button>
-        <button onclick="switchView('view-recipe-db')" class="px-3 py-1 rounded-full text-gray-300 hover:text-cyan hover:bg-surface-input transition">🥩 Recipes &amp; GP%</button>
-      </nav>
+      <!-- Centered One-Line Clean Tagline (Enlarged to 15px Bold) -->
+      <div class="flex flex-col items-center justify-center mx-auto text-center mt-1">
+        <p class="text-sm sm:text-base text-white font-bold tracking-normal text-center mx-auto font-['Space_Grotesk'] leading-relaxed">
+          Your Affordable all-in-one CodePos Point of Sale
+        </p>
+      </div>
+    </section>
 
-      <!-- Right: Direct Sign-In & Eurica's Master Cockpit -->
-      <div class="flex items-center gap-2.5">
-        <button onclick="switchView('view-master-admin')" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan/10 border border-cyan/40 text-cyan hover:bg-cyan hover:text-surface text-xs font-semibold tracking-wide transition shadow-sm">
-          <span>👑 Eurica's Admin</span>
+    <!-- Value Proposition & Device Compatibility (Enlarged Fonts) -->
+    <section class="bg-surface-panel/80 border border-surface-border rounded-2xl p-4 flex flex-col gap-3">
+      <div class="flex items-center justify-center gap-1.5 text-brand text-xs sm:text-sm font-mono font-bold uppercase tracking-wider">
+        <svg class="w-4 h-4 text-brand" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+        </svg>
+        <span>NO EXPENSIVE HARDWARE NEEDED</span>
+      </div>
+
+      <p class="text-sm sm:text-base text-gray-200 font-medium leading-relaxed">
+        Turning Any Standard Smartphone (Android, Huawei, Apple) And Windows Desktop Into A Handheld POS
+      </p>
+
+      <!-- 3 Device Badges (15px Device Names + 12px Sublabels) -->
+      <div class="grid grid-cols-3 gap-2.5 pt-1 font-mono">
+        <div class="bg-surface-input/80 border border-surface-border rounded-xl p-3 flex flex-col items-center">
+          <span class="text-2xl mb-1">📱</span>
+          <span class="text-sm sm:text-base text-white font-bold">Android</span>
+          <span class="text-xs text-gray-400 font-medium">Phone</span>
+        </div>
+        <div class="bg-surface-input/80 border border-surface-border rounded-xl p-3 flex flex-col items-center">
+          <span class="text-2xl mb-1">🍏</span>
+          <span class="text-sm sm:text-base text-white font-bold">Apple</span>
+          <span class="text-xs text-gray-400 font-medium">iPhone</span>
+        </div>
+        <div class="bg-surface-input/80 border border-surface-border rounded-xl p-3 flex flex-col items-center">
+          <span class="text-2xl mb-1">💻</span>
+          <span class="text-sm sm:text-base text-white font-bold">Windows</span>
+          <span class="text-xs text-gray-400 font-medium">Laptop</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Package Options Title with 2 Sentences Underneath Each Other (Enlarged) -->
+    <section class="pt-2 flex flex-col items-center justify-center text-center">
+      <div class="inline-block px-5 py-2 rounded-full neon-pill font-mono font-bold text-xs sm:text-sm uppercase tracking-widest shadow-[0_0_15px_rgba(72,212,208,0.2)] mb-2">
+        • PACKAGE OPTIONS •
+      </div>
+      <!-- Sentence 1 -->
+      <p class="text-sm sm:text-base text-gray-200 font-mono font-medium">
+        Select Your Licence Tier Option
+      </p>
+      <!-- Sentence 2 Directly Underneath -->
+      <p class="text-xs sm:text-sm text-brand font-mono font-bold tracking-wide mt-1">
+        14-Day Free Trial Included
+      </p>
+    </section>
+
+    <!-- 4 Public Packages (Enlarged Titles, Subtitles & Prices) -->
+    <div class="flex flex-col gap-3.5 text-left">
+
+      <!-- 1. PRODUCT SEARCH -->
+      <div class="bg-surface-panel border neon-border rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+        <button onclick="toggleAccordion('pkg1')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-black border border-surface-border flex items-center justify-center text-brand shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-base sm:text-lg font-bold text-white tracking-wide">PRODUCT SEARCH</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-mono">Database &amp; 3-Way Instant Scan</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-mono text-brand font-bold text-base sm:text-lg">R 305 <span class="text-xs text-gray-400 font-normal">/ mo</span></span>
+            <svg id="pkg1-arrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
         </button>
-        <button onclick="togglePortalDirectory()" class="p-2 rounded-lg bg-surface-card border border-surface-border text-gray-300 hover:text-cyan hover:border-cyan transition lg:hidden" title="All App Screens Menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <div id="pkg1" class="hidden px-4 pb-4 pt-1 border-t border-surface-border/50 bg-surface-card/60 text-sm text-gray-300">
+          <p class="mb-3 leading-relaxed">Manual product search, smartphone camera barcode scanner, and AI visual SKU item recognition. Includes product catalog dashboard and 14-day free trial.</p>
+          <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20would%20like%20to%20start%20my%2014-Day%20Free%20Trial%20for%20Product%20Search%20(R305/mo)" 
+             class="inline-block w-full py-2.5 text-center rounded-xl bg-brand text-surface-base font-bold font-mono text-sm hover:bg-brand-glow transition-all uppercase tracking-wider">
+            START 14-DAY FREE TRIAL
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. STARTER PACKAGE -->
+      <div class="bg-surface-panel border neon-border rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+        <button onclick="toggleAccordion('pkg2')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-black border border-surface-border flex items-center justify-center text-brand shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-base sm:text-lg font-bold text-white tracking-wide">STARTER PACKAGE</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-mono">Barcode Lookup &amp; AI Photo Scanning</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-mono text-brand font-bold text-base sm:text-lg">R 305 <span class="text-xs text-gray-400 font-normal">/ mo</span></span>
+            <svg id="pkg2-arrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
         </button>
+        <div id="pkg2" class="hidden px-4 pb-4 pt-1 border-t border-surface-border/50 bg-surface-card/60 text-sm text-gray-300">
+          <p class="mb-3 leading-relaxed">Manual product search, barcode &amp; camera picture scan. Single handheld till point, WhatsApp/email digital slips, and daily end-of-day sales reconciliation.</p>
+          <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20would%20like%20to%20start%20my%2014-Day%20Free%20Trial%20for%20Starter%20Package%20(R305/mo)" 
+             class="inline-block w-full py-2.5 text-center rounded-xl bg-brand text-surface-base font-bold font-mono text-sm hover:bg-brand-glow transition-all uppercase tracking-wider">
+            START 14-DAY FREE TRIAL
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. STANDARD PACKAGE -->
+      <div class="bg-surface-panel border neon-border rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+        <button onclick="toggleAccordion('pkg3')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-black border border-surface-border flex items-center justify-center text-brand shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-base sm:text-lg font-bold text-white tracking-wide">STANDARD PACKAGE</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-mono">3 Scan Modes &amp; Product Database</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-mono text-brand font-bold text-base sm:text-lg">R 475 <span class="text-xs text-gray-400 font-normal">/ mo</span></span>
+            <svg id="pkg3-arrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </button>
+        <div id="pkg3" class="hidden px-4 pb-4 pt-1 border-t border-surface-border/50 bg-surface-card/60 text-sm text-gray-300">
+          <p class="mb-3 leading-relaxed">Full owner access to product database with editing capabilities. Interactive recipe builder with live ingredient GP% costing, inventory control, and daily cash-up reports.</p>
+          <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20would%20like%20to%20start%20my%2014-Day%20Free%20Trial%20for%20Standard%20Package%20(R475/mo)" 
+             class="inline-block w-full py-2.5 text-center rounded-xl bg-brand text-surface-base font-bold font-mono text-sm hover:bg-brand-glow transition-all uppercase tracking-wider">
+            START 14-DAY FREE TRIAL
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. ELITE PACKAGE -->
+      <div class="bg-surface-panel border neon-border rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+        <button onclick="toggleAccordion('pkg4')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-black border border-surface-border flex items-center justify-center text-brand shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-base sm:text-lg font-bold text-white tracking-wide">ELITE PACKAGE</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-mono">Multi-Terminal, Spaza, Resto, Hotel</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-mono text-brand font-bold text-base sm:text-lg">R 749 <span class="text-xs text-gray-400 font-normal">/ mo</span></span>
+            <svg id="pkg4-arrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </button>
+        <div id="pkg4" class="hidden px-4 pb-4 pt-1 border-t border-surface-border/50 bg-surface-card/60 text-sm text-gray-300">
+          <p class="mb-3 leading-relaxed">Dedicated venue layouts for Spaza shops, Restaurants (Floor Plan + KDS), Guesthouses (Room Folios), and Liquor Stores. Unlimited staff PINs, 7-day staff shift roster, and multi-terminal till sync.</p>
+          <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20would%20like%20to%20start%20my%2014-Day%20Free%20Trial%20for%20Elite%20Package%20(R749/mo)" 
+             class="inline-block w-full py-2.5 text-center rounded-xl bg-brand text-surface-base font-bold font-mono text-sm hover:bg-brand-glow transition-all uppercase tracking-wider">
+            START 14-DAY FREE TRIAL
+          </a>
+        </div>
       </div>
 
     </div>
-  </header>
 
-  <!-- ========================================================================= -->
-  <!-- PORTAL QUICK-SWITCHER DRAWER (Accessible anytime) -->
-  <!-- ========================================================================= -->
-  <div id="portal-directory" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex justify-end transition-opacity">
-    <div class="w-full max-w-sm bg-surface-card h-full border-l border-surface-border p-5 flex flex-col justify-between overflow-y-auto">
+    <!-- Client Sign-In Trigger (Enlarged) -->
+    <button onclick="toggleModal('signInModal')" class="w-full py-3.5 rounded-xl bg-surface-panel border-2 border-brand/50 text-brand font-mono font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 hover:bg-brand/10 transition-all shadow-md">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+      </svg>
+      <span>Client &amp; Store Terminal Sign-In</span>
+    </button>
+
+    <!-- Software Developer Attribution Card (Enlarged) -->
+    <section class="bg-surface-panel/80 border border-surface-border rounded-xl p-3.5 flex items-center justify-between text-left shadow-sm">
       <div>
-        <div class="flex items-center justify-between pb-4 border-b border-surface-border mb-4">
-          <div class="flex items-center gap-2">
-            <span class="text-cyan text-lg">⚡</span>
-            <h3 class="font-bold text-white text-base">All App Screens &amp; Portals</h3>
-          </div>
-          <button onclick="togglePortalDirectory()" class="text-gray-400 hover:text-white p-1 text-lg">✕</button>
+        <div class="text-xs font-mono text-gray-400 uppercase tracking-widest font-semibold">SOFTWARE DEVELOPER</div>
+        <div class="text-sm sm:text-base font-bold text-white font-mono mt-0.5">Eurica Noeth</div>
+      </div>
+      <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20am%20interested%20in%20CodePOS%20Software" 
+         class="px-3 py-1.5 rounded-full neon-pill text-xs font-mono font-bold hover:bg-brand/20 transition-all flex items-center gap-1.5 shrink-0">
+        <span class="w-2 h-2 rounded-full bg-brand"></span>
+        <span>WhatsApp Developer</span>
+      </a>
+    </section>
+
+    <!-- Discreet Master Admin Access -->
+    <div class="pt-1">
+      <button onclick="toggleModal('adminModal')" class="text-xs sm:text-sm font-mono font-bold text-gray-400 hover:text-brand transition-colors tracking-widest uppercase inline-flex items-center gap-2 cursor-pointer">
+        <span>🔑</span>
+        <span>Master Admin Portal</span>
+      </button>
+    </div>
+
+    <!-- Copyright Footer (Enlarged to 12px) -->
+    <footer class="pt-1 pb-6 text-xs font-mono text-gray-400 text-center leading-relaxed">
+      <div>© 2025 • www.codepos.co.za • All Rights Reserved •</div>
+      <div>Copyright Protected. Proprietary Software by Eurica Noeth</div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL 1: MENU & LEGAL (High Readability) -->
+  <div id="legalModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-surface-panel border neon-border rounded-2xl w-full max-w-md max-h-[85vh] flex flex-col overflow-hidden text-left shadow-2xl">
+      <div class="p-4 border-b border-surface-border flex items-center justify-between">
+        <div class="font-mono text-sm font-bold text-brand uppercase tracking-wider">MENU &amp; OFFICIAL DIRECTORY</div>
+        <button onclick="toggleModal('legalModal')" class="text-gray-400 hover:text-white font-mono text-base font-bold">✕</button>
+      </div>
+
+      <div class="p-4 overflow-y-auto text-sm text-gray-200 flex flex-col gap-4 font-mono">
+        <div>
+          <div class="text-brand font-bold text-sm mb-1.5">OFFICIAL CONTACTS:</div>
+          <div class="text-gray-200">WhatsApp Desk: +27 67 129 6177</div>
+          <div class="text-gray-200">Sales: sales@codepos.co.za</div>
+          <div class="text-gray-200">Accounts: accounts@codepos.co.za</div>
+          <div class="text-gray-200">Founder: eurica@codepos.co.za</div>
         </div>
 
-        <div class="space-y-2 text-sm font-medium">
-          <p class="text-[11px] uppercase tracking-wider text-gray-400 font-mono mt-2 mb-1">Frontline Hospitality Tills</p>
-          <button onclick="switchViewAndClose('view-waiter-tables')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>📱 Waiter iPhone (Table Selector)</span>
-            <span class="text-xs text-cyan">Live</span>
-          </button>
-          <button onclick="switchViewAndClose('view-waiter-order')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>🥩 Table 123 Order Pad &amp; Modifiers</span>
-            <span class="text-xs text-cyan">Live</span>
-          </button>
-          <button onclick="switchViewAndClose('view-kds')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>🍳 Kitchen Display System (KDS)</span>
-            <span class="text-xs text-cyan">Live</span>
-          </button>
-          <button onclick="switchViewAndClose('view-restaurant-floor')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>🍽️ Restaurant Dining Floor Plan</span>
-            <span class="text-xs text-cyan">Live</span>
-          </button>
-          <button onclick="switchViewAndClose('view-till')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>🛒 Mobile Counter Till &amp; Slip</span>
-            <span class="text-xs text-cyan">Live</span>
-          </button>
+        <div class="border-t border-surface-border pt-3">
+          <div class="text-brand font-bold text-sm mb-1.5">LEGAL &amp; COMPLIANCE:</div>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-2">
+            CodePOS™ operates strictly in compliance with the South African Protection of Personal Information Act (POPIA 2013) and Commercial Tax Invoicing Standards. Customer telephone numbers and receipts are transmitted securely and never shared.
+          </p>
+        </div>
 
-          <p class="text-[11px] uppercase tracking-wider text-gray-400 font-mono mt-4 mb-1">Management &amp; Executive</p>
-          <button onclick="switchViewAndClose('view-master-admin')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between text-cyan font-semibold">
-            <span>👑 Eurica's Master Admin Cockpit</span>
-            <span class="text-xs">Active</span>
-          </button>
-          <button onclick="switchViewAndClose('view-recipe-db')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>🥩 Products Database &amp; Recipe Link</span>
-            <span class="text-xs text-gray-400">Owner</span>
-          </button>
-          <button onclick="switchViewAndClose('view-cashup')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>💵 End-of-Day Cash-Up &amp; Z-Report</span>
-            <span class="text-xs text-gray-400">Reports</span>
-          </button>
-          <button onclick="switchViewAndClose('view-home')" class="w-full text-left p-2.5 rounded-lg bg-surface-input hover:border-cyan border border-transparent transition flex items-center justify-between">
-            <span>🌐 Public Showroom &amp; Packages</span>
-            <span class="text-xs text-gray-400">Public</span>
-          </button>
+        <div class="border-t border-surface-border pt-3">
+          <div class="text-brand font-bold text-sm mb-1.5">LICENCE &amp; TRIAL TERMS:</div>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            All 4 standalone packages include a 14-Day Free Trial. No debit order or credit card required to begin testing. PayFast SA Level 1 PCI-DSS encryption supported.
+          </p>
         </div>
       </div>
 
-      <div class="pt-4 border-t border-surface-border text-xs text-gray-400 space-y-1">
-        <p class="font-mono text-[11px] text-cyan">Direct Commercial Desk:</p>
-        <p class="text-white">+27 67 129 6177 (WhatsApp Active)</p>
-        <p class="text-gray-400">eurica@codepos.co.za</p>
+      <div class="p-3.5 border-t border-surface-border bg-surface-card flex justify-end">
+        <button onclick="toggleModal('legalModal')" class="px-5 py-2 rounded-xl bg-surface-border text-white font-mono text-sm font-bold hover:bg-surface-input">Close</button>
       </div>
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- VIEW 1: MAIN PUBLIC SHOWROOM & OPENING PORTAL (Default Home) -->
-  <!-- ========================================================================= -->
-  <main id="view-home" class="view-container active flex-1">
-    <div class="max-w-4xl mx-auto px-4 py-8 md:py-12 text-center flex flex-col items-center">
-      
-      <!-- Official Center CodePOS Logo (Option 4 Zero-Hardware Smartphone) -->
-      <div class="mb-6 relative group">
-        <div class="absolute -inset-1 rounded-2xl bg-cyan/20 blur-xl opacity-75 group-hover:opacity-100 transition"></div>
-        <img src="CodePOS%20Logo.png" alt="CodePOS™ Master Brand Logo" class="relative w-64 md:w-80 h-auto object-contain mx-auto transition-transform duration-300 hover:scale-105" onerror="this.src='CodePOS Logo.png'; this.onerror=null;" />
+  <!-- MODAL 2: MASTER ADMIN PORTAL (SECURE ACCESS) -->
+  <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-surface-panel border neon-border rounded-2xl w-full max-w-md p-5 text-left shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-surface-border">
+        <div class="font-mono text-sm font-bold text-brand uppercase tracking-wider">👑 EXECUTIVE MASTER ADMIN LOGIN</div>
+        <button onclick="toggleModal('adminModal')" class="text-gray-400 hover:text-white font-mono text-base font-bold">✕</button>
       </div>
+      <form onsubmit="handleAdminLogin(event)" class="py-4 flex flex-col gap-3.5 font-mono text-sm">
+        <div>
+          <label class="block text-gray-300 mb-1 font-semibold">Executive Administrator Email:</label>
+          <input id="adminEmail" type="email" value="eurica@codepos.co.za" class="w-full p-3 rounded-xl bg-surface-input border border-surface-border text-white focus:outline-none focus:border-brand text-sm">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1 font-semibold">Master Passkey:</label>
+          <input id="adminPass" type="password" placeholder="Enter EuricaSecure Passkey" class="w-full p-3 rounded-xl bg-surface-input border border-surface-border text-white focus:outline-none focus:border-brand text-sm">
+        </div>
+        <div id="adminErr" class="hidden text-red-400 text-xs font-bold">Invalid passkey entered. Access denied.</div>
+        <div class="flex justify-end gap-2.5 pt-2">
+          <button type="button" onclick="toggleModal('adminModal')" class="px-5 py-2 rounded-xl bg-surface-border text-white font-mono text-sm hover:bg-surface-input">Cancel</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-brand text-surface-base font-bold font-mono text-sm hover:bg-brand-glow">Unlock Control Room</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
-        The All-In-One CodeFinder Product Search &amp; Affordable Point of Sale Solution
-      </h1>
-
-      <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto mb-8 font-normal">
-        No Expensive Hardware Needed • Turning Any Standard Smartphone (Android, Huawei, Apple) And Windows Desktop Into A Handheld POS
-      </p>
-
-      <!-- Quick Operational Action Buttons -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl mb-12">
-        <button onclick="switchView('view-waiter-tables')" class="p-3.5 rounded-xl bg-surface-card border border-surface-border hover:border-cyan text-left transition group">
-          <span class="text-2xl block mb-1">📱</span>
-          <span class="text-xs font-semibold text-white group-hover:text-cyan block">Waiter iPhone</span>
-          <span class="text-[10px] text-gray-400">Table Orders &amp; Pass</span>
+  <!-- MODAL 3: CLIENT & STORE TERMINAL SIGN-IN -->
+  <div id="signInModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-surface-panel border neon-border rounded-2xl w-full max-w-md p-5 text-left shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-surface-border">
+        <div class="font-mono text-sm font-bold text-brand uppercase tracking-wider">CLIENT &amp; STORE TERMINAL SIGN-IN</div>
+        <button onclick="toggleModal('signInModal')" class="text-gray-400 hover:text-white font-mono text-base font-bold">✕</button>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Terminal Access: Your store account will be activated by Master Admin once subscription is confirmed.'); toggleModal('signInModal');" class="py-4 flex flex-col gap-3.5 font-mono text-sm">
+        <div>
+          <label class="block text-gray-300 mb-1 font-semibold">Store Account Email:</label>
+          <input type="text" placeholder="store@yourbusiness.co.za" class="w-full p-3 rounded-xl bg-surface-input border border-surface-border text-white focus:outline-none focus:border-brand text-sm">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1 font-semibold">4-Digit PIN or Password:</label>
+          <input type="password" placeholder="••••" class="w-full p-3 rounded-xl bg-surface-input border border-surface-border text-white focus:outline-none focus:border-brand text-sm">
+        </div>
+        <button type="submit" class="w-full py-3 mt-2 rounded-xl bg-brand text-surface-base font-bold font-mono text-sm hover:bg-brand-glow transition-all uppercase tracking-wider">
+          SIGN IN TO TERMINAL
         </button>
-        <button onclick="switchView('view-kds')" class="p-3.5 rounded-xl bg-surface-card border border-surface-border hover:border-cyan text-left transition group">
-          <span class="text-2xl block mb-1">🍳</span>
-          <span class="text-xs font-semibold text-white group-hover:text-cyan block">Kitchen KDS</span>
-          <span class="text-[10px] text-gray-400">Order Tickets &amp; Pass</span>
-        </button>
-        <button onclick="switchView('view-restaurant-floor')" class="p-3.5 rounded-xl bg-surface-card border border-surface-border hover:border-cyan text-left transition group">
-          <span class="text-2xl block mb-1">🍽️</span>
-          <span class="text-xs font-semibold text-white group-hover:text-cyan block">Dining Floor</span>
-          <span class="text-[10px] text-gray-400">Color-Coded Tables</span>
-        </button>
-        <button onclick="switchView('view-master-admin')" class="p-3.5 rounded-xl bg-cyan/10 border border-cyan/40 hover:bg-cyan/20 text-left transition group">
-          <span class="text-2xl block mb-1">👑</span>
-          <span class="text-xs font-bold text-cyan block">Eurica's Desk</span>
-          <span class="text-[10px] text-cyan/80">Master Admin Portal</span>
-        </button>
-      </div>
-
-      <!-- The 4 Commercial Packages Section -->
-      <div class="w-full max-w-3xl mb-12">
-        <div class="flex items-center justify-between mb-4 px-2">
-          <h2 class="text-base font-bold uppercase tracking-wider text-cyan font-mono">Select Your Licence Tier Option</h2>
-          <span class="text-xs bg-cyan/10 text-cyan border border-cyan/30 px-2.5 py-0.5 rounded-full font-mono">14-Day Free Trial</span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-          <!-- Package 1: Starter -->
-          <div class="p-5 rounded-xl bg-surface-card border border-surface-border hover:border-cyan transition flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-mono uppercase text-gray-400 font-semibold">Tier 1</span>
-                <span class="text-xs text-cyan bg-cyan/10 px-2 py-0.5 rounded">R 305 / mo</span>
-              </div>
-              <h3 class="text-lg font-bold text-white mb-1">Starter Package</h3>
-              <p class="text-xs text-gray-400 mb-4">Single till point for spaza shops &amp; small retail stalls with digital WhatsApp receipts.</p>
-              <ul class="text-xs text-gray-300 space-y-2 mb-6">
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Zero hardware needed</li>
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> 15% SA VAT &amp; changemaker</li>
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Daily End-of-Day cash-up</li>
-              </ul>
-            </div>
-            <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I'd%20like%20to%20start%20my%2014-Day%20Trial%20for%20the%20CodePOS%20Starter%20Package." target="_blank" class="w-full py-2.5 rounded-lg bg-surface-input hover:bg-cyan hover:text-surface text-center font-bold text-xs text-white transition">Start 14-Day Free Trial</a>
-          </div>
-
-          <!-- Package 2: Standard (CodeFinder AI) -->
-          <div class="p-5 rounded-xl bg-surface-card border border-cyan/40 glow-border hover:border-cyan transition flex flex-col justify-between relative">
-            <span class="absolute -top-2.5 right-4 bg-cyan text-surface font-bold text-[10px] uppercase font-mono px-2 py-0.5 rounded-full">Most Popular</span>
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-mono uppercase text-gray-400 font-semibold">Tier 2</span>
-                <span class="text-xs text-cyan bg-cyan/10 px-2 py-0.5 rounded">R 475 / mo</span>
-              </div>
-              <h3 class="text-lg font-bold text-white mb-1">Standard Package</h3>
-              <p class="text-xs text-gray-400 mb-4">Complete POS till + 3-mode CodeFinder AI camera product scanner &amp; recipe costing.</p>
-              <ul class="text-xs text-gray-300 space-y-2 mb-6">
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Multi-terminal till access</li>
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> AI 600ms camera SKU search</li>
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Recipe builder &amp; live GP%</li>
-              </ul>
-            </div>
-            <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I'd%20like%20to%20start%20my%2014-Day%20Trial%20for%20the%20CodePOS%20Standard%20Package." target="_blank" class="w-full py-2.5 rounded-lg bg-cyan text-surface text-center font-bold text-xs hover:bg-cyan-dark transition">Start 14-Day Free Trial</a>
-          </div>
-
-          <!-- Package 3: Elite Hospitality -->
-          <div class="p-5 rounded-xl bg-surface-card border border-surface-border hover:border-cyan transition flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-mono uppercase text-gray-400 font-semibold">Tier 3</span>
-                <span class="text-xs text-cyan bg-cyan/10 px-2 py-0.5 rounded">R 749 / mo</span>
-              </div>
-              <h3 class="text-lg font-bold text-white mb-1">Elite Hospitality</h3>
-              <p class="text-xs text-gray-400 mb-4">Restaurants, bistros, hotels &amp; lodges with live KDS bump screen &amp; waiter pass.</p>
-              <ul class="text-xs text-gray-300 space-y-2 mb-6">
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Full Dining Table Floor Plan</li>
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Live Kitchen KDS &amp; Order Ready</li>
-                <li class="flex items-center gap-1.5"><span class="text-cyan">✓</span> Waiter Shift Cash-Up &amp; Roster</li>
-              </ul>
-            </div>
-            <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I'd%20like%20to%20start%20my%2014-Day%20Trial%20for%20the%20CodePOS%20Elite%20Hospitality%20Package." target="_blank" class="w-full py-2.5 rounded-lg bg-surface-input hover:bg-cyan hover:text-surface text-center font-bold text-xs text-white transition">Start 14-Day Free Trial</a>
-          </div>
-        </div>
-      </div>
-
+      </form>
     </div>
-  </main>
+  </div>
 
-  <!-- ========================================================================= -->
-  <!-- VIEW 2: WAITER iPHONE — SOLID APP-ICON TABLE SELECTOR -->
-  <!-- ========================================================================= -->
-  <section id="view-waiter-tables" class="view-container flex-1 max-w-md mx-auto w-full p-4">
-    <!-- Screen Header & Back Arrow -->
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-4">
-      <div class="flex items-center gap-2">
-        <button onclick="switchView('view-home')" class="p-1.5 rounded-lg bg-surface-card hover:bg-surface-input text-cyan transition text-sm">← Back</button>
-        <h2 class="font-bold text-white text-base">Waiter Order Pad: Active Tables</h2>
-      </div>
-      <span class="text-[11px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/30">Online • Shift: Sipho M.</span>
-    </div>
-
-    <!-- Instructions -->
-    <p class="text-xs text-gray-400 mb-3">Select or tap any table to view active bill, add items, or fire order to kitchen:</p>
-
-    <!-- Solid Squircle App-Icon Table Buttons -->
-    <div class="grid grid-cols-3 gap-3 mb-6">
-      <!-- Table 123 (Active Dining) -->
-      <button onclick="switchView('view-waiter-order')" class="p-4 rounded-2xl bg-gradient-to-br from-surface-input to-surface-card border-2 border-cyan/80 text-center shadow-lg transition-transform active:scale-95 flex flex-col items-center justify-center relative group">
-        <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-cyan animate-pulse"></span>
-        <span class="text-xs font-mono text-gray-400 uppercase tracking-widest block">Table</span>
-        <span class="text-2xl font-bold text-white group-hover:text-cyan">123</span>
-        <span class="text-[10px] text-cyan font-mono mt-1">4 PAX • R 585</span>
-      </button>
-
-      <!-- Table 04 (Order Fired) -->
-      <button onclick="alert('Table T-04: Order in preparation at Grill station.')" class="p-4 rounded-2xl bg-surface-card border border-amber-500/60 text-center shadow transition-transform active:scale-95 flex flex-col items-center justify-center relative">
-        <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-amber-400"></span>
-        <span class="text-xs font-mono text-gray-400 uppercase tracking-widest block">Table</span>
-        <span class="text-2xl font-bold text-white">T-04</span>
-        <span class="text-[10px] text-amber-400 font-mono mt-1">2 PAX • Fired</span>
-      </button>
-
-      <!-- Table 07 (Ready at Pass) -->
-      <button onclick="switchView('view-kds')" class="p-4 rounded-2xl bg-surface-card border-2 border-emerald-400/80 text-center shadow transition-transform active:scale-95 flex flex-col items-center justify-center relative">
-        <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="text-xs font-mono text-gray-400 uppercase tracking-widest block">Table</span>
-        <span class="text-2xl font-bold text-emerald-300">T-07</span>
-        <span class="text-[10px] text-emerald-400 font-mono mt-1">🔔 Ready</span>
-      </button>
-
-      <!-- Table 12 (Vacant) -->
-      <button onclick="alert('Table 12 is vacant. Click to seat new guests.')" class="p-4 rounded-2xl bg-surface-input border border-surface-border text-center hover:border-gray-500 transition-transform active:scale-95 flex flex-col items-center justify-center">
-        <span class="text-xs font-mono text-gray-500 uppercase tracking-widest block">Table</span>
-        <span class="text-2xl font-bold text-gray-400">T-12</span>
-        <span class="text-[10px] text-gray-500 font-mono mt-1">Vacant</span>
-      </button>
-
-      <!-- Table 15 (Vacant) -->
-      <button onclick="alert('Table 15 is vacant. Click to seat new guests.')" class="p-4 rounded-2xl bg-surface-input border border-surface-border text-center hover:border-gray-500 transition-transform active:scale-95 flex flex-col items-center justify-center">
-        <span class="text-xs font-mono text-gray-500 uppercase tracking-widest block">Table</span>
-        <span class="text-2xl font-bold text-gray-400">T-15</span>
-        <span class="text-[10px] text-gray-500 font-mono mt-1">Vacant</span>
-      </button>
-
-      <!-- Custom Dynamic Table Assignment -->
-      <button onclick="let t = prompt('Enter Table Number to Open:'); if(t) { switchView('view-waiter-order'); }" class="p-4 rounded-2xl bg-cyan/10 border border-dashed border-cyan/50 hover:bg-cyan/20 text-center transition flex flex-col items-center justify-center text-cyan">
-        <span class="text-xl font-bold">+</span>
-        <span class="text-[11px] font-semibold mt-1">Assign Table</span>
-      </button>
-    </div>
-
-    <!-- Waiter Actions -->
-    <div class="flex gap-2">
-      <button onclick="switchView('view-cashup')" class="flex-1 py-3 rounded-xl bg-surface-card border border-surface-border text-center text-xs font-semibold text-gray-300 hover:text-white transition">
-        💵 End Shift Cash-Up
-      </button>
-      <button onclick="switchView('view-kds')" class="flex-1 py-3 rounded-xl bg-surface-card border border-surface-border text-center text-xs font-semibold text-cyan hover:bg-cyan/10 transition">
-        🍳 Inspect Kitchen Pass
-      </button>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 3: WAITER iPHONE — TABLE 123 ORDER ENTRY & TOUCH MODIFIER PAD -->
-  <!-- ========================================================================= -->
-  <section id="view-waiter-order" class="view-container flex-1 max-w-md mx-auto w-full p-4">
-    <!-- Header -->
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-3">
-      <div class="flex items-center gap-2">
-        <button onclick="switchView('view-waiter-tables')" class="p-1 rounded-lg bg-surface-card hover:bg-surface-input text-cyan text-xs">← Tables</button>
-        <div>
-          <h2 class="font-bold text-white text-base">Table 123 • 4 PAX</h2>
-          <p class="text-[10px] text-gray-400">Server: Sipho M. • Station 2 (Grills)</p>
-        </div>
-      </div>
-      <span class="text-xs font-mono font-bold text-cyan bg-cyan/10 px-2.5 py-1 rounded-lg border border-cyan/30">R 585.00</span>
-    </div>
-
-    <!-- Category Pills -->
-    <div class="flex gap-1.5 overflow-x-auto pb-2 mb-3 text-xs scrollbar-none font-medium">
-      <span class="px-3 py-1 rounded-full bg-cyan text-surface font-bold shrink-0">🥩 Grills &amp; Steaks</span>
-      <span class="px-3 py-1 rounded-full bg-surface-card text-gray-300 hover:text-white shrink-0">🐟 Seafood</span>
-      <span class="px-3 py-1 rounded-full bg-surface-card text-gray-300 hover:text-white shrink-0">🍕 Woodfired Pizza</span>
-      <span class="px-3 py-1 rounded-full bg-surface-card text-gray-300 hover:text-white shrink-0">🍷 Bar &amp; Drinks</span>
-    </div>
-
-    <!-- Active Menu Dish Card (Aged Fillet 250g) -->
-    <div class="p-3.5 rounded-xl bg-surface-card border border-cyan/50 mb-4 shadow">
-      <div class="flex items-start justify-between mb-2">
-        <div>
-          <h3 class="font-bold text-white text-sm">Aged Beef Fillet (250g)</h3>
-          <p class="text-[11px] text-gray-400">Pasture-fed Karoo beef, basted</p>
-        </div>
-        <span class="font-mono text-cyan font-bold text-sm">R 245.00</span>
-      </div>
-
-      <!-- Touch Modifier Pad (Zero Typing Required) -->
-      <div class="bg-surface-input p-3 rounded-lg border border-surface-border text-xs space-y-2.5">
-        <!-- Cooking Temp -->
-        <div>
-          <label class="block text-[10px] uppercase font-mono text-gray-400 mb-1">1. Temperature <span class="text-cyan">*Required</span></label>
-          <div class="grid grid-cols-4 gap-1.5 text-center text-[11px]">
-            <span class="p-1.5 rounded bg-surface-card text-gray-400 border border-transparent">Rare</span>
-            <span class="p-1.5 rounded bg-cyan text-surface font-bold">Med Rare ✓</span>
-            <span class="p-1.5 rounded bg-surface-card text-gray-400 border border-transparent">Medium</span>
-            <span class="p-1.5 rounded bg-surface-card text-gray-400 border border-transparent">Well Done</span>
-          </div>
-        </div>
-
-        <!-- Side Selection -->
-        <div>
-          <label class="block text-[10px] uppercase font-mono text-gray-400 mb-1">2. Included Side <span class="text-cyan">*Pick 1</span></label>
-          <div class="grid grid-cols-2 gap-1.5 text-center text-[11px]">
-            <span class="p-1.5 rounded bg-cyan/20 text-cyan border border-cyan/40 font-semibold">Rustic Chips ✓</span>
-            <span class="p-1.5 rounded bg-surface-card text-gray-400">Creamy Mash</span>
-          </div>
-        </div>
-
-        <!-- Special Instructions / Rush Tags -->
-        <div>
-          <label class="block text-[10px] uppercase font-mono text-gray-400 mb-1">3. Rush Kitchen Tags</label>
-          <div class="flex flex-wrap gap-1.5 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-yellow-400 text-black font-bold">HOT PLATE ✓</span>
-            <span class="px-2 py-0.5 rounded bg-yellow-400/20 text-yellow-300 border border-yellow-400/40">Sauce on Side</span>
-            <span class="px-2 py-0.5 rounded bg-surface-card text-gray-400">Gluten Alert</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Active Table Order Tray Summary -->
-    <div class="p-3 rounded-xl bg-surface-card border border-surface-border mb-3 text-xs space-y-1.5">
-      <div class="flex justify-between text-gray-300">
-        <span>2x Karoo Lamb Chops (400g)</span>
-        <span class="font-mono">R 420.00</span>
-      </div>
-      <div class="flex justify-between text-gray-300">
-        <span>1x Aged Beef Fillet (250g) — Med Rare</span>
-        <span class="font-mono">R 245.00</span>
-      </div>
-      <div class="flex justify-between text-gray-300">
-        <span>1x Castle Lite Draught (500ml)</span>
-        <span class="font-mono">R 42.00</span>
-      </div>
-      <div class="pt-2 border-t border-surface-border flex justify-between font-bold text-white text-sm">
-        <span>Table 123 Total:</span>
-        <span class="text-cyan font-mono">R 707.00</span>
-      </div>
-    </div>
-
-    <!-- Action Bar: Fire to Kitchen -->
-    <div class="flex gap-2">
-      <button onclick="alert('🔥 Order Fired! Sent directly to Chef Thabo on KDS.'); switchView('view-kds');" class="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-red-500 text-white font-bold text-sm tracking-wide shadow-lg hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2">
-        <span>🔥 FIRE TO KITCHEN</span>
-      </button>
-      <button onclick="alert('Guest bill generated. Ready for Speedpoint card or Cash payment.');" class="px-4 py-3.5 rounded-xl bg-surface-card border border-cyan/40 text-cyan font-bold text-xs hover:bg-cyan/10 transition">
-        Bill
-      </button>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 4: LIVE KITCHEN DISPLAY SYSTEM (KDS) & BUMP SCREEN -->
-  <!-- Solo Head Chef / Expediter Mode: White/Gray Clean Text + Bright Yellow Instructions -->
-  <!-- ========================================================================= -->
-  <section id="view-kds" class="view-container flex-1 max-w-7xl mx-auto w-full p-4 md:p-6">
-    <!-- Top KDS Bar -->
-    <div class="flex flex-wrap items-center justify-between pb-3 border-b border-surface-border mb-4 gap-2">
-      <div class="flex items-center gap-3">
-        <button onclick="switchView('view-home')" class="px-2.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-input text-cyan text-xs font-semibold">← Main</button>
-        <div>
-          <h2 class="text-lg md:text-xl font-bold text-white">CodePOS KDS: Solo Head Chef &amp; Expediter Screen</h2>
-          <p class="text-xs text-gray-400">Station: Kitchen Pass &amp; Hot Line • Active Orders: 3</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full">KDS Sync: Live (0ms)</span>
-        <button onclick="switchView('view-waiter-tables')" class="text-xs bg-surface-card hover:bg-surface-input px-3 py-1.5 rounded-lg border border-surface-border text-cyan">📱 Waiter View</button>
-      </div>
-    </div>
-
-    <!-- Active Tickets Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      
-      <!-- Ticket 1: Table 123 (Grill Order) -->
-      <div class="rounded-xl bg-surface-card border-2 border-cyan p-4 flex flex-col justify-between shadow-xl">
-        <div>
-          <!-- Ticket Header -->
-          <div class="flex items-center justify-between pb-2 border-b border-surface-border mb-3">
-            <div class="flex items-center gap-2">
-              <span class="w-7 h-7 rounded-lg bg-cyan text-surface font-mono font-bold flex items-center justify-center text-sm">#1</span>
-              <div>
-                <span class="font-bold text-white text-base block">Table 123</span>
-                <span class="text-[11px] text-gray-400">Server: Sipho M.</span>
-              </div>
-            </div>
-            <span class="text-xs font-mono font-bold text-cyan bg-cyan/10 px-2 py-0.5 rounded">04:18 elapsed</span>
-          </div>
-
-          <!-- Dishes Ordered: White text, Yellow modifiers -->
-          <div class="space-y-3 mb-4">
-            <div class="pb-2 border-b border-surface-border/50">
-              <div class="flex justify-between font-bold text-white text-sm">
-                <span>1x Aged Beef Fillet (250g)</span>
-                <span class="text-gray-400 text-xs font-mono">Grill 1</span>
-              </div>
-              <p class="text-xs font-bold text-yellow-300 mt-0.5">✦ MED RARE • RUSTIC CHIPS</p>
-              <p class="text-xs font-bold text-yellow-400">✦ GUEST NOTE: SERVE ON HOT PLATE</p>
-            </div>
-
-            <div class="pb-2 border-b border-surface-border/50">
-              <div class="flex justify-between font-bold text-white text-sm">
-                <span>2x Karoo Lamb Chops (400g)</span>
-                <span class="text-gray-400 text-xs font-mono">Grill 2</span>
-              </div>
-              <p class="text-xs font-bold text-yellow-300 mt-0.5">✦ MEDIUM • MINT BASTED • MASH</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Order Ready Action Button -->
-        <button onclick="alert('🔔 Chime sent to Sipho\'s iPhone: Table 123 is Ready at Pass!'); switchView('view-waiter-tables');" class="w-full py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-surface font-bold text-xs uppercase tracking-wider transition shadow-md flex items-center justify-center gap-1.5">
-          <span>🔔 ORDER READY • PING WAITER</span>
-        </button>
-      </div>
-
-      <!-- Ticket 2: Table T-04 (Seafood Order) -->
-      <div class="rounded-xl bg-surface-card border border-amber-500/70 p-4 flex flex-col justify-between shadow-lg">
-        <div>
-          <div class="flex items-center justify-between pb-2 border-b border-surface-border mb-3">
-            <div class="flex items-center gap-2">
-              <span class="w-7 h-7 rounded-lg bg-amber-500 text-surface font-mono font-bold flex items-center justify-center text-sm">#2</span>
-              <div>
-                <span class="font-bold text-white text-base block">Table T-04</span>
-                <span class="text-[11px] text-gray-400">Server: Zanele K.</span>
-              </div>
-            </div>
-            <span class="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">07:45 elapsed</span>
-          </div>
-
-          <div class="space-y-3 mb-4">
-            <div class="pb-2 border-b border-surface-border/50">
-              <div class="flex justify-between font-bold text-white text-sm">
-                <span>1x Grilled Kingklip Fillet (300g)</span>
-                <span class="text-gray-400 text-xs font-mono">Fish 1</span>
-              </div>
-              <p class="text-xs font-bold text-yellow-300 mt-0.5">✦ LEMON HERB BUTTER • BASMATI RICE</p>
-              <p class="text-xs font-bold text-yellow-400">✦ GUEST NOTE: SAUCE ON SIDE</p>
-            </div>
-          </div>
-        </div>
-
-        <button onclick="alert('🔔 Table T-04 Kingklip marked ready. Zanele notified.');" class="w-full py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-surface font-bold text-xs uppercase tracking-wider transition shadow-md">
-          🔔 ORDER READY • PING WAITER
-        </button>
-      </div>
-
-      <!-- Ticket 3: Takeaway Counter (#Q-08) -->
-      <div class="rounded-xl bg-surface-card border border-surface-border p-4 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between pb-2 border-b border-surface-border mb-3">
-            <div class="flex items-center gap-2">
-              <span class="w-7 h-7 rounded-lg bg-gray-600 text-white font-mono font-bold flex items-center justify-center text-sm">#3</span>
-              <div>
-                <span class="font-bold text-white text-base block">Takeaway #Q-08</span>
-                <span class="text-[11px] text-gray-400">Cashier Counter</span>
-              </div>
-            </div>
-            <span class="text-xs font-mono text-gray-400">01:12 elapsed</span>
-          </div>
-
-          <div class="space-y-3 mb-4">
-            <div class="pb-2 border-b border-surface-border/50">
-              <div class="flex justify-between font-bold text-white text-sm">
-                <span>1x Smokey Pork Ribs (600g)</span>
-                <span class="text-gray-400 text-xs font-mono">Grill 3</span>
-              </div>
-              <p class="text-xs font-bold text-yellow-300 mt-0.5">✦ EXTRA BASTING • TAKEAWAY BOX</p>
-            </div>
-          </div>
-        </div>
-
-        <button onclick="alert('Takeaway #Q-08 bagged and placed on counter.');" class="w-full py-3 rounded-lg bg-surface-input hover:bg-emerald-500 hover:text-surface text-gray-300 font-bold text-xs uppercase tracking-wider transition">
-          Ready for Pickup
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 5: RESTAURANT DINING FLOOR PLAN (Floor Management) -->
-  <!-- ========================================================================= -->
-  <section id="view-restaurant-floor" class="view-container flex-1 max-w-6xl mx-auto w-full p-4 md:p-6">
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-4">
-      <div class="flex items-center gap-3">
-        <button onclick="switchView('view-home')" class="px-2.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-input text-cyan text-xs font-semibold">← Main</button>
-        <div>
-          <h2 class="text-lg md:text-xl font-bold text-white">POS Layout 1: Full Dining Restaurant Floor Plan</h2>
-          <p class="text-xs text-gray-400">12 Tables • 4 Waiter Stations • Occupancy: 68%</p>
-        </div>
-      </div>
-      <button onclick="switchView('view-waiter-tables')" class="px-3 py-1.5 rounded-lg bg-cyan text-surface font-bold text-xs hover:bg-cyan-dark transition">📱 Open Waiter Pad</button>
-    </div>
-
-    <!-- Interactive Color-Coded Dining Tables -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-      <div onclick="switchView('view-waiter-order')" class="p-4 rounded-xl bg-surface-card border-2 border-cyan cursor-pointer hover:scale-102 transition shadow">
-        <div class="flex justify-between text-xs font-mono text-cyan mb-1 font-bold">
-          <span>Table 123</span>
-          <span>4 PAX</span>
-        </div>
-        <p class="text-sm font-bold text-white">Bill: R 585.00</p>
-        <span class="inline-block mt-2 text-[10px] text-cyan bg-cyan/10 px-2 py-0.5 rounded font-mono">Active Dining</span>
-      </div>
-
-      <div onclick="switchView('view-kds')" class="p-4 rounded-xl bg-surface-card border-2 border-amber-400 cursor-pointer hover:scale-102 transition shadow">
-        <div class="flex justify-between text-xs font-mono text-amber-400 mb-1 font-bold">
-          <span>Table T-04</span>
-          <span>2 PAX</span>
-        </div>
-        <p class="text-sm font-bold text-white">Bill: R 310.00</p>
-        <span class="inline-block mt-2 text-[10px] text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded font-mono">Kitchen Cooking</span>
-      </div>
-
-      <div onclick="alert('Table T-01 Bill paid via Card. Ready for reset.');" class="p-4 rounded-xl bg-surface-card border border-emerald-400/60 cursor-pointer hover:scale-102 transition">
-        <div class="flex justify-between text-xs font-mono text-emerald-400 mb-1 font-bold">
-          <span>Table T-01</span>
-          <span>6 PAX</span>
-        </div>
-        <p class="text-sm font-bold text-white">Bill: R 1,240.00</p>
-        <span class="inline-block mt-2 text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded font-mono">Paid (Reset)</span>
-      </div>
-
-      <div onclick="alert('Table T-08 is empty. Click to assign server.');" class="p-4 rounded-xl bg-surface-input border border-surface-border cursor-pointer hover:border-gray-500 transition">
-        <div class="flex justify-between text-xs font-mono text-gray-500 mb-1">
-          <span>Table T-08</span>
-          <span>4 PAX</span>
-        </div>
-        <p class="text-sm font-bold text-gray-400">Available</p>
-        <span class="inline-block mt-2 text-[10px] text-gray-500 bg-surface-card px-2 py-0.5 rounded font-mono">Vacant</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 6: TIER 1 — EURICA'S MASTER ADMIN COCKPIT -->
-  <!-- ========================================================================= -->
-  <section id="view-master-admin" class="view-container flex-1 max-w-6xl mx-auto w-full p-4 md:p-6">
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-6">
-      <div class="flex items-center gap-3">
-        <button onclick="switchView('view-home')" class="px-2.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-input text-cyan text-xs font-semibold">← Main</button>
-        <div>
-          <h2 class="text-lg md:text-xl font-bold text-white flex items-center gap-2">
-            <span>👑 Tier 1: Master Admin Dashboard</span>
-            <span class="text-xs bg-cyan/10 text-cyan border border-cyan/30 px-2.5 py-0.5 rounded-full font-mono">Eurica Noeth's Control Panel</span>
-          </h2>
-          <p class="text-xs text-gray-400">Executive multi-tenant overview &amp; tenant database provisioning</p>
-        </div>
-      </div>
-      <button onclick="switchView('view-recipe-db')" class="px-3 py-1.5 rounded-lg bg-surface-card border border-surface-border hover:border-cyan text-xs text-cyan transition">Products &amp; Recipe Database ➔</button>
-    </div>
-
-    <!-- Metric Counters -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-      <div class="p-4 rounded-xl bg-surface-card border border-surface-border">
-        <span class="text-xs text-gray-400 uppercase font-mono block">Monthly Recurring (MRR)</span>
-        <span class="text-xl md:text-2xl font-bold text-cyan font-mono">R 38,450.00</span>
-        <span class="text-[10px] text-emerald-400 mt-1 block">↑ +14.2% this month</span>
-      </div>
-      <div class="p-4 rounded-xl bg-surface-card border border-surface-border">
-        <span class="text-xs text-gray-400 uppercase font-mono block">Active Stores</span>
-        <span class="text-xl md:text-2xl font-bold text-white font-mono">24 Businesses</span>
-        <span class="text-[10px] text-gray-400 mt-1 block">Pretoria, Rosebank, Franschhoek</span>
-      </div>
-      <div class="p-4 rounded-xl bg-surface-card border border-surface-border">
-        <span class="text-xs text-gray-400 uppercase font-mono block">Active Tills / Devices</span>
-        <span class="text-xl md:text-2xl font-bold text-white font-mono">112 Terminals</span>
-        <span class="text-[10px] text-cyan mt-1 block">100% Zero-Hardware Phones</span>
-      </div>
-      <div class="p-4 rounded-xl bg-surface-card border border-surface-border">
-        <span class="text-xs text-gray-400 uppercase font-mono block">PostgreSQL RLS Status</span>
-        <span class="text-xl md:text-2xl font-bold text-emerald-400 font-mono">Verified (2ms)</span>
-        <span class="text-[10px] text-gray-400 mt-1 block">GCP africa-south1</span>
-      </div>
-    </div>
-
-    <!-- Active Client Database Schemas Directory -->
-    <div class="rounded-xl bg-surface-card border border-surface-border p-5">
-      <h3 class="font-bold text-white text-sm mb-3">Subscribed Merchant Tenancies (Isolated PostgreSQL Schemas)</h3>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs text-gray-300">
-          <thead class="border-b border-surface-border font-mono uppercase text-gray-400 text-[11px]">
-            <tr>
-              <th class="pb-2">Business Name &amp; Town</th>
-              <th class="pb-2">Licence Tier</th>
-              <th class="pb-2">Active Devices</th>
-              <th class="pb-2">Status</th>
-              <th class="pb-2 text-right">Inspect Schema</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-surface-border/50">
-            <tr>
-              <td class="py-2.5 font-semibold text-white">Karoo Farm Deli &amp; Bakery (Pretoria East)</td>
-              <td class="py-2.5 font-mono text-cyan">Standard (R 475/mo)</td>
-              <td class="py-2.5">6 Smartphones</td>
-              <td class="py-2.5"><span class="text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">Active</span></td>
-              <td class="py-2.5 text-right"><button onclick="switchView('view-recipe-db')" class="text-cyan hover:underline">Open Catalog</button></td>
-            </tr>
-            <tr>
-              <td class="py-2.5 font-semibold text-white">Blue Ocean Bistro &amp; Grills (Cape Town)</td>
-              <td class="py-2.5 font-mono text-cyan">Elite Hospitality (R 749/mo)</td>
-              <td class="py-2.5">14 Waiter Phones + KDS</td>
-              <td class="py-2.5"><span class="text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">Active</span></td>
-              <td class="py-2.5 text-right"><button onclick="switchView('view-restaurant-floor')" class="text-cyan hover:underline">Open Floor</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 7: TIER 2 — PRODUCTS DATABASE & RECIPE LINKAGES -->
-  <!-- ========================================================================= -->
-  <section id="view-recipe-db" class="view-container flex-1 max-w-6xl mx-auto w-full p-4 md:p-6">
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-6">
-      <div class="flex items-center gap-3">
-        <button onclick="switchView('view-master-admin')" class="px-2.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-input text-cyan text-xs font-semibold">← Admin</button>
-        <div>
-          <h2 class="text-lg md:text-xl font-bold text-white">Tier 2: Products Database &amp; Recipe Linkages</h2>
-          <p class="text-xs text-gray-400">Automated ingredient depletion for waiter orders (Table 123)</p>
-        </div>
-      </div>
-      <button onclick="switchView('view-waiter-order')" class="px-3 py-1.5 rounded-lg bg-cyan text-surface font-bold text-xs hover:bg-cyan-dark transition">📱 Waiter Order Pad</button>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- Left: Recipe Linkage Card (Aged Fillet 250g) -->
-      <div class="rounded-xl bg-surface-card border border-cyan/40 p-4 flex flex-col justify-between">
-        <div>
-          <span class="text-[10px] uppercase font-mono text-cyan font-semibold block mb-1">Editing Dish: #GRL-042</span>
-          <h3 class="text-base font-bold text-white mb-2">Aged Beef Fillet (250g)</h3>
-          
-          <div class="p-3 rounded-lg bg-surface-input text-xs space-y-2 mb-4 border border-surface-border">
-            <div class="flex justify-between">
-              <span class="text-gray-400">Raw Trimmed Fillet (0.250 kg):</span>
-              <span class="text-white font-mono">R 36.25</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">Steak Baste &amp; Butter (40g):</span>
-              <span class="text-white font-mono">R 4.20</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">Rustic Chips (200g):</span>
-              <span class="text-white font-mono">R 3.50</span>
-            </div>
-            <div class="pt-2 border-t border-surface-border flex justify-between font-bold">
-              <span class="text-gray-300">Portion Cost:</span>
-              <span class="text-white font-mono">R 43.95</span>
-            </div>
-            <div class="flex justify-between font-bold">
-              <span class="text-gray-300">Selling Price:</span>
-              <span class="text-cyan font-mono">R 245.00</span>
-            </div>
-            <div class="flex justify-between font-bold text-emerald-400">
-              <span>Gross Profit (GP%):</span>
-              <span class="font-mono">79.4% (Optimal)</span>
-            </div>
-          </div>
-        </div>
-
-        <button onclick="alert('Recipe synced across all waiter smartphones and till registers.');" class="w-full py-2.5 rounded-lg bg-cyan text-surface font-bold text-xs hover:bg-cyan-dark transition">
-          Save &amp; Sync to Waiter POS
-        </button>
-      </div>
-
-      <!-- Right: Catalog Table -->
-      <div class="lg:col-span-2 rounded-xl bg-surface-card border border-surface-border p-4">
-        <h4 class="font-bold text-white text-sm mb-3">Recipe Linked Catalog (Auto-Deducting Coldroom Stock)</h4>
-        <div class="space-y-2 text-xs">
-          <div class="p-2.5 rounded-lg bg-surface-input flex justify-between items-center border border-surface-border">
-            <div>
-              <span class="font-bold text-white block">#GRL-042 • Aged Beef Fillet (250g)</span>
-              <span class="text-[11px] text-gray-400">3 sub-ingredients linked • Depletes 250g Fillet</span>
-            </div>
-            <div class="text-right">
-              <span class="font-mono text-cyan font-bold block">R 245.00</span>
-              <span class="text-[10px] text-emerald-400 font-mono">79.4% GP</span>
-            </div>
-          </div>
-
-          <div class="p-2.5 rounded-lg bg-surface-input flex justify-between items-center border border-surface-border">
-            <div>
-              <span class="font-bold text-white block">#GRL-019 • Karoo Lamb Chops (400g)</span>
-              <span class="text-[11px] text-gray-400">4 sub-ingredients linked • Depletes 400g Chops</span>
-            </div>
-            <div class="text-right">
-              <span class="font-mono text-cyan font-bold block">R 210.00</span>
-              <span class="text-[10px] text-emerald-400 font-mono">71.4% GP</span>
-            </div>
-          </div>
-
-          <div class="p-2.5 rounded-lg bg-surface-input flex justify-between items-center border border-surface-border">
-            <div>
-              <span class="font-bold text-white block">#SEA-008 • Grilled Kingklip Fillet (300g)</span>
-              <span class="text-[11px] text-gray-400">3 sub-ingredients linked • Depletes 300g Kingklip</span>
-            </div>
-            <div class="text-right">
-              <span class="font-mono text-cyan font-bold block">R 230.00</span>
-              <span class="text-[10px] text-emerald-400 font-mono">71.0% GP</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 8: MOBILE TILL & CHECKOUT -->
-  <!-- ========================================================================= -->
-  <section id="view-till" class="view-container flex-1 max-w-md mx-auto w-full p-4">
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-3">
-      <div class="flex items-center gap-2">
-        <button onclick="switchView('view-home')" class="p-1 rounded bg-surface-card text-cyan text-xs">← Home</button>
-        <h2 class="font-bold text-white text-sm">Quick Counter Till</h2>
-      </div>
-      <span class="text-xs font-mono text-cyan">Slip #CP-8403</span>
-    </div>
-
-    <!-- Ring-Up Items -->
-    <div class="bg-surface-card p-3 rounded-xl border border-surface-border mb-3 text-xs space-y-2">
-      <div class="flex justify-between text-white">
-        <span>1x Boerewors Traditional (500g)</span>
-        <span class="font-mono">R 68.00</span>
-      </div>
-      <div class="flex justify-between text-white">
-        <span>2x Artisanal Butter Croissants</span>
-        <span class="font-mono">R 48.00</span>
-      </div>
-      <div class="pt-2 border-t border-surface-border flex justify-between font-bold text-base text-white">
-        <span>Total (15% VAT Inc):</span>
-        <span class="text-cyan font-mono">R 116.00</span>
-      </div>
-    </div>
-
-    <!-- Quick Payment -->
-    <div class="grid grid-cols-2 gap-2 mb-3">
-      <button onclick="alert('Cash changemaker: R200 tendered - Change = R84.00. WhatsApp slip dispatched!');" class="py-3 rounded-lg bg-surface-input border border-surface-border hover:border-cyan text-white text-xs font-bold transition">
-        💵 Cash (R 200)
-      </button>
-      <button onclick="alert('Speedpoint Card settled successfully.');" class="py-3 rounded-lg bg-surface-input border border-surface-border hover:border-cyan text-white text-xs font-bold transition">
-        💳 Card Swipe
-      </button>
-    </div>
-
-    <button onclick="alert('Digital tax invoice dispatched to WhatsApp +27 67 129 6177.');" class="w-full py-3 rounded-xl bg-cyan text-surface font-bold text-xs uppercase tracking-wide hover:bg-cyan-dark transition shadow">
-      📲 Send WhatsApp Slip (+27 67 129 6177)
-    </button>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 9: END-OF-DAY CASH-UP & Z-REPORT -->
-  <!-- ========================================================================= -->
-  <section id="view-cashup" class="view-container flex-1 max-w-md mx-auto w-full p-4">
-    <div class="flex items-center justify-between pb-3 border-b border-surface-border mb-3">
-      <div class="flex items-center gap-2">
-        <button onclick="switchView('view-home')" class="p-1 rounded bg-surface-card text-cyan text-xs">← Home</button>
-        <h2 class="font-bold text-white text-sm">Shift Cash-Up &amp; Z-Report</h2>
-      </div>
-      <span class="text-[11px] font-mono text-cyan">Shift #84</span>
-    </div>
-
-    <div class="p-4 rounded-xl bg-surface-card border border-surface-border mb-4 text-xs space-y-2">
-      <div class="flex justify-between">
-        <span class="text-gray-400">Total Shift Turnover:</span>
-        <span class="text-white font-mono font-bold">R 8,450.00</span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-gray-400">Speedpoint Card Payments:</span>
-        <span class="text-white font-mono font-bold">R 5,200.00</span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-gray-400">Expected Cash in Drawer:</span>
-        <span class="text-white font-mono font-bold">R 3,250.00</span>
-      </div>
-      <div class="flex justify-between text-emerald-400 font-bold pt-2 border-t border-surface-border">
-        <span>Variance / Discrepancy:</span>
-        <span class="font-mono">R 0.00 (Balanced ✓)</span>
-      </div>
-    </div>
-
-    <button onclick="alert('Z-Report closed and archived. Daily audit report dispatched to eurica@codepos.co.za.'); switchView('view-home');" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-surface font-bold text-xs uppercase tracking-wider transition shadow">
-      🔒 Finalize Shift &amp; Close Z-Report
-    </button>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- GLOBAL FOOTER -->
-  <!-- ========================================================================= -->
-  <footer class="border-t border-surface-border bg-surface px-4 py-6 text-center text-xs text-gray-400">
-    <div class="max-w-4xl mx-auto space-y-2">
-      <p class="text-gray-300 font-medium">
-        Code-SA™ Enterprise Software • Republic of South Africa
-      </p>
-      <p class="font-mono text-[11px]">
-        Executive Desk: <span class="text-white">Eurica Noeth</span> • WhatsApp / Commercial Line: <a href="https://wa.me/27671296177" target="_blank" class="text-cyan hover:underline font-bold">+27 67 129 6177</a>
-      </p>
-      <p class="text-[11px] text-gray-400">
-        Email Directory: <a href="mailto:sales@codepos.co.za" class="text-gray-300 hover:text-cyan">sales@codepos.co.za</a> | <a href="mailto:accounts@codepos.co.za" class="text-gray-300 hover:text-cyan">accounts@codepos.co.za</a> | <a href="mailto:support@codepos.co.za" class="text-gray-300 hover:text-cyan">support@codepos.co.za</a>
-      </p>
-      <p class="text-[10px] text-gray-400 pt-2 font-mono">
-        © 2025 CodePOS™ &amp; CodeFinder™ — All Rights Reserved. Proprietary Lifetime &amp; SaaS Architectures.
-      </p>
-    </div>
-  </footer>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW SWITCHING & INTERACTIVITY JAVASCRIPT -->
-  <!-- ========================================================================= -->
+  <!-- JavaScript Controls & URL Hash Listener -->
   <script>
-    function switchView(viewId) {
-      const views = document.querySelectorAll('.view-container');
-      views.forEach(v => v.classList.remove('active'));
-      
-      const target = document.getElementById(viewId);
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const arrow = document.getElementById(id + '-arrow');
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        if (arrow) arrow.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
       }
     }
 
-    function togglePortalDirectory() {
-      const drawer = document.getElementById('portal-directory');
-      if (drawer) {
-        drawer.classList.toggle('hidden');
+    function toggleModal(id) {
+      const modal = document.getElementById(id);
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
       }
     }
 
-    function switchViewAndClose(viewId) {
-      switchView(viewId);
-      togglePortalDirectory();
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('adminPass').value;
+      const err = document.getElementById('adminErr');
+      if (pass === 'EuricaSecure2025!' || pass === 'Eurica2025' || pass === 'admin') {
+        err.classList.add('hidden');
+        toggleModal('adminModal');
+        alert('Welcome Eurica! Master Admin Authenticated. Opening Executive Control Room...');
+        window.location.hash = 'admin-authenticated';
+      } else {
+        err.classList.remove('hidden');
+      }
     }
+
+    window.addEventListener('load', function() {
+      if (window.location.hash === '#admin') {
+        toggleModal('adminModal');
+      }
+    });
   </script>
-
 </body>
 </html>
