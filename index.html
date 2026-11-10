@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CodePOS™ & CodeFinder™ — Zero-Hardware Point of Sale & AI Vision</title>
+  <title>CodePOS™ by Code-SA™ — Zero-Hardware Point of Sale & Enterprise Suite</title>
   
-  <!-- SEO & Canonical Metadata -->
-  <meta name="description" content="Frontline zero-hardware Point of Sale, AI SKU camera identification, and 7-day staff scheduling on smartphones and laptops. Headquartered in Western Cape, South Africa.">
+  <meta name="description" content="Frontline zero-hardware Point of Sale, AI SKU camera identification, and 7-day staff scheduling on smartphones and laptops. Parent Brand: Code-SA™ Enterprise Software South Africa.">
   <link rel="canonical" href="https://www.codepos.co.za/">
-  <link rel="icon" type="image/png" href="CodePOS App icon.PNG">
-  <link rel="apple-touch-icon" href="CodePOS App icon.PNG">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
@@ -51,15 +48,12 @@
     }
     .neon-border {
       border: 1px solid rgba(72, 212, 208, 0.35);
-      box-shadow: 0 0 15px rgba(72, 212, 208, 0.12);
-    }
-    .neon-glow {
-      box-shadow: 0 0 25px rgba(72, 212, 208, 0.25);
+      box-shadow: 0 0 18px rgba(72, 212, 208, 0.12);
     }
     .glass-nav {
-      background: rgba(11, 20, 34, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(11, 20, 34, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
     .accordion-content {
       max-height: 0;
@@ -78,28 +72,6 @@
       transform: rotate(180deg);
     }
   </style>
-
-  <!-- Google Sitelinks & Business Schema (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "CodePOS™ & CodeFinder™",
-    "operatingSystem": "Android, iOS, Windows, macOS",
-    "applicationCategory": "BusinessApplication",
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "ZAR",
-      "lowPrice": "305.00",
-      "highPrice": "749.00"
-    },
-    "creator": {
-      "@type": "Person",
-      "name": "Eurica Noeth",
-      "jobTitle": "Founder & CEO"
-    }
-  }
-  </script>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
 
@@ -109,34 +81,39 @@
   <div id="view-homepage" class="flex flex-col min-h-screen justify-between">
     
     <!-- TOP HEADER NAVIGATION -->
-    <header class="sticky top-0 z-40 glass-nav border-b border-brand-border/60 px-4 py-3 sm:px-8">
+    <header class="sticky top-0 z-40 glass-nav border-b border-brand-border/70 px-4 py-3 sm:px-8">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         
-        <!-- Brand Logo Left -->
-        <a href="https://www.codepos.co.za/" class="flex items-center">
-          <img src="CodeFinder On top left of app and dash Logo.PNG" 
-               alt="CodeFinder Logo" 
-               class="h-8 sm:h-11 w-auto object-contain"
-               onerror="this.onerror=null; this.src='CodeFinder Logo Final.png';">
+        <!-- TOP-LEFT: OFFICIAL CODE-SA™ PARENT BRAND LOGO -->
+        <a href="https://www.codepos.co.za/" class="flex items-center gap-2.5">
+          <svg class="w-9 h-9" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M27 4L46 12V26C46 38 37 46 27 50C17 46 8 38 8 26V12L27 4Z" fill="#101F33" stroke="#48D4D0" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M20 18L14 26L20 34" stroke="#48D4D0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M34 18L40 26L34 34" stroke="#48D4D0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 26H32" stroke="#48D4D0" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-base tracking-tight leading-none">Code-SA<span class="text-brand-cyan font-mono">™</span></span>
+            <span class="text-[9px] text-brand-cyan font-mono tracking-widest uppercase mt-0.5 font-bold">ENTERPRISE SOFTWARE</span>
+          </div>
         </a>
 
         <!-- Quick Action Buttons Right -->
-        <div class="flex items-center gap-2 sm:gap-4">
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- ALL SCREENS DIRECT NAVIGATOR -->
+          <button onclick="toggleModal('modal-screens-directory')" 
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold text-black bg-brand-cyan hover:bg-[#3ec4c0] rounded-lg shadow-md transition flex items-center gap-1.5">
+            <span>🚀 All App Screens</span>
+          </button>
+
           <button onclick="toggleModal('modal-contact')" 
                   class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-brand-muted hover:text-brand-white bg-brand-input/70 hover:bg-brand-input rounded-lg border border-brand-border transition flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             <span>Contact</span>
           </button>
 
-          <button onclick="toggleModal('modal-legal')" 
-                  class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-brand-muted hover:text-brand-white bg-brand-input/70 hover:bg-brand-input rounded-lg border border-brand-border transition flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            <span>Legal</span>
-          </button>
-
           <button onclick="toggleModal('modal-signin')" 
-                  class="px-3 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-semibold text-black bg-brand-cyan hover:bg-[#3ec4c0] rounded-lg shadow-lg shadow-brand-cyan/20 transition flex items-center gap-1.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white bg-brand-input hover:bg-brand-border rounded-lg border border-brand-cyan/40 transition flex items-center gap-1.5">
             <span>Sign In</span>
           </button>
         </div>
@@ -146,18 +123,37 @@
     <!-- MAIN VIEWPORT CONTAINER -->
     <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 sm:py-12 flex flex-col items-center">
 
-      <!-- CENTERPIECE MAIN BRAND LOGO -->
+      <!-- CENTERPIECE: CODEPOS™ OPTION 4 ZERO-HARDWARE LOGO -->
       <div class="w-full flex flex-col items-center text-center mb-8">
-        <div class="p-2 flex justify-center">
-          <img src="CodePOS main screen logosLogo.PNG" 
-               alt="CodePOS Logo" 
-               class="w-72 sm:w-96 md:w-[440px] h-auto object-contain drop-shadow-[0_10px_25px_rgba(72,212,208,0.25)] transition duration-300 hover:scale-105"
-               onerror="this.onerror=null; this.src='CodePOS Logo.PNG';">
+        <div class="relative group p-6 rounded-3xl bg-brand-card/70 border border-brand-cyan/40 shadow-[0_0_40px_rgba(72,212,208,0.22)] max-w-sm sm:max-w-md w-full flex flex-col items-center">
+          
+          <svg class="w-32 h-32 sm:w-36 sm:h-36 mb-2" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="80" cy="80" r="74" stroke="#48D4D0" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.45"/>
+            <circle cx="80" cy="80" r="66" stroke="#48D4D0" stroke-width="2" opacity="0.85"/>
+            <rect x="52" y="32" width="56" height="96" rx="12" fill="#0B1422" stroke="#48D4D0" stroke-width="3"/>
+            <rect x="58" y="44" width="44" height="72" rx="4" fill="#14283A"/>
+            <path d="M64 48H96V78L91 74L86 78L80 74L75 78L70 74L64 78V48Z" fill="#F4F8FC" opacity="0.95"/>
+            <line x1="68" y1="54" x2="92" y2="54" stroke="#101F33" stroke-width="1.5"/>
+            <line x1="68" y1="60" x2="88" y2="60" stroke="#101F33" stroke-width="1.5"/>
+            <line x1="68" y1="66" x2="84" y2="66" stroke="#48D4D0" stroke-width="2"/>
+            <rect x="66" y="86" width="28" height="22" rx="4" fill="#101F33" stroke="#48D4D0" stroke-width="1.5"/>
+            <path d="M72 92H76V96H72V92Z" fill="#48D4D0"/>
+            <path d="M84 92H88V96H84V92Z" fill="#48D4D0"/>
+            <path d="M72 100H76V104H72V100Z" fill="#48D4D0"/>
+            <path d="M80 98H86V102H80V98Z" fill="#48D4D0"/>
+            <line x1="72" y1="122" x2="88" y2="122" stroke="#48D4D0" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center justify-center">
+            Code<span class="text-brand-cyan">POS</span><span class="text-xs text-brand-cyan font-mono ml-1 align-top">™</span>
+          </h2>
+          
+          <p class="text-xs sm:text-sm tracking-widest text-brand-cyan uppercase font-mono mt-1 font-bold">
+            • ZERO HARDWARE • 100% SMARTPHONE •
+          </p>
         </div>
-        <p class="text-xs sm:text-sm tracking-widest text-brand-cyan uppercase font-mono mt-3 font-semibold">
-          • SCAN • SELL • MANAGE •
-        </p>
-        <h1 class="text-base sm:text-xl font-medium text-brand-white mt-2 max-w-xl">
+
+        <h1 class="text-base sm:text-xl font-medium text-brand-white mt-4 max-w-xl">
           The All-In-One CodeFinder Product Search & Affordable Point Of Sale Solution
         </h1>
       </div>
@@ -171,7 +167,6 @@
           Turn Any Standard Smartphone (Android, Huawei, Apple) Or Windows Laptop Into A High-Speed Point of Sale Till.
         </p>
         
-        <!-- Hardware Grid -->
         <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-lg mx-auto">
           <div class="bg-brand-input/80 p-3 sm:p-4 rounded-xl border border-brand-border text-center">
             <div class="text-2xl mb-1">🤖</div>
@@ -191,195 +186,41 @@
         </div>
       </div>
 
-      <!-- 4 STANDALONE PACKAGES SECTION -->
-      <div class="w-full mb-10">
-        <div class="text-center mb-6">
-          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Select Your Licence Tier Option</h2>
-          <p class="text-xs sm:text-sm text-brand-muted mt-1 font-mono">14-Day Free Trial Included on All Packages • Zero Credit Card Required</p>
+      <!-- 1-TAP MASTER ADMIN ACCESS CARD -->
+      <div class="w-full bg-gradient-to-r from-brand-card to-[#0d2238] rounded-2xl p-5 border border-brand-cyan/40 shadow-xl mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-center sm:text-left">
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-cyan font-bold mb-1">
+            <span>👑 MASTER ADMIN CONTROL ROOM (EURICA NOETH)</span>
+          </div>
+          <p class="text-xs text-brand-muted font-mono">Super-admin gatekeeper cockpit • Instant tenant authorization</p>
         </div>
-
-        <div class="space-y-4">
-          
-          <!-- PACKAGE 1: CODEFINDER -->
-          <div class="bg-brand-card rounded-xl border border-brand-border overflow-hidden transition">
-            <button onclick="toggleAccordion('acc-1')" class="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-brand-input/30 transition">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-brand-cyan border border-brand-border">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-bold text-white text-base sm:text-lg">CodeFinder™ (AI Visual SKU Search)</h3>
-                  <p class="text-xs text-brand-muted">600ms Camera Vision SKU Match, Barcode Scan & Belt Label Spooling</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="text-brand-cyan font-mono font-bold text-sm sm:text-base">R 305 / mo</span>
-                <svg id="chevron-acc-1" class="chevron-icon w-5 h-5 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </div>
-            </button>
-            
-            <div id="acc-1" class="accordion-content px-5 pb-5 pt-2 border-t border-brand-border/40 text-sm text-gray-300">
-              <ul class="space-y-2 mb-4 font-mono text-xs sm:text-sm">
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Google Vertex AI Camera photo recognition (600ms match)</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Real-time smartphone barcode scanner (EAN-13, UPC)</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Bluetooth belt-printer shelf edge label spooling</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Recipe batch costing & interactive GP% speedometer</li>
-              </ul>
-              <div class="p-3 bg-brand-input/70 rounded-lg flex flex-col sm:flex-row justify-between items-center gap-3">
-                <span class="text-xs text-brand-muted">Outright Buy Once: <strong class="text-white font-mono">R 3,850</strong> once-off (Year 2+ renewal: R 1,500/yr)</span>
-                <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20want%20to%20activate%20the%2014-Day%20Free%20Trial%20for%20CodeFinder" 
-                   class="w-full sm:w-auto px-4 py-2 text-xs font-bold bg-brand-cyan text-black rounded-lg text-center hover:bg-[#3ec4c0] transition">
-                  Start 14-Day Free Trial
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PACKAGE 2: CODEPOS STARTER TILL -->
-          <div class="bg-brand-card rounded-xl border border-brand-border overflow-hidden transition">
-            <button onclick="toggleAccordion('acc-2')" class="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-brand-input/30 transition">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-brand-cyan border border-brand-border">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-bold text-white text-base sm:text-lg">CodePOS™ Starter Till</h3>
-                  <p class="text-xs text-brand-muted">Single-Till Register with WhatsApp Receipts & Changemaker</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="text-brand-cyan font-mono font-bold text-sm sm:text-base">R 305 / mo</span>
-                <svg id="chevron-acc-2" class="chevron-icon w-5 h-5 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </div>
-            </button>
-            
-            <div id="acc-2" class="accordion-content px-5 pb-5 pt-2 border-t border-brand-border/40 text-sm text-gray-300">
-              <ul class="space-y-2 mb-4 font-mono text-xs sm:text-sm">
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Single Till Register running on standard phones or laptops</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> SA 15% VAT dynamic engine & instant cash changemaker</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Paperless digital receipts via WhatsApp and Email</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Daily End-of-Day cash-up & drawer totals</li>
-              </ul>
-              <div class="p-3 bg-brand-input/70 rounded-lg flex flex-col sm:flex-row justify-between items-center gap-3">
-                <span class="text-xs text-brand-muted">Outright Buy Once: <strong class="text-white font-mono">R 4,850</strong> once-off (Year 2+ renewal: R 1,500/yr)</span>
-                <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20want%20to%20activate%20the%2014-Day%20Free%20Trial%20for%20CodePOS%20Starter" 
-                   class="w-full sm:w-auto px-4 py-2 text-xs font-bold bg-brand-cyan text-black rounded-lg text-center hover:bg-[#3ec4c0] transition">
-                  Start 14-Day Free Trial
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PACKAGE 3: CODE SMARTOSTER -->
-          <div class="bg-brand-card rounded-xl border border-brand-border overflow-hidden transition">
-            <button onclick="toggleAccordion('acc-3')" class="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-brand-input/30 transition">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-brand-cyan border border-brand-border">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-bold text-white text-base sm:text-lg">Code SmartRoster™ (7-Day Shift Matrix)</h3>
-                  <p class="text-xs text-brand-muted">AI 1-Click Schedule Population & WhatsApp Staff Shift Broadcast</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="text-brand-cyan font-mono font-bold text-sm sm:text-base">R 305 / mo</span>
-                <svg id="chevron-acc-3" class="chevron-icon w-5 h-5 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </div>
-            </button>
-            
-            <div id="acc-3" class="accordion-content px-5 pb-5 pt-2 border-t border-brand-border/40 text-sm text-gray-300">
-              <ul class="space-y-2 mb-4 font-mono text-xs sm:text-sm">
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> 7-Day interactive drag-and-drop station matrix</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> AI 1-click auto-scheduling balancing skills & off-days</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Direct WhatsApp individual roster broadcast (zero app install)</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Real-time South African Rand (ZAR) wage budget counter</li>
-              </ul>
-              <div class="p-3 bg-brand-input/70 rounded-lg flex flex-col sm:flex-row justify-between items-center gap-3">
-                <span class="text-xs text-brand-muted">Outright Buy Once: <strong class="text-white font-mono">R 3,850</strong> once-off (Year 2+ renewal: R 1,500/yr)</span>
-                <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20want%20to%20activate%20the%2014-Day%20Free%20Trial%20for%20Code%20SmartRoster" 
-                   class="w-full sm:w-auto px-4 py-2 text-xs font-bold bg-brand-cyan text-black rounded-lg text-center hover:bg-[#3ec4c0] transition">
-                  Start 14-Day Free Trial
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PACKAGE 4: CODE TIME MANAGEMENT SYSTEM -->
-          <div class="bg-brand-card rounded-xl border border-brand-border overflow-hidden transition">
-            <button onclick="toggleAccordion('acc-4')" class="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-brand-input/30 transition">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-brand-cyan border border-brand-border">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-bold text-white text-base sm:text-lg">Code Time Management System™</h3>
-                  <p class="text-xs text-brand-muted">Biometric Face Clock-In Terminal & BCEA Statutory Overtime Feeds</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="text-brand-cyan font-mono font-bold text-sm sm:text-base">R 305 / mo</span>
-                <svg id="chevron-acc-4" class="chevron-icon w-5 h-5 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </div>
-            </button>
-            
-            <div id="acc-4" class="accordion-content px-5 pb-5 pt-2 border-t border-brand-border/40 text-sm text-gray-300">
-              <ul class="space-y-2 mb-4 font-mono text-xs sm:text-sm">
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Counter tablet 4-digit PIN clock-in terminal</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> 200ms AI anti-buddy punch facial verification snapshot</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> Statutory BCEA overtime guard (1.5× standard, 2.0× Sunday)</li>
-                <li class="flex items-center gap-2"><span class="text-brand-cyan">✓</span> 1-Click CSV payroll export for Sage Pastel, VIP Premier & Xero</li>
-              </ul>
-              <div class="p-3 bg-brand-input/70 rounded-lg flex flex-col sm:flex-row justify-between items-center gap-3">
-                <span class="text-xs text-brand-muted">Outright Buy Once: <strong class="text-white font-mono">R 4,850</strong> once-off (Year 2+ renewal: R 1,500/yr)</span>
-                <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20want%20to%20activate%20the%2014-Day%20Free%20Trial%20for%20Code%20Time%20Management" 
-                   class="w-full sm:w-auto px-4 py-2 text-xs font-bold bg-brand-cyan text-black rounded-lg text-center hover:bg-[#3ec4c0] transition">
-                  Start 14-Day Free Trial
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        <button onclick="switchView('view-admin-cockpit')" 
+                class="w-full sm:w-auto px-6 py-2.5 bg-brand-cyan text-black font-bold text-xs sm:text-sm rounded-xl hover:bg-[#3ec4c0] transition shadow-md flex items-center justify-center gap-2">
+          <span>🔑 Open Control Room →</span>
+        </button>
       </div>
 
-      <!-- 1-TAP MASTER ADMIN ACCESS CARD -->
-      <div class="w-full bg-gradient-to-r from-brand-card to-[#0d2238] rounded-2xl p-5 border border-brand-cyan/40 shadow-xl mb-6">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div class="text-center sm:text-left">
-            <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-cyan font-bold mb-1">
-              <span>👑 MASTER ADMIN CONTROL ROOM (EURICA NOETH)</span>
-            </div>
-            <p class="text-xs text-brand-muted font-mono">Super-admin gatekeeper cockpit • One-tap executive authorization</p>
-          </div>
-          <button onclick="toggleModal('modal-admin')" 
-                  class="w-full sm:w-auto px-6 py-2.5 bg-brand-cyan text-black font-bold text-xs sm:text-sm rounded-xl hover:bg-[#3ec4c0] transition shadow-md flex items-center justify-center gap-2">
-            <span>🔑 Open Control Room</span>
-          </button>
-        </div>
+      <!-- SCREEN DIRECTORY SHORTCUT -->
+      <div class="w-full bg-brand-card/90 rounded-2xl p-5 border border-brand-border mb-8 text-center">
+        <h3 class="text-sm font-bold text-white mb-2">Want to test specific hospitality and retail terminals?</h3>
+        <p class="text-xs text-brand-muted mb-4 font-mono">Open the Kitchen KDS, Waiter phone clock-in, dining floor plan, room folios & receipts directly:</p>
+        <button onclick="toggleModal('modal-screens-directory')" 
+                class="px-5 py-2.5 bg-brand-input hover:bg-brand-border text-brand-cyan border border-brand-cyan/40 rounded-xl text-xs font-bold transition">
+          📂 Browse Full Operational Screen Directory
+        </button>
       </div>
 
     </main>
 
-    <!-- OFFICIAL FOOTER & DEVELOPER CREDENTIALS -->
+    <!-- OFFICIAL FOOTER -->
     <footer class="w-full border-t border-brand-border bg-brand-card/90 py-6 px-4 text-center">
       <div class="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-3">
-        
-        <!-- Software Developer Attribution Button -->
-        <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20am%20interested%20in%20CodePOS%20and%20Code-SA%20enterprise%20software." 
-           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-input border border-brand-cyan/40 text-brand-white hover:text-brand-cyan transition text-xs sm:text-sm font-medium shadow-sm">
+        <a href="https://wa.me/27671296177" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-input border border-brand-cyan/40 text-brand-white hover:text-brand-cyan transition text-xs sm:text-sm font-medium">
           <span>Software Developer:</span>
           <strong class="text-brand-cyan">Eurica Noeth</strong>
           <span class="text-xs font-mono text-brand-muted">(Founder & Systems Architect)</span>
         </a>
-
-        <!-- Clean Legal Notice -->
-        <p class="text-xs text-brand-muted font-mono">
-          © 2025 • www.codepos.co.za • All Rights Reserved
-        </p>
-        <p class="text-[11px] text-gray-500 font-mono">
-          CodePOS™, CodeFinder™, Code SmartRoster™, and Code Time Management System™ are proprietary trademarks of Code-SA™ Enterprise Software. Headquartered on the West Coast, Western Cape, Republic of South Africa.
-        </p>
+        <p class="text-xs text-brand-muted font-mono">© 2025 • www.codepos.co.za • All Rights Reserved</p>
       </div>
     </footer>
 
@@ -387,407 +228,418 @@
 
 
   <!-- ===================================================================== -->
-  <!-- VIEW 2: EURICA'S MASTER ADMIN FULL COCKPIT DASHBOARD                  -->
+  <!-- VIEW 2: MASTER ADMIN FULL COCKPIT DASHBOARD                           -->
   <!-- ===================================================================== -->
   <div id="view-admin-cockpit" class="hidden min-h-screen flex-col bg-brand-navy">
-    
     <header class="sticky top-0 z-40 bg-brand-card border-b border-brand-cyan/30 px-4 py-3 sm:px-8 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <button onclick="switchView('view-homepage')" 
-                class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition flex items-center gap-1.5 shadow">
-          <span>← Back to Main Page</span>
+        <button onclick="switchView('view-homepage')" class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition">
+          ← Back to Main Page
         </button>
-        <div class="h-6 w-px bg-brand-border"></div>
-        <div class="flex items-center gap-2">
-          <span class="text-lg">👑</span>
-          <span class="font-bold text-white text-sm sm:text-base">Eurica's Control Room</span>
-          <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30">MASTER ADMINISTRATOR</span>
-        </div>
+        <button onclick="toggleModal('modal-screens-directory')" class="px-3 py-1.5 bg-brand-cyan text-black rounded-lg text-xs font-bold transition">
+          🚀 Open Other Screens
+        </button>
+        <span class="font-bold text-white text-sm">👑 Eurica's Control Room</span>
       </div>
-
-      <div class="flex items-center gap-3 text-xs font-mono">
-        <span class="hidden md:inline-flex items-center gap-1.5 text-green-400">
-          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-          <span>PostgreSQL RLS Active</span>
-        </span>
-        <button onclick="switchView('view-homepage')" class="text-brand-muted hover:text-white text-sm">✕ Exit</button>
-      </div>
+      <span class="text-xs font-mono text-green-400">● PostgreSQL RLS Active</span>
     </header>
 
     <div class="max-w-6xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
-      
-      <!-- TOP METRICS ROW -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-brand-card p-4 rounded-xl border border-brand-border">
-          <div class="text-[11px] font-mono text-brand-muted uppercase">Active Tenant Stores</div>
-          <div class="text-2xl font-bold font-mono text-white mt-1">14 <span class="text-xs text-brand-cyan font-normal">Sites</span></div>
-          <div class="text-[10px] text-green-400 font-mono mt-1">100% Up-time (africa-south1)</div>
+          <div class="text-[11px] font-mono text-brand-muted uppercase">Active Stores</div>
+          <div class="text-2xl font-bold font-mono text-white mt-1">14 Sites</div>
         </div>
-
         <div class="bg-brand-card p-4 rounded-xl border border-brand-border">
-          <div class="text-[11px] font-mono text-brand-muted uppercase">Monthly Recurring Revenue</div>
+          <div class="text-[11px] font-mono text-brand-muted uppercase">Monthly Revenue</div>
           <div class="text-2xl font-bold font-mono text-brand-cyan mt-1">R 18,450</div>
-          <div class="text-[10px] text-brand-muted font-mono mt-1">PayFast Debit Subscriptions</div>
         </div>
-
         <div class="bg-brand-card p-4 rounded-xl border border-brand-border">
-          <div class="text-[11px] font-mono text-brand-muted uppercase">Outright Licences Issued</div>
-          <div class="text-2xl font-bold font-mono text-white mt-1">6 <span class="text-xs text-brand-cyan font-normal">Keys</span></div>
-          <div class="text-[10px] text-brand-muted font-mono mt-1">Perpetual EULAs Active</div>
+          <div class="text-[11px] font-mono text-brand-muted uppercase">Outright Licences</div>
+          <div class="text-2xl font-bold font-mono text-white mt-1">6 Keys</div>
         </div>
-
         <div class="bg-brand-card p-4 rounded-xl border border-brand-border">
-          <div class="text-[11px] font-mono text-brand-muted uppercase">Year 2 Care Pack Renewals</div>
+          <div class="text-[11px] font-mono text-brand-muted uppercase">Year 2 Care Pack</div>
           <div class="text-2xl font-bold font-mono text-yellow-400 mt-1">R 9,000 / yr</div>
-          <div class="text-[10px] text-brand-muted font-mono mt-1">Cloud & AI Maintenance</div>
         </div>
       </div>
 
-      <!-- MAIN TENANT MANAGEMENT CONSOLE -->
-      <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden">
-        <div class="p-5 border-b border-brand-border/60 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-          <div>
-            <h3 class="font-bold text-white text-base sm:text-lg">Customer Tenancy & Access Gatekeeper</h3>
-            <p class="text-xs text-brand-muted font-mono mt-0.5">Toggle customer status from [PENDING] to [ACTIVE] & allocate product entitlements</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-mono text-brand-cyan">Auto-Provision: ON</span>
-          </div>
+      <!-- Quick Launch Hub inside Cockpit -->
+      <div class="bg-brand-card p-5 rounded-2xl border border-brand-border flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h4 class="text-sm font-bold text-white">Live Operations Switchboard</h4>
+          <p class="text-xs text-brand-muted font-mono">Jump into any frontline venue terminal as Super-Admin</p>
         </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left font-mono text-xs">
-            <thead class="bg-brand-input/80 text-brand-muted uppercase border-b border-brand-border">
-              <tr>
-                <th class="p-3 sm:p-4">Customer Store & Branch</th>
-                <th class="p-3 sm:p-4">Contact / Phone</th>
-                <th class="p-3 sm:p-4">Licensed Products</th>
-                <th class="p-3 sm:p-4">Billing Model</th>
-                <th class="p-3 sm:p-4">Tenant Status</th>
-                <th class="p-3 sm:p-4 text-right">Eurica Action</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-brand-border/50 text-gray-200">
-              
-              <tr class="hover:bg-brand-input/40 transition">
-                <td class="p-3 sm:p-4">
-                  <div class="font-bold text-white">Blue Ocean Bistro</div>
-                  <div class="text-[10px] text-brand-muted">St Helena Bay, West Coast</div>
-                </td>
-                <td class="p-3 sm:p-4 text-brand-cyan">+27 82 459 1022</td>
-                <td class="p-3 sm:p-4">
-                  <div class="flex flex-wrap gap-1">
-                    <span class="px-1.5 py-0.5 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-[10px]">CodePOS</span>
-                    <span class="px-1.5 py-0.5 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-[10px]">SmartRoster</span>
-                  </div>
-                </td>
-                <td class="p-3 sm:p-4">R 749 / mo (Elite)</td>
-                <td class="p-3 sm:p-4">
-                  <span id="badge-blueocean" class="px-2 py-1 rounded bg-yellow-400/20 text-yellow-300 border border-yellow-400/30 text-[10px] font-bold">
-                    PENDING APPROVAL
-                  </span>
-                </td>
-                <td class="p-3 sm:p-4 text-right">
-                  <button id="btn-blueocean" onclick="approveTenant('badge-blueocean', 'btn-blueocean')" 
-                          class="px-3 py-1.5 bg-green-500 text-black font-bold rounded-lg hover:bg-green-400 text-xs transition">
-                    ✓ Authorize Access
-                  </button>
-                </td>
-              </tr>
-
-              <tr class="hover:bg-brand-input/40 transition">
-                <td class="p-3 sm:p-4">
-                  <div class="font-bold text-white">Karoo Farm Deli & Bakery</div>
-                  <div class="text-[10px] text-brand-muted">Prince Albert, Western Cape</div>
-                </td>
-                <td class="p-3 sm:p-4 text-brand-cyan">+27 83 221 9840</td>
-                <td class="p-3 sm:p-4">
-                  <div class="flex flex-wrap gap-1">
-                    <span class="px-1.5 py-0.5 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-[10px]">CodeFinder</span>
-                    <span class="px-1.5 py-0.5 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-[10px]">CodePOS</span>
-                  </div>
-                </td>
-                <td class="p-3 sm:p-4">R 4,850 Outright Buy</td>
-                <td class="p-3 sm:p-4">
-                  <span class="px-2 py-1 rounded bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold">
-                    ACTIVE (LIVE)
-                  </span>
-                </td>
-                <td class="p-3 sm:p-4 text-right">
-                  <button onclick="alert('Viewing isolated schema for Karoo Farm Deli. Encryption verified.');" 
-                          class="px-3 py-1.5 bg-brand-input text-brand-cyan border border-brand-border rounded-lg hover:bg-brand-input/80 text-xs transition">
-                    Inspect Workspace
-                  </button>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="switchView('view-kitchen-kds')" class="px-3 py-1.5 bg-brand-input hover:bg-brand-border text-brand-cyan border border-brand-border rounded-lg text-xs font-mono">🍳 Kitchen KDS</button>
+          <button onclick="switchView('view-floor-plan')" class="px-3 py-1.5 bg-brand-input hover:bg-brand-border text-brand-cyan border border-brand-border rounded-lg text-xs font-mono">🍽️ Dining Floor Plan</button>
+          <button onclick="switchView('view-waiter-clockin')" class="px-3 py-1.5 bg-brand-input hover:bg-brand-border text-brand-cyan border border-brand-border rounded-lg text-xs font-mono">⏱️ Waiter Clock-In</button>
+          <button onclick="switchView('view-cash-up')" class="px-3 py-1.5 bg-brand-input hover:bg-brand-border text-brand-cyan border border-brand-border rounded-lg text-xs font-mono">🧾 Cash-Up & Z-Report</button>
         </div>
       </div>
-
     </div>
-  </div><!-- END VIEW-ADMIN-COCKPIT -->
+  </div>
 
 
   <!-- ===================================================================== -->
-  <!-- VIEW 3: CODEPOS TILL & CASH REGISTER (ACTIVE SALES TERMINAL)          -->
+  <!-- VIEW 3: KITCHEN DISPLAY SYSTEM (KDS)                                  -->
   <!-- ===================================================================== -->
-  <div id="view-cash-register" class="hidden min-h-screen flex-col bg-brand-navy">
-    
+  <div id="view-kitchen-kds" class="hidden min-h-screen flex-col bg-brand-navy">
     <header class="sticky top-0 z-40 bg-brand-card border-b border-brand-cyan/30 px-4 py-3 sm:px-8 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <button onclick="switchView('view-homepage')" 
-                class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition flex items-center gap-1.5 shadow">
-          <span>← Back to Main Page</span>
+        <button onclick="switchView('view-homepage')" class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition">
+          ← Back Home
         </button>
-        <div class="h-6 w-px bg-brand-border"></div>
-        <div class="flex items-center gap-2">
-          <span class="text-sm font-bold text-white">CodePOS™ Cash Register</span>
-          <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-green-500/20 text-green-400 border border-green-500/30">ONLINE • VAT 15%</span>
-        </div>
+        <button onclick="toggleModal('modal-screens-directory')" class="px-3 py-1.5 bg-brand-cyan text-black rounded-lg text-xs font-bold">
+          🚀 Switch Screen
+        </button>
+        <span class="text-sm font-bold text-white">🍳 CodePOS™ Kitchen Display System (Solo Chef Pass)</span>
       </div>
-
-      <div class="text-xs font-mono text-brand-cyan">
-        Receipt #CP-8403
-      </div>
+      <span class="text-xs font-mono text-brand-cyan">5 Active Orders</span>
     </header>
 
-    <div class="max-w-4xl w-full mx-auto px-4 py-6 sm:py-8 flex-grow flex flex-col justify-between">
+    <div class="max-w-6xl w-full mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-3 gap-4">
       
-      <!-- ACTIVE CART ITEMS -->
-      <div class="bg-brand-card p-5 rounded-2xl border border-brand-border space-y-4 mb-6">
-        <div class="flex justify-between items-center border-b border-brand-border/60 pb-3">
-          <span class="text-sm font-bold text-white">Current Order Items</span>
-          <span class="text-xs font-mono text-brand-muted">2 Items in Cart</span>
+      <!-- ORDER CARD 1 -->
+      <div class="bg-brand-card rounded-2xl border-2 border-brand-cyan p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center border-b border-brand-border pb-2 mb-3">
+            <span class="font-extrabold text-white text-lg">Table T-04</span>
+            <span class="px-2 py-0.5 rounded bg-brand-cyan/20 text-brand-cyan text-xs font-mono font-bold">ORDER #1</span>
+          </div>
+          <div class="text-xs font-mono text-brand-muted mb-4">Waiter: Sipho M. • 46m Elapsed</div>
+          <ul class="space-y-2 text-sm text-gray-200 font-mono">
+            <li>• 2× Karoo Lamb Chops (Med Rare)</li>
+            <li>• 1× Grilled Kingklip (Lemon Butter)</li>
+            <li>• 1× Cape Malva Pudding (Extra Warm Custard)</li>
+          </ul>
         </div>
-
-        <div class="space-y-3 font-mono text-xs sm:text-sm">
-          <div class="flex justify-between items-center p-3 rounded-xl bg-brand-input">
-            <div>
-              <div class="font-bold text-white">Almond Croissant (120g)</div>
-              <div class="text-[11px] text-brand-muted">Qty: 2 × R 38.00</div>
-            </div>
-            <strong class="text-brand-cyan">R 76.00</strong>
-          </div>
-
-          <div class="flex justify-between items-center p-3 rounded-xl bg-brand-input">
-            <div>
-              <div class="font-bold text-white">Cappuccino (Large)</div>
-              <div class="text-[11px] text-brand-muted">Qty: 1 × R 38.00</div>
-            </div>
-            <strong class="text-brand-cyan">R 38.00</strong>
-          </div>
-        </div>
-
-        <!-- TOTALS BREAKDOWN -->
-        <div class="border-t border-brand-border pt-4 space-y-1.5 font-mono text-xs">
-          <div class="flex justify-between text-brand-muted">
-            <span>Subtotal (Ex-VAT):</span>
-            <span>R 99.13</span>
-          </div>
-          <div class="flex justify-between text-brand-muted">
-            <span>15% SA VAT:</span>
-            <span>R 14.87</span>
-          </div>
-          <div class="flex justify-between text-lg font-bold text-white pt-2 border-t border-brand-border/40">
-            <span>TOTAL DUE:</span>
-            <span class="text-brand-cyan font-mono">R 114.00</span>
-          </div>
-        </div>
+        <button onclick="alert('Order Ready chime dispatched to Waiter Sipho M on his smartphone!');" 
+                class="w-full mt-6 py-3 bg-brand-cyan text-black font-extrabold rounded-xl hover:bg-[#3ec4c0] text-sm shadow">
+          🔔 ORDER READY (PING WAITER)
+        </button>
       </div>
 
-      <!-- TENDER / PAY ACTIONS -->
-      <div class="space-y-3">
-        <button onclick="alert('Sale Finalized! Digital WhatsApp Tax Receipt sent to customer: +27 67 129 6177');" 
-                class="w-full py-4 bg-brand-cyan text-black font-extrabold text-base rounded-xl hover:bg-[#3ec4c0] transition shadow-lg shadow-brand-cyan/20 flex items-center justify-center gap-2">
-          <span>📲 Tender Cash & Send WhatsApp Slip</span>
+      <!-- ORDER CARD 2 -->
+      <div class="bg-brand-card rounded-2xl border border-brand-border p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center border-b border-brand-border pb-2 mb-3">
+            <span class="font-extrabold text-white text-lg">Terrace B-01</span>
+            <span class="px-2 py-0.5 rounded bg-brand-border text-brand-muted text-xs font-mono">ORDER #4</span>
+          </div>
+          <div class="text-xs font-mono text-brand-muted mb-4">Waiter: Sipho M. • 12m Elapsed</div>
+          <ul class="space-y-2 text-sm text-gray-200 font-mono">
+            <li>• 1× Saldanha Bay Oysters (6pc)</li>
+            <li>• 1× Salt & Pepper Calamari</li>
+          </ul>
+        </div>
+        <button onclick="alert('Order Ready ping sent to waiter!');" class="w-full mt-6 py-3 bg-brand-input text-brand-cyan border border-brand-cyan/40 font-bold rounded-xl text-sm">
+          🔔 Order Ready
         </button>
+      </div>
 
-        <button onclick="switchView('view-homepage')" 
-                class="w-full py-2.5 bg-brand-input text-brand-muted hover:text-white rounded-xl text-xs font-mono transition text-center">
-          Cancel & Return Home
+      <!-- ORDER CARD 3 -->
+      <div class="bg-brand-card rounded-2xl border border-brand-border p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center border-b border-brand-border pb-2 mb-3">
+            <span class="font-extrabold text-white text-lg">Takeaway #104</span>
+            <span class="px-2 py-0.5 rounded bg-brand-border text-brand-muted text-xs font-mono">ORDER #5</span>
+          </div>
+          <div class="text-xs font-mono text-brand-muted mb-4">Front Counter • 8m Elapsed</div>
+          <ul class="space-y-2 text-sm text-gray-200 font-mono">
+            <li>• 2× Woodfired Margherita Pizza</li>
+            <li>• 1× Greek Salad (Large)</li>
+          </ul>
+        </div>
+        <button onclick="alert('Takeaway #104 ready for pickup!');" class="w-full mt-6 py-3 bg-brand-input text-brand-cyan border border-brand-cyan/40 font-bold rounded-xl text-sm">
+          🔔 Order Ready
         </button>
       </div>
 
     </div>
-  </div><!-- END VIEW-CASH-REGISTER -->
+  </div>
 
 
   <!-- ===================================================================== -->
-  <!-- MODAL 1: OWNER & EMPLOYEE SIGN-IN                                    -->
+  <!-- VIEW 4: DINING RESTAURANT FLOOR PLAN                                  -->
   <!-- ===================================================================== -->
-  <div id="modal-signin" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-brand-card border border-brand-cyan/40 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
-      <button onclick="toggleModal('modal-signin')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
+  <div id="view-floor-plan" class="hidden min-h-screen flex-col bg-brand-navy">
+    <header class="sticky top-0 z-40 bg-brand-card border-b border-brand-cyan/30 px-4 py-3 sm:px-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button onclick="switchView('view-homepage')" class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition">
+          ← Back Home
+        </button>
+        <button onclick="toggleModal('modal-screens-directory')" class="px-3 py-1.5 bg-brand-cyan text-black rounded-lg text-xs font-bold">
+          🚀 Switch Screen
+        </button>
+        <span class="text-sm font-bold text-white">🍽️ POS Layout 1: Full Dining Floor Plan</span>
+      </div>
+      <span class="text-xs font-mono text-brand-cyan">16 Tables • Turn: R 14,820</span>
+    </header>
+
+    <div class="max-w-6xl w-full mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-3 gap-6">
       
-      <div class="text-center mb-6">
-        <h3 class="text-lg font-bold text-white">Owner & Staff Sign-In</h3>
-        <p class="text-xs text-brand-muted mt-1">Access your store terminal or management portal</p>
+      <!-- LEFT: TABLES MATRIX -->
+      <div class="md:col-span-2 bg-brand-card p-5 rounded-2xl border border-brand-border">
+        <h4 class="text-sm font-bold text-white mb-4">Main Floor Table Matrix</h4>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="p-4 rounded-xl bg-brand-input border border-green-500/40 text-center">
+            <span class="text-xs text-green-400 font-bold">T-01 Open</span>
+            <div class="text-lg font-bold text-white mt-1">2 Guests</div>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-input border border-red-500/40 text-center">
+            <span class="text-xs text-red-400 font-bold">T-02 Occ</span>
+            <div class="text-lg font-bold text-white mt-1">R 620.00</div>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-input border border-yellow-500/40 text-center">
+            <span class="text-xs text-yellow-400 font-bold">T-03 Bill Due</span>
+            <div class="text-lg font-bold text-white mt-1">R 410.00</div>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-cyan/20 border-2 border-brand-cyan text-center cursor-pointer">
+            <span class="text-xs text-brand-cyan font-bold">T-04 ACTIVE</span>
+            <div class="text-lg font-bold text-white mt-1">R 1,529.00</div>
+            <div class="text-[10px] text-brand-muted">Waiter: Sipho M.</div>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-input border border-green-500/40 text-center">
+            <span class="text-xs text-green-400 font-bold">T-05 Open</span>
+            <div class="text-lg font-bold text-white mt-1">6 Guests</div>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-input border border-red-500/40 text-center">
+            <span class="text-xs text-red-400 font-bold">T-06 Occ</span>
+            <div class="text-lg font-bold text-white mt-1">R 340.00</div>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-4">
+      <!-- RIGHT: TABLE T-04 ACTIVE DOCKET -->
+      <div class="bg-brand-card p-5 rounded-2xl border border-brand-cyan flex flex-col justify-between">
         <div>
-          <label class="block text-xs font-mono text-brand-muted mb-1">Company Slug / Identifier</label>
-          <input type="text" value="deli-fresh-bakery" class="w-full bg-brand-input border border-brand-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-cyan font-mono">
+          <div class="border-b border-brand-border pb-3 mb-3 flex justify-between">
+            <strong class="text-white">Table T-04 Docket</strong>
+            <span class="text-brand-cyan font-mono text-xs">#CP-8492</span>
+          </div>
+          <div class="text-xs font-mono space-y-1 text-gray-300 mb-4">
+            <div>2× Castle Lite Draught (500ml) — R 90.00</div>
+            <div>1× Cape Malva Pudding — R 75.00</div>
+            <div>2× Karoo Lamb Chops — R 440.00</div>
+            <div>1× Ribeye Steak 300g — R 260.00</div>
+            <div>1× Grilled Kingklip 250g — R 230.00</div>
+          </div>
+          <div class="border-t border-brand-border pt-2 text-xs font-mono text-brand-muted">
+            <div class="flex justify-between"><span>Subtotal:</span><span>R 1,156.52</span></div>
+            <div class="flex justify-between"><span>15% SA VAT:</span><span>R 173.48</span></div>
+            <div class="flex justify-between font-bold text-white text-base pt-1"><span>TOTAL DUE:</span><span class="text-brand-cyan">R 1,529.00</span></div>
+          </div>
+        </div>
+        <button onclick="alert('Docket T-04 Settled! WhatsApp tax slip dispatched to customer.');" 
+                class="w-full mt-4 py-3 bg-brand-cyan text-black font-extrabold rounded-xl hover:bg-[#3ec4c0] text-sm">
+          Collect R 1,529.00 & Close Table
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 5: WAITER SHIFT CLOCK-IN & TIME TRACKER                          -->
+  <!-- ===================================================================== -->
+  <div id="view-waiter-clockin" class="hidden min-h-screen flex-col bg-brand-navy">
+    <header class="sticky top-0 z-40 bg-brand-card border-b border-brand-cyan/30 px-4 py-3 sm:px-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button onclick="switchView('view-homepage')" class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition">
+          ← Back Home
+        </button>
+        <button onclick="toggleModal('modal-screens-directory')" class="px-3 py-1.5 bg-brand-cyan text-black rounded-lg text-xs font-bold">
+          🚀 Switch Screen
+        </button>
+        <span class="text-sm font-bold text-white">⏱️ Waiter Mobile Shift Terminal</span>
+      </div>
+      <span class="px-2 py-0.5 rounded bg-green-500/20 text-green-400 font-mono text-xs">● ON DUTY</span>
+    </header>
+
+    <div class="max-w-md w-full mx-auto px-4 py-6 flex-grow flex flex-col justify-between">
+      <div class="bg-brand-card p-5 rounded-2xl border border-brand-border space-y-4">
+        <div class="flex items-center gap-3 pb-3 border-b border-brand-border">
+          <div class="w-12 h-12 rounded-full bg-brand-input border border-brand-cyan flex items-center justify-center text-xl">👤</div>
+          <div>
+            <div class="font-bold text-white text-base">Sipho Dlamini</div>
+            <div class="text-xs text-brand-cyan font-mono">Waiter • Station #W-08 (Terrace)</div>
+          </div>
         </div>
 
         <div>
-          <label class="block text-xs font-mono text-brand-muted mb-1">Owner Email or Cashier PIN</label>
-          <input type="text" placeholder="eurica@codepos.co.za or 4-digit PIN" class="w-full bg-brand-input border border-brand-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-cyan font-mono">
+          <h4 class="text-xs font-mono text-brand-muted uppercase mb-2">Weekly Shift Roster (7 Days)</h4>
+          <div class="space-y-1.5 text-xs font-mono">
+            <div class="p-2 bg-brand-input rounded flex justify-between"><span>Mon 13: Day Shift</span><span class="text-green-400">Completed</span></div>
+            <div class="p-2 bg-brand-input rounded flex justify-between"><span>Fri 17: Dinner Rush</span><span class="text-brand-cyan">Active Now</span></div>
+            <div class="p-2 bg-brand-input rounded flex justify-between"><span>Sat 18: Double Shift</span><span class="text-brand-muted">Scheduled</span></div>
+            <div class="p-2 bg-brand-input rounded flex justify-between"><span>Sun 19: Rest Day (OFF)</span><span class="text-brand-muted">OFF</span></div>
+          </div>
         </div>
+      </div>
 
-        <button onclick="handleSignInLaunch()" 
-                class="w-full py-2.5 bg-brand-cyan text-black font-bold text-sm rounded-lg hover:bg-[#3ec4c0] transition shadow-lg shadow-brand-cyan/20">
-          Authorize & Launch Till Terminal →
+      <div class="space-y-3 mt-6">
+        <button onclick="switchView('view-floor-plan')" class="w-full py-3.5 bg-brand-cyan text-black font-extrabold rounded-xl hover:bg-[#3ec4c0] text-sm">
+          Go To Menu & Take Order →
         </button>
-
-        <button onclick="handleAdminLaunchFromModal()" 
-                class="w-full py-2 bg-brand-input text-brand-cyan border border-brand-cyan/40 font-mono text-xs rounded-lg hover:bg-brand-border transition">
-          👑 Sign In to Master Admin Control Room
+        <button onclick="alert('Clock-out registered at 22:45. Hours logged to BCEA Overtime feed.'); switchView('view-homepage');" class="w-full py-2.5 bg-red-500/20 text-red-400 border border-red-500/40 font-mono text-xs rounded-xl">
+          Log Out / End Shift
         </button>
-
-        <p class="text-[11px] text-center text-brand-muted font-mono mt-2">
-          Direct instant authorization enabled for testing.
-        </p>
       </div>
     </div>
   </div>
 
+
   <!-- ===================================================================== -->
-  <!-- MODAL 2: MASTER ADMIN QUICK DIALOG                                   -->
+  <!-- VIEW 6: END-OF-DAY CASH-UP & Z-REPORT                                 -->
   <!-- ===================================================================== -->
-  <div id="modal-admin" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-brand-card border border-brand-cyan/40 rounded-2xl max-w-lg w-full p-6 relative shadow-2xl">
-      <button onclick="toggleModal('modal-admin')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
-      
-      <div class="flex items-center gap-3 mb-5 border-b border-brand-border/60 pb-3">
-        <div class="w-10 h-10 rounded-full bg-brand-cyan/20 border border-brand-cyan flex items-center justify-center text-lg">👑</div>
-        <div>
-          <h3 class="text-base font-bold text-white">Eurica's Control Room</h3>
-          <p class="text-xs text-brand-cyan font-mono">Master Administrator • Code-SA™ Core Cockpit</p>
-        </div>
+  <div id="view-cash-up" class="hidden min-h-screen flex-col bg-brand-navy">
+    <header class="sticky top-0 z-40 bg-brand-card border-b border-brand-cyan/30 px-4 py-3 sm:px-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button onclick="switchView('view-homepage')" class="px-3 py-1.5 bg-brand-input border border-brand-cyan/50 hover:bg-brand-cyan hover:text-black rounded-lg text-xs font-bold text-brand-cyan transition">
+          ← Back Home
+        </button>
+        <button onclick="toggleModal('modal-screens-directory')" class="px-3 py-1.5 bg-brand-cyan text-black rounded-lg text-xs font-bold">
+          🚀 Switch Screen
+        </button>
+        <span class="text-sm font-bold text-white">🧾 Daily Z-Report & Cash-Up</span>
       </div>
+      <span class="text-xs font-mono text-brand-cyan">Z-Report #ZR-2025-05-18</span>
+    </header>
 
-      <div class="space-y-4 mb-5">
-        <div class="grid grid-cols-2 gap-3 text-center">
-          <div class="bg-brand-input p-3 rounded-lg border border-brand-border">
-            <div class="text-[10px] text-brand-muted font-mono uppercase">Active Stores</div>
-            <div class="text-xl font-bold text-white font-mono">14 Tenants</div>
+    <div class="max-w-2xl w-full mx-auto px-4 py-6">
+      <div class="bg-brand-card p-6 rounded-2xl border border-brand-border space-y-4 font-mono text-xs">
+        <div class="text-center border-b border-brand-border pb-3">
+          <h3 class="text-base font-bold text-white">Daily Shift Reconciliation</h3>
+          <p class="text-brand-muted">Shift Close • Zero Variance Audit</p>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex justify-between"><span>Opening Cash Float:</span><span class="text-white">R 1,000.00</span></div>
+          <div class="flex justify-between"><span>Total Gross Sales:</span><span class="text-white font-bold">R 8,426.00</span></div>
+          <div class="flex justify-between"><span>15% SA VAT Collected:</span><span class="text-white">R 1,099.04</span></div>
+          <div class="flex justify-between"><span>Speedpoint Card Settlements:</span><span class="text-brand-cyan">R 5,941.00</span></div>
+          <div class="flex justify-between"><span>Cash Drawer Count:</span><span class="text-brand-cyan">R 2,485.00</span></div>
+          <div class="flex justify-between border-t border-brand-border pt-2 text-green-400 font-bold">
+            <span>DRAWER VARIANCE:</span>
+            <span>R 0.00 (PERFECT BALANCE)</span>
           </div>
-          <div class="bg-brand-input p-3 rounded-lg border border-brand-border">
-            <div class="text-[10px] text-brand-muted font-mono uppercase">Monthly ARR</div>
-            <div class="text-xl font-bold text-brand-cyan font-mono">R 18,450</div>
-          </div>
         </div>
 
-        <div class="bg-brand-input/60 p-3 rounded-lg border border-brand-border text-xs text-gray-300 font-mono space-y-1">
-          <div class="text-brand-cyan font-bold">Latest Pending Sign-Up:</div>
-          <div>Tenant: <strong>Blue Ocean Bistro (St Helena Bay)</strong></div>
-          <div>Package: Elite Hospitality (R 749 / mo)</div>
-          <div>Status: <span id="modal-tenant-status" class="text-yellow-400">PENDING APPROVAL</span></div>
-        </div>
-
-        <div class="flex gap-2">
-          <button onclick="approveModalTenant()" 
-                  class="flex-1 py-2.5 bg-green-500/20 text-green-400 border border-green-500/40 rounded-lg text-xs font-bold hover:bg-green-500/30 transition">
-            ✓ Approve Tenant
-          </button>
-          
-          <button onclick="launchFullCockpit()" 
-                  class="flex-1 py-2.5 bg-brand-cyan text-black rounded-lg text-xs font-bold hover:bg-[#3ec4c0] transition shadow-md">
-            Open Full Cockpit →
-          </button>
-        </div>
+        <button onclick="alert('Z-Report Finalized! PDF archive exported and daily audit locked.'); switchView('view-homepage');" 
+                class="w-full mt-6 py-3 bg-brand-cyan text-black font-extrabold rounded-xl hover:bg-[#3ec4c0] text-sm">
+          ✓ Close Shift & Lock Z-Report
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- ===================================================================== -->
-  <!-- MODAL 3: CONTACT DIRECTORY                                           -->
-  <!-- ===================================================================== -->
-  <div id="modal-contact" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-brand-card border border-brand-cyan/40 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
-      <button onclick="toggleModal('modal-contact')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
-      
-      <div class="text-center mb-5">
-        <h3 class="text-lg font-bold text-white">Official Communications</h3>
-        <p class="text-xs text-brand-muted mt-1">Direct corporate email directory for CodePOS™ customers</p>
-      </div>
-
-      <div class="space-y-3 font-mono text-xs mb-6">
-        <a href="mailto:sales@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input hover:bg-brand-input/80 border border-brand-border transition">
-          <span class="text-gray-300">Corporate Sales & Quotes</span>
-          <strong class="text-brand-cyan">sales@codepos.co.za</strong>
-        </a>
-        <a href="mailto:accounts@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input hover:bg-brand-input/80 border border-brand-border transition">
-          <span class="text-gray-300">Licensing & Billing</span>
-          <strong class="text-brand-cyan">accounts@codepos.co.za</strong>
-        </a>
-        <a href="mailto:support@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input hover:bg-brand-input/80 border border-brand-border transition">
-          <span class="text-gray-300">Technical Architecture</span>
-          <strong class="text-brand-cyan">support@codepos.co.za</strong>
-        </a>
-        <a href="mailto:eurica@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input hover:bg-brand-input/80 border border-brand-border transition">
-          <span class="text-gray-300">Founder & CEO Desk</span>
-          <strong class="text-brand-cyan">eurica@codepos.co.za</strong>
-        </a>
-        <a href="https://wa.me/27671296177" class="flex items-center justify-between p-3 rounded-xl bg-green-500/10 hover:bg-green-500/20 border border-green-500/40 transition">
-          <span class="text-green-300">Direct WhatsApp</span>
-          <strong class="text-green-400">+27 67 129 6177</strong>
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 4: LEGAL, POPIA & TERMS                                        -->
+  <!-- MODAL: ALL APP SCREENS DIRECTORY                                      -->
   <!-- ===================================================================== -->
-  <div id="modal-legal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="modal-screens-directory" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="bg-brand-card border border-brand-cyan/40 rounded-2xl max-w-2xl w-full p-6 relative shadow-2xl max-h-[90vh] flex flex-col">
-      <button onclick="toggleModal('modal-legal')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
+      <button onclick="toggleModal('modal-screens-directory')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
       
       <div class="mb-4 border-b border-brand-border pb-3">
-        <h3 class="text-lg font-bold text-white">Legal, POPIA & Commercial Terms Hub</h3>
-        <p class="text-xs text-brand-muted">Republic of South Africa Statutory Compliance</p>
+        <h3 class="text-lg font-bold text-white">🚀 CodePOS™ & Code-SA™ Screen Navigator</h3>
+        <p class="text-xs text-brand-cyan font-mono">Direct access to every operational screen developed in your platform</p>
       </div>
 
-      <div class="overflow-y-auto space-y-4 text-xs text-gray-300 font-mono pr-2">
-        <div class="bg-brand-input/60 p-4 rounded-xl border border-brand-border">
-          <h4 class="text-brand-cyan font-bold mb-1">1. Protection of Personal Information Act (POPIA)</h4>
-          <p class="leading-relaxed text-gray-400">
-            Customer mobile numbers collected for WhatsApp digital receipts are encrypted with SHA-256 tokens and processed exclusively via Meta Cloud APIs. Zero third-party marketing sharing.
-          </p>
+      <div class="overflow-y-auto space-y-4 pr-1 text-xs font-mono">
+        
+        <!-- SECTION 1 -->
+        <div class="bg-brand-input/70 p-3.5 rounded-xl border border-brand-border">
+          <div class="text-brand-cyan font-bold uppercase mb-2">🍳 Kitchen & Floor Hospitality</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button onclick="switchView('view-kitchen-kds'); toggleModal('modal-screens-directory')" class="p-2.5 rounded-lg bg-brand-card hover:bg-brand-border text-left text-white border border-brand-border/60">
+              🍳 Live Kitchen Display (KDS)
+            </button>
+            <button onclick="switchView('view-floor-plan'); toggleModal('modal-screens-directory')" class="p-2.5 rounded-lg bg-brand-card hover:bg-brand-border text-left text-white border border-brand-border/60">
+              🍽️ Restaurant Dining Floor Plan
+            </button>
+          </div>
         </div>
 
-        <div class="bg-brand-input/60 p-4 rounded-xl border border-brand-border">
-          <h4 class="text-brand-cyan font-bold mb-1">2. "Buy Once, Own Forever" Capitalized EULA Terms</h4>
-          <p class="leading-relaxed text-gray-400">
-            Outright software licenses grant perpetual commercial operational rights. Year 1 cloud sync and backups are 100% included. Continued Google Cloud SQL replication, WhatsApp credits, and SARS tax compliance renew from Year 2 at R 1,500/year.
-          </p>
+        <!-- SECTION 2 -->
+        <div class="bg-brand-input/70 p-3.5 rounded-xl border border-brand-border">
+          <div class="text-brand-cyan font-bold uppercase mb-2">📱 Waiter & Cashier Terminals</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button onclick="switchView('view-waiter-clockin'); toggleModal('modal-screens-directory')" class="p-2.5 rounded-lg bg-brand-card hover:bg-brand-border text-left text-white border border-brand-border/60">
+              ⏱️ Waiter Shift Clock-In & Time Tracker
+            </button>
+            <button onclick="switchView('view-cash-up'); toggleModal('modal-screens-directory')" class="p-2.5 rounded-lg bg-brand-card hover:bg-brand-border text-left text-white border border-brand-border/60">
+              🧾 Cash-Up & Z-Report Reconcile
+            </button>
+          </div>
         </div>
 
-        <div class="bg-brand-input/60 p-4 rounded-xl border border-brand-border">
-          <h4 class="text-brand-cyan font-bold mb-1">3. PayFast South Africa Level 1 PCI-DSS Security</h4>
-          <p class="leading-relaxed text-gray-400">
-            All card transactions and Instant EFT debit orders are settled via PayFast South Africa using 3D-Secure 2.0 authentication. CodePOS stores zero cardholder numbers.
-          </p>
+        <!-- SECTION 3 -->
+        <div class="bg-brand-input/70 p-3.5 rounded-xl border border-brand-border">
+          <div class="text-brand-cyan font-bold uppercase mb-2">👑 Executive Management</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button onclick="switchView('view-admin-cockpit'); toggleModal('modal-screens-directory')" class="p-2.5 rounded-lg bg-brand-card hover:bg-brand-border text-left text-white border border-brand-border/60">
+              👑 Eurica's Master Admin Cockpit
+            </button>
+            <button onclick="switchView('view-homepage'); toggleModal('modal-screens-directory')" class="p-2.5 rounded-lg bg-brand-card hover:bg-brand-border text-left text-white border border-brand-border/60">
+              🏠 Main Commercial Landing Page
+            </button>
+          </div>
         </div>
+
       </div>
 
       <div class="mt-4 pt-3 border-t border-brand-border flex justify-end">
-        <button onclick="toggleModal('modal-legal')" class="px-5 py-2 bg-brand-cyan text-black font-bold text-xs rounded-lg hover:bg-[#3ec4c0]">
-          Close Document
+        <button onclick="toggleModal('modal-screens-directory')" class="px-5 py-2 bg-brand-cyan text-black font-bold text-xs rounded-lg hover:bg-[#3ec4c0]">
+          Close Navigator
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ===================================================================== -->
-  <!-- JAVASCRIPT CONTROLLERS                                                -->
-  <!-- ===================================================================== -->
+  <!-- CONTACT & SIGN-IN MODALS -->
+  <div id="modal-signin" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-cyan/40 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
+      <button onclick="toggleModal('modal-signin')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
+      <div class="text-center mb-6">
+        <h3 class="text-lg font-bold text-white">Owner & Staff Sign-In</h3>
+        <p class="text-xs text-brand-muted mt-1">Select destination terminal</p>
+      </div>
+      <div class="space-y-3">
+        <button onclick="switchView('view-floor-plan'); toggleModal('modal-signin');" class="w-full py-2.5 bg-brand-cyan text-black font-bold text-sm rounded-lg hover:bg-[#3ec4c0]">
+          Launch POS Floor Plan Terminal →
+        </button>
+        <button onclick="switchView('view-kitchen-kds'); toggleModal('modal-signin');" class="w-full py-2 bg-brand-input text-brand-cyan border border-brand-cyan/40 font-mono text-xs rounded-lg">
+          🍳 Open Kitchen Display System (KDS)
+        </button>
+        <button onclick="switchView('view-admin-cockpit'); toggleModal('modal-signin');" class="w-full py-2 bg-brand-input text-brand-cyan border border-brand-cyan/40 font-mono text-xs rounded-lg">
+          👑 Open Master Admin Control Room
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-contact" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-cyan/40 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
+      <button onclick="toggleModal('modal-contact')" class="absolute top-4 right-4 text-brand-muted hover:text-white text-lg">✕</button>
+      <div class="text-center mb-5">
+        <h3 class="text-lg font-bold text-white">Official Communications</h3>
+        <p class="text-xs text-brand-muted mt-1">Direct corporate email directory</p>
+      </div>
+      <div class="space-y-3 font-mono text-xs mb-6">
+        <a href="mailto:sales@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input border border-brand-border"><span class="text-gray-300">Sales:</span><strong class="text-brand-cyan">sales@codepos.co.za</strong></a>
+        <a href="mailto:accounts@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input border border-brand-border"><span class="text-gray-300">Billing:</span><strong class="text-brand-cyan">accounts@codepos.co.za</strong></a>
+        <a href="mailto:support@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input border border-brand-border"><span class="text-gray-300">Technical:</span><strong class="text-brand-cyan">support@codepos.co.za</strong></a>
+        <a href="mailto:eurica@codepos.co.za" class="flex items-center justify-between p-3 rounded-xl bg-brand-input border border-brand-border"><span class="text-gray-300">CEO Desk:</span><strong class="text-brand-cyan">eurica@codepos.co.za</strong></a>
+        <a href="https://wa.me/27671296177" class="flex items-center justify-between p-3 rounded-xl bg-green-500/10 border border-green-500/40"><span class="text-green-300">WhatsApp:</span><strong class="text-green-400">+27 67 129 6177</strong></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
   <script>
-    // Universal Modal Toggle Function
     function toggleModal(modalId) {
       const modal = document.getElementById(modalId);
       if (!modal) return;
@@ -800,10 +652,16 @@
       }
     }
 
-    // View Switcher (Switches cleanly between Homepage, Cockpit & Cash Register)
     function switchView(targetViewId) {
-      const views = ['view-homepage', 'view-admin-cockpit', 'view-cash-register'];
-      views.forEach(id => {
+      const allViews = [
+        'view-homepage',
+        'view-admin-cockpit',
+        'view-kitchen-kds',
+        'view-floor-plan',
+        'view-waiter-clockin',
+        'view-cash-up'
+      ];
+      allViews.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
           if (id === targetViewId) {
@@ -818,73 +676,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Launch Full Cockpit from Modal
-    function launchFullCockpit() {
-      toggleModal('modal-admin');
-      switchView('view-admin-cockpit');
-    }
-
-    // Handle Sign-In & Launch Real Till Terminal
-    function handleSignInLaunch() {
-      toggleModal('modal-signin');
-      switchView('view-cash-register');
-    }
-
-    // Direct Master Admin Launch from Sign-In Modal
-    function handleAdminLaunchFromModal() {
-      toggleModal('modal-signin');
-      switchView('view-admin-cockpit');
-    }
-
-    // Interactive Accordion Toggle Function
-    function toggleAccordion(accId) {
-      const content = document.getElementById(accId);
-      const chevron = document.getElementById('chevron-' + accId);
-      if (!content) return;
-
-      const isOpen = content.classList.contains('open');
-
-      document.querySelectorAll('.accordion-content').forEach(item => {
-        item.classList.remove('open');
-      });
-      document.querySelectorAll('.chevron-icon').forEach(icon => {
-        icon.classList.remove('rotate');
-      });
-
-      if (!isOpen) {
-        content.classList.add('open');
-        if (chevron) chevron.classList.add('rotate');
-      }
-    }
-
-    // Approve Tenant Functions
-    function approveTenant(badgeId, btnId) {
-      const badge = document.getElementById(badgeId);
-      const btn = document.getElementById(btnId);
-      if (badge) {
-        badge.className = "px-2 py-1 rounded bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold";
-        badge.textContent = "ACTIVE (PROVISIONED)";
-      }
-      if (btn) {
-        btn.className = "px-3 py-1.5 bg-brand-input text-brand-muted border border-brand-border rounded-lg text-xs font-mono cursor-default";
-        btn.textContent = "✓ Authorized";
-        btn.onclick = null;
-      }
-      alert("Tenant Blue Ocean Bistro Authorized! Google Cloud SQL PostgreSQL schema provisioned with Row-Level Security.");
-    }
-
-    function approveModalTenant() {
-      const status = document.getElementById('modal-tenant-status');
-      if (status) {
-        status.className = "text-green-400 font-bold";
-        status.textContent = "APPROVED & ACTIVE";
-      }
-      alert("Tenant Approved! In the full cockpit, this store is now live.");
-    }
-
-    // Close modals on clicking outside box
     window.onclick = function(event) {
-      const modals = ['modal-signin', 'modal-admin', 'modal-contact', 'modal-legal'];
+      const modals = ['modal-signin', 'modal-contact', 'modal-screens-directory'];
       modals.forEach(id => {
         const el = document.getElementById(id);
         if (el && event.target === el) {
