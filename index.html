@@ -109,6 +109,7 @@
           <button onclick="showView('kitchenKDS')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/50 transition-all">🍳 Kitchen KDS</button>
           <button onclick="showView('waiterPad')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-white border border-brand-border transition-all">📱 Waiter Table Pad</button>
           <button onclick="showView('guesthouseFolio')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-border transition-all">🏨 Guesthouse &amp; Room Folios</button>
+          <button onclick="showView('barLounge')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-purple-400 border border-brand-border transition-all">🍷 Bar &amp; Terrace Lounge</button>
           <button onclick="showView('spazaQueue')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-amber-400 border border-brand-border transition-all">🛒 Spaza &amp; Quick Queue</button>
         </div>
       </div>
@@ -235,33 +236,43 @@
 
     <!-- VIEW 2: RESTAURANT FLOOR PLAN -->
     <section id="view-restaurantFloor" class="hidden space-y-6 animate-fade-in">
-      <div class="flex items-center justify-between border-b border-brand-border pb-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-brand-border pb-4 gap-3">
         <div class="flex items-center gap-3">
-          <button onclick="showView('home')" class="p-2 rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-border">← Back</button>
+          <button onclick="showView('home')" class="p-2 rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-border">← Home</button>
           <div>
-            <h2 class="text-xl font-bold text-white">Full Dining Restaurant Floor Plan</h2>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">🍽️ Full Dining Restaurant Floor Plan</h2>
             <p class="text-xs text-brand-grayMuted">Interactive squircle table map. Color-coded dining covers &amp; table orders.</p>
           </div>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="openAddTableModal()" class="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/50">➕ Add New Table</button>
-          <button onclick="showView('waiterPad')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-teal text-brand-navy">Open Table 123</button>
+          <button onclick="openAddTableModal()" class="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/50 shadow-sm transition-all">➕ Add New Table</button>
+          <button onclick="showView('waiterPad')" class="px-3 py-2 text-xs font-bold rounded-lg bg-brand-teal text-brand-navy shadow-md">Open Table 123</button>
         </div>
       </div>
 
       <div class="bg-brand-card rounded-2xl p-6 border border-brand-border">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="floorPlanTablesGrid">
-          <div onclick="showView('waiterPad')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-emerald-500/40">
+          <div onclick="openTableInWaiterPad('T-01', 'Table T-01 (Main Floor)')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-emerald-500/40">
             <div class="w-10 h-10 mx-auto rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-sm">T-01</div>
             <div class="text-xs font-semibold text-white">2 Covers</div>
             <div class="text-[10px] text-emerald-400 font-mono">Available</div>
           </div>
-          <div onclick="showView('waiterPad')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-brand-teal active-squircle">
+          <div onclick="openTableInWaiterPad('T-02', 'Table T-02 (Window Booth)')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-amber-500/40">
+            <div class="w-10 h-10 mx-auto rounded-xl bg-amber-500/20 text-amber-400 font-mono font-bold flex items-center justify-center text-sm">T-02</div>
+            <div class="text-xs font-semibold text-white">4 Covers</div>
+            <div class="text-[10px] text-amber-400 font-mono font-semibold">Active Bill R 280</div>
+          </div>
+          <div onclick="openTableInWaiterPad('123', 'Table 123 (VIP Terrace)')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-brand-teal active-squircle">
             <div class="w-10 h-10 mx-auto rounded-xl bg-brand-teal/20 text-brand-teal font-mono font-bold flex items-center justify-center text-sm">123</div>
             <div class="text-xs font-bold text-white">Table 123 (VIP)</div>
             <div class="text-[10px] text-brand-teal font-mono font-bold">Active Bill R 445</div>
           </div>
-          <div onclick="showView('waiterPad')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-emerald-500/40">
+          <div onclick="openTableInWaiterPad('T-04', 'Table T-04 (Main Hall)')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-emerald-500/40">
+            <div class="w-10 h-10 mx-auto rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-sm">T-04</div>
+            <div class="text-xs font-semibold text-white">6 Covers</div>
+            <div class="text-[10px] text-emerald-400 font-mono">Available</div>
+          </div>
+          <div onclick="openTableInWaiterPad('T-05', 'Table T-05 (Verandah)')" class="squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-emerald-500/40">
             <div class="w-10 h-10 mx-auto rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-sm">T-05</div>
             <div class="text-xs font-semibold text-white">4 Covers</div>
             <div class="text-[10px] text-emerald-400 font-mono">Available</div>
@@ -274,7 +285,7 @@
     <section id="view-kitchenKDS" class="hidden space-y-6 animate-fade-in">
       <div class="flex items-center justify-between border-b border-brand-border pb-4">
         <div class="flex items-center gap-3">
-          <button onclick="showView('home')" class="p-2 rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-border">← Back</button>
+          <button onclick="showView('home')" class="p-2 rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-border">← Home</button>
           <div>
             <h2 class="text-xl font-bold text-white flex items-center gap-2">🍳 Chef Line Kitchen Pass &amp; KDS</h2>
             <p class="text-xs text-brand-grayMuted">Live kitchen orders with bright yellow special instructions and waiter chime notification.</p>
@@ -292,6 +303,8 @@
           <div class="space-y-3 text-sm">
             <div><div class="flex justify-between font-bold text-white"><span>1× Karoo Lamb Chops (300g)</span><span class="font-mono text-brand-grayMuted">Medium</span></div>
             <p class="text-xs text-brand-yellow font-bold uppercase tracking-wide bg-brand-yellow/10 p-1.5 rounded-lg border border-brand-yellow/20 mt-1">⚠️ EXTRA CRISPY FAT • MINT JELLY ON SIDE</p></div>
+            <div><div class="flex justify-between font-bold text-white"><span>1× Garlic Prawn Pasta</span><span class="font-mono text-brand-grayMuted">Penne</span></div>
+            <p class="text-xs text-brand-yellow font-bold uppercase tracking-wide bg-brand-yellow/10 p-1.5 rounded-lg border border-brand-yellow/20 mt-1">⚠️ NO PARMESAN • EXTRA CHILLI FLAKES</p></div>
           </div>
           <div class="pt-3 border-t border-brand-border/60">
             <button onclick="markOrderReady('123')" class="w-full py-2.5 text-xs font-bold font-mono rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy shadow-lg transition-all">🔔 ORDER READY • PING WAITER</button>
@@ -336,7 +349,12 @@
                 <button onclick="clearCurrentOrder()" class="text-[10px] text-brand-grayMuted hover:text-rose-400 font-mono">Clear</button>
               </div>
             </div>
-            <div id="waiterOrderItems" class="divide-y divide-brand-border/40 py-2 text-xs font-mono max-h-48 overflow-y-auto custom-scroll space-y-1.5"></div>
+            <div id="waiterOrderItems" class="divide-y divide-brand-border/40 py-2 text-xs font-mono max-h-48 overflow-y-auto custom-scroll space-y-1.5">
+              <div class="flex justify-between py-1 text-white"><span>1× Karoo Lamb Chops (300g)</span><span class="text-brand-teal">R 195.00</span></div>
+              <div class="flex justify-between py-1 text-white"><span>1× Garlic Prawn Pasta</span><span class="text-brand-teal">R 165.00</span></div>
+              <div class="flex justify-between py-1 text-white"><span>1× Castle Lite Draught</span><span class="text-brand-teal">R 45.00</span></div>
+              <div class="flex justify-between py-1 text-white"><span>1× Sparkling Water 750ml</span><span class="text-brand-teal">R 40.00</span></div>
+            </div>
           </div>
           <div class="space-y-3 pt-3 border-t border-brand-border">
             <div class="flex justify-between text-xs font-mono text-brand-grayMuted"><span>Includes 15% SA VAT:</span><span id="vatAmount">R 58.04</span></div>
@@ -378,7 +396,10 @@
             <p class="text-xs text-brand-grayMuted">Allocate restaurant meals, bar tabs, and room charges directly to guest room numbers.</p>
           </div>
         </div>
-        <span class="text-xs font-mono text-emerald-400 px-3 py-1.5 rounded-lg bg-brand-input border border-brand-border">4 Rooms Occupied</span>
+        <div class="flex items-center gap-2">
+          <button onclick="openAddRoomModal()" class="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/50 shadow-sm transition-all">➕ Add New Room / Suite</button>
+          <span class="text-xs font-mono text-emerald-400 px-3 py-2 rounded-lg bg-brand-input border border-brand-border" id="activeRoomCountBadge">4 Rooms Active</span>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" id="roomFolioCardsContainer">
@@ -429,10 +450,112 @@
             <button onclick="settleRoomFolio('r2', 'Sarah Jenkins', 'Room 02: Karoo Cottage')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy shadow-md">💳 Settle &amp; WhatsApp Tax Slip</button>
           </div>
         </div>
+
+        <!-- Room 03 -->
+        <div class="squircle-card rounded-2xl p-5 flex flex-col justify-between space-y-4" id="folioCard-r3">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-brand-input text-brand-teal border border-brand-border">ROOM 03</span>
+              <span class="text-[11px] font-mono text-brand-grayMuted">1 Night</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Lavender Chalet</h3>
+              <p class="text-xs text-brand-grayLight">Guest: <strong class="text-white">Markus Becker</strong></p>
+            </div>
+            <div class="bg-brand-input/70 rounded-xl p-3 border border-brand-border space-y-1 text-xs font-mono">
+              <div class="flex justify-between text-brand-grayMuted"><span>Accommodation:</span><span id="r3-acc">R 950.00</span></div>
+              <div class="flex justify-between text-brand-grayMuted"><span>Dining / Meals:</span><span id="r3-din">R 180.00</span></div>
+              <div class="flex justify-between text-brand-grayMuted"><span>Honesty Bar:</span><span id="r3-bar">R 85.00</span></div>
+              <div class="flex justify-between text-brand-grayLight pt-1 border-t border-brand-border/60 font-bold"><span>Total Balance:</span><span class="text-brand-teal text-sm" id="r3-tot">R 1,215.00</span></div>
+            </div>
+          </div>
+          <div class="space-y-2 pt-2 border-t border-brand-border/60">
+            <button onclick="openPostChargeModal('r3', 'Room 03: Lavender Chalet (Markus Becker)')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/40 transition-all">➕ Post Charge to Room</button>
+            <button onclick="settleRoomFolio('r3', 'Markus Becker', 'Room 03: Lavender Chalet')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy shadow-md">💳 Settle &amp; WhatsApp Tax Slip</button>
+          </div>
+        </div>
+
+        <!-- Room 04 -->
+        <div class="squircle-card rounded-2xl p-5 flex flex-col justify-between space-y-4" id="folioCard-r4">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-brand-input text-brand-teal border border-brand-border">ROOM 04</span>
+              <span class="text-[11px] font-mono text-brand-grayMuted">4 Nights</span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Mountain View Villa</h3>
+              <p class="text-xs text-brand-grayLight">Guest: <strong class="text-white">Pieter &amp; Anna Roux</strong></p>
+            </div>
+            <div class="bg-brand-input/70 rounded-xl p-3 border border-brand-border space-y-1 text-xs font-mono">
+              <div class="flex justify-between text-brand-grayMuted"><span>Accommodation:</span><span id="r4-acc">R 3,800.00</span></div>
+              <div class="flex justify-between text-brand-grayMuted"><span>Dining / Meals:</span><span id="r4-din">R 640.00</span></div>
+              <div class="flex justify-between text-brand-grayMuted"><span>Honesty Bar:</span><span id="r4-bar">R 310.00</span></div>
+              <div class="flex justify-between text-brand-grayLight pt-1 border-t border-brand-border/60 font-bold"><span>Total Balance:</span><span class="text-brand-teal text-sm" id="r4-tot">R 4,750.00</span></div>
+            </div>
+          </div>
+          <div class="space-y-2 pt-2 border-t border-brand-border/60">
+            <button onclick="openPostChargeModal('r4', 'Room 04: Mountain Villa (Pieter Roux)')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/40 transition-all">➕ Post Charge to Room</button>
+            <button onclick="settleRoomFolio('r4', 'Pieter Roux', 'Room 04: Mountain Villa')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy shadow-md">💳 Settle &amp; WhatsApp Tax Slip</button>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- VIEW 7: SPAZA SHOP & QUICK SERVICE QUEUE TILL -->
+    <!-- VIEW 7: BAR & TERRACE LOUNGE POS -->
+    <section id="view-barLounge" class="hidden space-y-6 animate-fade-in max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-brand-border pb-4 gap-3">
+        <div class="flex items-center gap-3">
+          <button onclick="showView('home')" class="p-2 rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-border">← Home</button>
+          <div>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">🍷 Bar &amp; Terrace Lounge POS Terminal</h2>
+            <p class="text-xs text-brand-grayMuted">Speed bar touch grid for beers, wine bottles, cocktails &amp; direct room folio transfers.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="showView('guesthouseFolio')" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/40">🏨 Room Folios</button>
+          <button onclick="clearBarTab()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-input hover:bg-brand-card text-brand-grayLight border border-brand-border">Clear Bar Tab</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="flex gap-2 overflow-x-auto pb-2 text-xs font-semibold custom-scroll">
+            <button onclick="filterBarCategory('all')" class="px-3 py-1.5 rounded-lg bg-brand-teal text-brand-navy font-bold shrink-0">All Drinks</button>
+            <button onclick="filterBarCategory('beers')" class="px-3 py-1.5 rounded-lg bg-brand-input text-brand-grayLight hover:bg-brand-card border border-brand-border shrink-0">Beers &amp; Ciders</button>
+            <button onclick="filterBarCategory('wines')" class="px-3 py-1.5 rounded-lg bg-brand-input text-brand-grayLight hover:bg-brand-card border border-brand-border shrink-0">Wines &amp; MCC</button>
+            <button onclick="filterBarCategory('spirits')" class="px-3 py-1.5 rounded-lg bg-brand-input text-brand-grayLight hover:bg-brand-card border border-brand-border shrink-0">Spirits &amp; G&amp;T</button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="barDrinksGrid">
+            <button onclick="addBarItem('Craft Karoo G&amp;T', 75.00)" class="squircle-card p-3 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍸 Craft Karoo G&amp;T</span><span class="text-xs font-mono text-brand-teal block mt-1">R 75.00</span></button>
+            <button onclick="addBarItem('Castle Lite Draught 500ml', 45.00)" class="squircle-card p-3 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍺 Castle Lite 500ml</span><span class="text-xs font-mono text-brand-teal block mt-1">R 45.00</span></button>
+            <button onclick="addBarItem('Sauvignon Blanc Glass', 65.00)" class="squircle-card p-3 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍷 Sauvignon Blanc Glass</span><span class="text-xs font-mono text-brand-teal block mt-1">R 65.00</span></button>
+            <button onclick="addBarItem('Pinotage Bottle (Estate)', 220.00)" class="squircle-card p-3 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍾 Pinotage Bottle</span><span class="text-xs font-mono text-brand-teal block mt-1">R 220.00</span></button>
+            <button onclick="addBarItem('Whisky Double &amp; Soda', 85.00)" class="squircle-card p-3 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🥃 Whisky Double</span><span class="text-xs font-mono text-brand-teal block mt-1">R 85.00</span></button>
+            <button onclick="addBarItem('Still Water 750ml', 40.00)" class="squircle-card p-3 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">💧 Still Water 750ml</span><span class="text-xs font-mono text-brand-teal block mt-1">R 40.00</span></button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 squircle-card rounded-2xl p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border text-xs"><span class="font-bold text-white font-mono uppercase">BAR TAB / ORDER</span><span class="text-brand-teal font-mono" id="barItemCount">0 Drinks</span></div>
+            <div id="barCartItems" class="divide-y divide-brand-border/40 py-2 text-xs font-mono max-h-44 overflow-y-auto custom-scroll space-y-1"><div class="text-center py-6 text-brand-grayMuted text-xs font-sans">Bar tab is empty. Tap drinks to add.</div></div>
+          </div>
+          <div class="space-y-3 pt-3 border-t border-brand-border">
+            <div class="space-y-1 text-xs font-mono">
+              <div class="flex justify-between text-brand-grayMuted"><span>Subtotal:</span><span id="barSubtotal">R 0.00</span></div>
+              <div class="flex justify-between text-brand-grayMuted"><span>Includes 15% SA VAT:</span><span id="barVat">R 0.00</span></div>
+              <div class="flex justify-between text-white text-base font-bold pt-1 border-t border-brand-border/60"><span>BAR TOTAL:</span><span class="text-brand-teal font-mono text-lg" id="barTotal">R 0.00</span></div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 pt-2">
+              <button onclick="completeBarSale('cash')" class="py-2.5 text-xs font-bold rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy shadow-md">💳 Quick Pay Slip</button>
+              <button onclick="transferBarTabToRoom()" class="py-2.5 text-xs font-bold rounded-xl bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/40">🏨 Charge To Room</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 8: SPAZA SHOP & QUICK SERVICE QUEUE TILL -->
     <section id="view-spazaQueue" class="hidden space-y-6 animate-fade-in max-w-5xl mx-auto">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-brand-border pb-4 gap-3">
         <div class="flex items-center gap-3">
@@ -449,9 +572,13 @@
         <div class="lg:col-span-7 space-y-4">
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="spazaItemsGrid">
             <button onclick="addSpazaItem('White Bread Loaf', 18.50)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍞 White Bread Loaf</span><span class="text-xs font-mono text-brand-teal block mt-1">R 18.50</span></button>
+            <button onclick="addSpazaItem('Brown Bread Loaf', 17.00)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍞 Brown Bread Loaf</span><span class="text-xs font-mono text-brand-teal block mt-1">R 17.00</span></button>
             <button onclick="addSpazaItem('Fresh Milk 2L', 34.00)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🥛 Fresh Milk 2L</span><span class="text-xs font-mono text-brand-teal block mt-1">R 34.00</span></button>
             <button onclick="addSpazaItem('Coca-Cola 500ml', 15.00)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🥤 Coca-Cola 500ml</span><span class="text-xs font-mono text-brand-teal block mt-1">R 15.00</span></button>
             <button onclick="addSpazaItem('Maize Meal 2.5kg', 42.00)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🌽 Maize Meal 2.5kg</span><span class="text-xs font-mono text-brand-teal block mt-1">R 42.00</span></button>
+            <button onclick="addSpazaItem('White Sugar 1kg', 26.50)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🍚 White Sugar 1kg</span><span class="text-xs font-mono text-brand-teal block mt-1">R 26.50</span></button>
+            <button onclick="addSpazaItem('Eggs 6-Pack Large', 22.00)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🥚 Eggs 6-Pack</span><span class="text-xs font-mono text-brand-teal block mt-1">R 22.00</span></button>
+            <button onclick="addSpazaItem('Sunflower Oil 750ml', 38.50)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">🌻 Cooking Oil 750ml</span><span class="text-xs font-mono text-brand-teal block mt-1">R 38.50</span></button>
             <button onclick="addSpazaItem('Airtime R10', 10.00)" class="squircle-card p-3.5 rounded-xl text-left hover:scale-[1.02] transition-all group border-brand-border"><span class="text-xs font-bold text-white block group-hover:text-brand-teal">📶 Airtime R10</span><span class="text-xs font-mono text-brand-teal block mt-1">R 10.00</span></button>
           </div>
         </div>
@@ -499,7 +626,7 @@
     <div class="text-[11px] text-brand-grayMuted font-mono">© 2025 CodePOS™ &amp; Code-SA™ — All Rights Reserved. www.codepos.co.za</div>
   </footer>
 
-  <!-- WORKSPACES MODAL (All 6 Venues) -->
+  <!-- WORKSPACES MODAL (All 7 Venues) -->
   <div id="workspacesModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="squircle-card rounded-2xl max-w-lg w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto custom-scroll">
       <div class="flex items-center justify-between border-b border-brand-border pb-3">
@@ -519,6 +646,9 @@
         <button onclick="showView('guesthouseFolio'); toggleModal('workspacesModal');" class="w-full p-3 rounded-xl bg-brand-input hover:bg-brand-card border border-brand-border text-left flex items-center justify-between group">
           <div><strong class="text-white block group-hover:text-brand-teal">🏨 Guesthouse &amp; Lodge Room Folio Manager</strong><span class="text-[11px] text-brand-grayMuted">Allocate restaurant meals, bar tabs, and room charges to room folios.</span></div><span class="text-brand-teal">Launch →</span>
         </button>
+        <button onclick="showView('barLounge'); toggleModal('workspacesModal');" class="w-full p-3 rounded-xl bg-brand-input hover:bg-brand-card border border-brand-border text-left flex items-center justify-between group">
+          <div><strong class="text-white block group-hover:text-brand-teal">🍷 Bar &amp; Terrace Lounge POS Terminal</strong><span class="text-[11px] text-brand-grayMuted">Speed bar touch drinks, quick pay, or transfer tab to room folio.</span></div><span class="text-brand-teal">Launch →</span>
+        </button>
         <button onclick="showView('spazaQueue'); toggleModal('workspacesModal');" class="w-full p-3 rounded-xl bg-brand-input hover:bg-brand-card border border-brand-border text-left flex items-center justify-between group">
           <div><strong class="text-white block group-hover:text-brand-teal">🛒 Spaza Shop &amp; Quick Queue Counter</strong><span class="text-[11px] text-brand-grayMuted">High-speed till for grocery items, airtime, and quick cash change math.</span></div><span class="text-brand-teal">Launch →</span>
         </button>
@@ -529,10 +659,49 @@
     </div>
   </div>
 
+  <!-- MENU & LEGAL MODAL -->
+  <div id="menuLegalModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="squircle-card rounded-2xl max-w-lg w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto custom-scroll">
+      <div class="flex items-center justify-between border-b border-brand-border pb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">📖 CodePOS Documentation &amp; Legal Hub</h3>
+        <button onclick="toggleModal('menuLegalModal')" class="text-brand-grayMuted hover:text-white p-1">✕</button>
+      </div>
+      <div class="space-y-3 text-xs text-brand-grayLight">
+        <div class="p-3 bg-brand-input rounded-xl border border-brand-border space-y-1">
+          <strong class="text-white block text-sm">Protection of Personal Information (POPIA)</strong>
+          <p class="text-brand-grayMuted">All customer data, cell numbers, and digital slips are encrypted and never distributed or monetized.</p>
+        </div>
+        <div class="p-3 bg-brand-input rounded-xl border border-brand-border space-y-1">
+          <strong class="text-white block text-sm">Commercial 15% SA VAT Compliance</strong>
+          <p class="text-brand-grayMuted">Calculates standard 15% South African VAT: Total - (Total / 1.15) down to integer cent.</p>
+        </div>
+        <div class="p-3 bg-brand-input rounded-xl border border-brand-border space-y-1">
+          <strong class="text-white block text-sm">PayFast Level 1 PCI-DSS Security</strong>
+          <p class="text-brand-grayMuted">All payment transactions and monthly SaaS renewals are processed through PayFast South Africa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="squircle-card rounded-2xl max-w-sm w-full p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-brand-border pb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">👑 Executive Sign-In</h3>
+        <button onclick="toggleModal('loginModal')" class="text-brand-grayMuted hover:text-white p-1">✕</button>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div><label class="block text-brand-grayLight font-mono mb-1">Owner Email</label><input type="email" value="eurica@codepos.co.za" class="w-full px-3 py-2 rounded-lg bg-brand-input border border-brand-border text-white text-xs"></div>
+        <div><label class="block text-brand-grayLight font-mono mb-1">Master Password</label><input type="password" value="••••••••••••" class="w-full px-3 py-2 rounded-lg bg-brand-input border border-brand-border text-white text-xs"></div>
+        <button onclick="executeLogin()" class="w-full py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy font-bold text-xs shadow-md mt-2">Open Master Cockpit</button>
+      </div>
+    </div>
+  </div>
+
   <!-- JAVASCRIPT LOGIC -->
   <script>
     function showView(viewId) {
-      const views = ['home', 'restaurantFloor', 'kitchenKDS', 'waiterPad', 'masterCockpit', 'guesthouseFolio', 'spazaQueue'];
+      const views = ['home', 'restaurantFloor', 'kitchenKDS', 'waiterPad', 'masterCockpit', 'guesthouseFolio', 'barLounge', 'spazaQueue'];
       views.forEach(id => {
         const el = document.getElementById('view-' + id);
         if (el) { el.classList.add('hidden'); el.classList.remove('block'); }
@@ -549,18 +718,63 @@
       }
     }
 
-    // Guesthouse logic
+    // Guesthouse & Lodge Logic
     const ROOM_FOLIOS = {
       r1: { name: 'Room 01: Protea Suite', guest: 'Dr. Van Der Merwe', acc: 2100.00, din: 520.00, bar: 230.00 },
-      r2: { name: 'Room 02: Karoo Cottage', guest: 'Sarah Jenkins', acc: 1400.00, din: 380.00, bar: 160.00 }
+      r2: { name: 'Room 02: Karoo Cottage', guest: 'Sarah Jenkins', acc: 1400.00, din: 380.00, bar: 160.00 },
+      r3: { name: 'Room 03: Lavender Chalet', guest: 'Markus Becker', acc: 950.00, din: 180.00, bar: 85.00 },
+      r4: { name: 'Room 04: Mountain Villa', guest: 'Pieter Roux', acc: 3800.00, din: 640.00, bar: 310.00 }
     };
+
+    function openAddRoomModal() {
+      const roomNo = prompt("Enter New Room / Suite Name (e.g. Room 05 / Garden Suite):", "Room 05");
+      if (!roomNo) return;
+      const guestName = prompt("Enter Guest Name:", "Johan Smuts");
+      const nights = parseInt(prompt("Number of nights stay:", "2")) || 2;
+      const rate = parseFloat(prompt("Nightly rate in ZAR:", "1200")) || 1200;
+      const roomKey = 'r' + (Object.keys(ROOM_FOLIOS).length + 1);
+      const accTotal = nights * rate;
+      ROOM_FOLIOS[roomKey] = { name: roomNo, guest: guestName, acc: accTotal, din: 0.00, bar: 0.00 };
+      
+      const container = document.getElementById('roomFolioCardsContainer');
+      const card = document.createElement('div');
+      card.className = 'squircle-card rounded-2xl p-5 flex flex-col justify-between space-y-4 border-emerald-500/40';
+      card.id = 'folioCard-' + roomKey;
+      card.innerHTML = `
+        <div class="space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-brand-input text-brand-teal border border-brand-border">${roomNo.toUpperCase()}</span>
+            <span class="text-[11px] font-mono text-brand-grayMuted">${nights} Nights</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">${roomNo}</h3>
+            <p class="text-xs text-brand-grayLight">Guest: <strong class="text-white">${guestName}</strong></p>
+          </div>
+          <div class="bg-brand-input/70 rounded-xl p-3 border border-brand-border space-y-1 text-xs font-mono">
+            <div class="flex justify-between text-brand-grayMuted"><span>Accommodation:</span><span id="${roomKey}-acc">R ${accTotal.toFixed(2)}</span></div>
+            <div class="flex justify-between text-brand-grayMuted"><span>Dining / Meals:</span><span id="${roomKey}-din">R 0.00</span></div>
+            <div class="flex justify-between text-brand-grayMuted"><span>Honesty Bar:</span><span id="${roomKey}-bar">R 0.00</span></div>
+            <div class="flex justify-between text-brand-grayLight pt-1 border-t border-brand-border/60 font-bold"><span>Total Balance:</span><span class="text-brand-teal text-sm" id="${roomKey}-tot">R ${accTotal.toFixed(2)}</span></div>
+          </div>
+        </div>
+        <div class="space-y-2 pt-2 border-t border-brand-border/60">
+          <button onclick="openPostChargeModal('${roomKey}', '${roomNo} (${guestName})')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-input hover:bg-brand-card text-brand-teal border border-brand-teal/40 transition-all">➕ Post Charge to Room</button>
+          <button onclick="settleRoomFolio('${roomKey}', '${guestName}', '${roomNo}')" class="w-full py-2 text-xs font-bold rounded-xl bg-brand-teal hover:bg-brand-tealHover text-brand-navy shadow-md">💳 Settle &amp; WhatsApp Tax Slip</button>
+        </div>
+      `;
+      container.appendChild(card);
+      const badge = document.getElementById('activeRoomCountBadge');
+      if (badge) badge.innerText = `${Object.keys(ROOM_FOLIOS).length} Rooms Active`;
+      alert(`✅ ${roomNo} added to Guesthouse Folio Manager!`);
+    }
+
     function openPostChargeModal(roomKey, roomLabel) {
-      const itemChoice = prompt(`Post Charge to ${roomLabel}\nType 1 for Meal (R240)\nType 2 for Bar Drinks (R65)\nType 3 for Farm Breakfast (R120)`, "1");
+      const choice = prompt(`Post Charge to ${roomLabel}\nType 1 for Dinner (Karoo Lamb Chops & Wine @ R240)\nType 2 for Breakfast (Farm Breakfast @ R120)\nType 3 for Honesty Bar (Craft Gin & Tonic @ R75)`, "1");
       const folio = ROOM_FOLIOS[roomKey];
       if (!folio) return;
-      if (itemChoice === "1") { folio.din += 240; alert(`Added Meal (R240) to ${roomLabel}`); }
-      else if (itemChoice === "2") { folio.bar += 65; alert(`Added Bar Drinks (R65) to ${roomLabel}`); }
-      else if (itemChoice === "3") { folio.din += 120; alert(`Added Farm Breakfast (R120) to ${roomLabel}`); }
+      if (choice === "1") { folio.din += 240.00; alert(`Added Dinner (R240) to ${roomLabel}`); }
+      else if (choice === "2") { folio.din += 120.00; alert(`Added Farm Breakfast (R120) to ${roomLabel}`); }
+      else if (choice === "3") { folio.bar += 75.00; alert(`Added Craft Gin & Tonic (R75) to ${roomLabel}`); }
       const tot = folio.acc + folio.din + folio.bar;
       const dinEl = document.getElementById(roomKey + '-din');
       const barEl = document.getElementById(roomKey + '-bar');
@@ -569,14 +783,66 @@
       if (barEl) barEl.innerText = 'R ' + folio.bar.toFixed(2);
       if (totEl) totEl.innerText = 'R ' + tot.toFixed(2);
     }
+
     function settleRoomFolio(roomKey, guest, roomTitle) {
       const folio = ROOM_FOLIOS[roomKey];
       const tot = folio ? (folio.acc + folio.din + folio.bar).toFixed(2) : "0.00";
-      const cell = prompt(`Settle Folio for ${guest} (${roomTitle})\nTotal Balance: R ${tot}\n\nEnter Guest WhatsApp number:`, "+27 82 555 1234");
-      if (cell) alert(`✅ Folio Settled! Consolidated Tax Invoice sent to WhatsApp ${cell}`);
+      const cell = prompt(`Settle Folio for ${guest} (${roomTitle})\nTotal Balance Due: R ${tot}\n\nEnter Guest WhatsApp cell number for Tax Slip:`, "+27 82 456 7890");
+      if (cell) {
+        alert(`✅ Folio Settled! Consolidated South African 15% VAT Tax Invoice dispatched to WhatsApp ${cell}`);
+      }
     }
 
-    // Spaza logic
+    // Bar POS Logic
+    let barCart = [];
+    function addBarItem(name, price) {
+      barCart.push({ name, price });
+      renderBarCart();
+    }
+    function renderBarCart() {
+      const c = document.getElementById('barCartItems');
+      const countEl = document.getElementById('barItemCount');
+      if (!c) return;
+      c.innerHTML = '';
+      let sum = 0;
+      barCart.forEach(it => {
+        sum += it.price;
+        const r = document.createElement('div');
+        r.className = 'flex justify-between py-1 text-white';
+        r.innerHTML = `<span>1× ${it.name}</span><span class="text-brand-teal">R ${it.price.toFixed(2)}</span>`;
+        c.appendChild(r);
+      });
+      if (countEl) countEl.innerText = barCart.length + " Drinks";
+      const vat = sum - (sum / 1.15);
+      const sub = sum - vat;
+      document.getElementById('barSubtotal').innerText = 'R ' + sub.toFixed(2);
+      document.getElementById('barVat').innerText = 'R ' + vat.toFixed(2);
+      document.getElementById('barTotal').innerText = 'R ' + sum.toFixed(2);
+    }
+    function clearBarTab() { barCart = []; renderBarCart(); }
+    function completeBarSale(type) {
+      if (barCart.length === 0) { alert("Bar cart is empty!"); return; }
+      alert("✅ Bar sale completed! WhatsApp Tax Slip dispatched.");
+      clearBarTab();
+    }
+    function transferBarTabToRoom() {
+      if (barCart.length === 0) { alert("Bar cart is empty!"); return; }
+      const total = barCart.reduce((acc, it) => acc + it.price, 0);
+      const roomKey = prompt("Select Room to charge:\nType 'r1' for Room 01 (Protea Suite)\nType 'r2' for Room 02 (Karoo Cottage)", "r1");
+      if (ROOM_FOLIOS[roomKey]) {
+        ROOM_FOLIOS[roomKey].bar += total;
+        const barEl = document.getElementById(roomKey + '-bar');
+        const totEl = document.getElementById(roomKey + '-tot');
+        if (barEl) barEl.innerText = 'R ' + ROOM_FOLIOS[roomKey].bar.toFixed(2);
+        if (totEl) totEl.innerText = 'R ' + (ROOM_FOLIOS[roomKey].acc + ROOM_FOLIOS[roomKey].din + ROOM_FOLIOS[roomKey].bar).toFixed(2);
+        alert(`✅ R ${total.toFixed(2)} Bar Tab charged directly to ${ROOM_FOLIOS[roomKey].name}!`);
+        clearBarTab();
+        showView('guesthouseFolio');
+      }
+    }
+    function filterBarCategory(cat) { /* category filter */ }
+
+    // Spaza Shop Logic
     let spazaCart = [];
     function addSpazaItem(name, price) {
       spazaCart.push({ name, price });
@@ -621,14 +887,29 @@
       clearSpazaTill();
     }
 
-    // Waiter logic
+    // Waiter & Dining Room Logic
     let currentBillTotal = 445.00;
     let currentActiveTable = 'Table 123';
+    function openTableInWaiterPad(tblId, tblLabel) {
+      currentActiveTable = tblLabel;
+      const labelEl = document.getElementById('activeTableLabel');
+      if (labelEl) labelEl.innerText = tblLabel;
+      showView('waiterPad');
+    }
     function switchMenuCategory(cat) {
       const g = document.getElementById('waiterMenuItemsGrid');
       if (!g) return;
       g.innerHTML = '';
-      const items = [{ name: 'Karoo Lamb Chops', price: 195.00 }, { name: 'Garlic Prawn Pasta', price: 165.00 }, { name: 'Castle Draught 500ml', price: 45.00 }];
+      let items = [];
+      if (cat === 'grills') {
+        items = [{ name: '300g Rump Steak', price: 185.00 }, { name: 'T-Bone Steak 500g', price: 220.00 }, { name: 'Pork Spare Ribs 600g', price: 190.00 }];
+      } else if (cat === 'pizzas') {
+        items = [{ name: 'Woodfired Margherita', price: 95.00 }, { name: 'Creamy Alfredo Pasta', price: 125.00 }, { name: 'Carnivore BBQ Pizza', price: 145.00 }];
+      } else if (cat === 'beverages') {
+        items = [{ name: 'Castle Lite Draught', price: 45.00 }, { name: 'Sauvignon Blanc Glass', price: 65.00 }, { name: 'Coca-Cola 330ml', price: 25.00 }];
+      } else {
+        items = [{ name: 'Karoo Lamb Chops (300g)', price: 195.00 }, { name: 'Garlic Prawn Pasta', price: 165.00 }, { name: 'Fresh Cape Kingklip', price: 210.00 }];
+      }
       items.forEach(it => {
         const btn = document.createElement('button');
         btn.className = 'squircle-card p-3 rounded-xl text-left hover:border-brand-teal transition-all';
@@ -648,26 +929,37 @@
       container.appendChild(r);
     }
     function clearCurrentOrder() { currentBillTotal = 0; document.getElementById('billTotal').innerText = 'R 0.00'; document.getElementById('waiterOrderItems').innerHTML = ''; }
-    function markOrderReady(t) { alert(`🔔 Table ${t} ORDER READY. Waiter notified.`); }
-    function simulateReceiptDispatch(tbl) {
-      const c = prompt("Enter customer WhatsApp:", "+27 82 456 7890");
-      if (c) { alert(`✅ Tax slip sent to WhatsApp ${c}!`); showView('restaurantFloor'); }
+    function markOrderReady(t) {
+      const badge = document.getElementById('orderChimeBadge');
+      if (badge) badge.classList.remove('hidden');
+      alert(`🔔 Table ${t} ORDER READY. Waiter notified with chime notification.`);
     }
-    function handleTrialSignup(prod) { alert(`🚀 14-Day Free Trial activated for ${prod}!`); }
-    function handlePayFastCheckout(plan, amount) { alert(`Redirecting to PayFast SA for ${plan} (R ${amount})...`); }
-    function executeLogin() { showView('masterCockpit'); toggleModal('loginModal'); }
+    function simulateReceiptDispatch(tbl) {
+      const c = prompt(`Enter customer WhatsApp number for ${tbl}:`, "+27 82 456 7890");
+      if (c) { alert(`✅ 15% SA VAT Tax Invoice dispatched to WhatsApp ${c}!`); showView('restaurantFloor'); }
+    }
     function openAddTableModal() {
-      const id = prompt("Enter new table number (e.g. Table 14):", "Table 14");
+      const id = prompt("Enter new table number (e.g. Table 14 / Patio 02):", "Table 14");
       if (id) {
         const g = document.getElementById('floorPlanTablesGrid');
         const d = document.createElement('div');
         d.className = 'squircle-card p-4 rounded-2xl cursor-pointer hover:scale-105 transition-all text-center space-y-2 border-emerald-500/40';
-        d.onclick = () => { showView('waiterPad'); };
-        d.innerHTML = `<div class="w-10 h-10 mx-auto rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-xs">${id.slice(0,5)}</div><div class="text-xs font-semibold text-white">4 Covers</div><div class="text-[10px] text-emerald-400 font-mono">Available</div>`;
+        d.onclick = () => { openTableInWaiterPad(id, id); };
+        d.innerHTML = `<div class="w-10 h-10 mx-auto rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-xs">${id.slice(0,6)}</div><div class="text-xs font-semibold text-white">4 Covers</div><div class="text-[10px] text-emerald-400 font-mono">Available</div>`;
         g.appendChild(d);
-        alert(`✅ ${id} created on dining floor!`);
+        alert(`✅ ${id} created on dining floor plan!`);
       }
     }
+
+    // Auth & Billing
+    function handleTrialSignup(prod) { alert(`🚀 14-Day Free Trial activated for ${prod}!`); }
+    function handlePayFastCheckout(plan, amount) { alert(`Redirecting to PayFast South Africa for ${plan} (R ${amount})...`); }
+    function executeLogin() { showView('masterCockpit'); toggleModal('loginModal'); }
+
+    // Init defaults
+    window.addEventListener('DOMContentLoaded', () => {
+      switchMenuCategory('favorites');
+    });
   </script>
 </body>
 </html>
