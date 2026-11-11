@@ -90,7 +90,7 @@
           <span class="sm:hidden">SCREENS</span>
         </button>
 
-        <button onclick="toggleModal('legalModal')" class="flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl neon-pill text-xs sm:text-sm font-bold hover:bg-brand/20 transition-all">
+        <button onclick="openAiAssistantTab()" class="flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl neon-pill text-xs sm:text-sm font-bold hover:bg-brand/20 transition-all">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
           </svg>
@@ -156,6 +156,23 @@
           <span class="text-xs sm:text-sm text-white font-bold">Windows</span>
           <span class="text-[10px] sm:text-xs text-gray-400 font-medium">Laptop</span>
         </div>
+      </div>
+
+      <!-- PROMINENT AI ASSISTANT DIRECT BANNER (OPTION 2 PROMO) -->
+      <div onclick="openAiAssistantTab()" class="max-w-xl mx-auto w-full p-3 rounded-xl bg-gradient-to-r from-brand/20 via-surface-card to-brand/15 border border-brand/60 cursor-pointer hover:border-brand transition-all flex items-center justify-between gap-3 text-left shadow-md">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl sm:text-3xl p-1.5 rounded-lg bg-surface-base border border-brand/40 text-brand">🤖</span>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-white font-mono flex items-center gap-1.5">
+              <span>24/7 AI Operational Assistant Ready</span>
+              <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+            </div>
+            <div class="text-[11px] text-gray-300 font-sans leading-tight">
+              Have questions? Instant answers available 24/7 inside <b class="text-brand">"MENU &amp; LEGAL"</b>
+            </div>
+          </div>
+        </div>
+        <span class="px-2.5 py-1 rounded-lg bg-brand text-surface-base font-mono font-bold text-xs uppercase shrink-0">Ask AI ➜</span>
       </div>
 
       <!-- 1-Click Launch Terminal Button -->
@@ -388,7 +405,7 @@
               <span class="text-gray-400 block text-[10px]">Option A (Rent):</span>
               <span class="text-brand font-bold text-xs sm:text-sm">R 305 / mo</span>
             </div>
-            <div class="bg-surface-input/80 p-2.5 rounded-lg">
+            <div class="bg-surface-input/80 p-2 rounded-lg">
               <span class="text-gray-400 block text-[10px]">Option B (Outright):</span>
               <span class="text-white font-bold text-xs sm:text-sm">R 4,850 once</span>
             </div>
@@ -454,6 +471,10 @@
         </div>
       </div>
       <div class="flex gap-2">
+        <button onclick="openAiAssistantTab()" class="px-2.5 py-1.5 rounded-xl neon-pill font-mono text-xs flex items-center gap-1">
+          <span>🤖</span>
+          <span class="hidden sm:inline">Ask AI Assistant</span>
+        </button>
         <button onclick="showScreen('screen-kds')" class="px-3 py-1.5 rounded-xl bg-surface-input text-gray-200 border border-surface-border font-mono text-xs hover:border-brand">Open KDS 🍳</button>
         <button onclick="showScreen('screen-waiter')" class="px-3 py-1.5 rounded-xl bg-surface-input text-gray-200 border border-surface-border font-mono text-xs hover:border-brand">Waiter Pad 📱</button>
       </div>
@@ -527,6 +548,10 @@
         </div>
       </div>
       <div class="flex items-center gap-2 font-mono text-xs">
+        <button onclick="openAiAssistantTab()" class="px-2.5 py-1 rounded-lg neon-pill font-mono text-xs flex items-center gap-1">
+          <span>🤖</span>
+          <span class="hidden sm:inline">Ask AI</span>
+        </button>
         <span class="px-2.5 py-1 rounded-lg bg-surface-input text-gray-300 border border-surface-border">Orders: <b class="text-brand">3 Active</b></span>
         <button onclick="showScreen('screen-floor')" class="px-2.5 py-1 rounded-lg bg-surface-input border border-surface-border text-gray-200 hover:border-brand">Floor Plan 🍽️</button>
       </div>
@@ -609,9 +634,14 @@
         <div class="text-white font-bold text-sm">Table 123 • Order Pad</div>
         <div class="text-[10px] text-brand">Waiter: Sarah • 4 Covers</div>
       </div>
-      <button onclick="showScreen('screen-kds')" class="text-gray-300 text-xs px-2.5 py-1.5 rounded-lg bg-surface-input border border-surface-border">
-        KDS 🍳
-      </button>
+      <div class="flex items-center gap-1.5">
+        <button onclick="openAiAssistantTab()" class="text-brand text-xs px-2 py-1 rounded-lg bg-surface-input border border-brand/40">
+          🤖
+        </button>
+        <button onclick="showScreen('screen-kds')" class="text-gray-300 text-xs px-2.5 py-1.5 rounded-lg bg-surface-input border border-surface-border">
+          KDS 🍳
+        </button>
+      </div>
     </div>
 
     <!-- Waiter Menu Category Selector Tabs -->
@@ -681,9 +711,15 @@
           <span class="text-[11px] sm:text-xs text-brand">Interactive Margin Builder &amp; GP% Speedometer</span>
         </div>
       </div>
-      <button onclick="alert('New product modal ready');" class="px-3 py-1.5 rounded-xl bg-brand text-surface-base font-bold text-xs">
-        + Add New Recipe
-      </button>
+      <div class="flex items-center gap-2">
+        <button onclick="openAiAssistantTab()" class="px-2.5 py-1.5 rounded-xl neon-pill font-mono text-xs flex items-center gap-1">
+          <span>🤖</span>
+          <span class="hidden sm:inline">Ask AI</span>
+        </button>
+        <button onclick="alert('New product modal ready');" class="px-3 py-1.5 rounded-xl bg-brand text-surface-base font-bold text-xs">
+          + Add New Recipe
+        </button>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
@@ -813,7 +849,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- MODALS (NAV, EURICA LOGIN, STORE SIGN-IN, LEGAL MANUALS)                  -->
+  <!-- MODALS (NAV, EURICA LOGIN, STORE SIGN-IN, LEGAL MANUALS & AI ASSISTANT)   -->
   <!-- ========================================================================= -->
 
   <!-- MODAL 1: POS WORKSPACES & SCREEN SWITCHER -->
@@ -924,24 +960,26 @@
     </div>
   </div>
 
-  <!-- MODAL 4: MENU & LEGAL + 4-PRODUCT SELF-HELP MANUAL SUITE -->
+  <!-- MODAL 4: MENU & LEGAL + 4-PRODUCT SELF-HELP MANUAL SUITE + 24/7 AI ASSISTANT -->
   <div id="legalModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div class="bg-surface-panel border neon-border rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden text-left shadow-2xl">
       
-      <!-- Modal Header -->
-      <div class="p-4 sm:p-5 border-b border-surface-border flex items-center justify-between bg-surface-card">
-        <div>
-          <div class="font-mono text-sm sm:text-base font-bold text-brand uppercase tracking-wider flex items-center gap-2">
-            <span>📖</span>
-            <span>MENU, LEGAL &amp; 4-PRODUCT MANUAL SUITE</span>
-          </div>
-          <div class="text-[11px] text-gray-400 font-mono mt-0.5">Self-service operational guides for store owners &amp; cashiers</div>
+      <!-- Modal Header with Tab Switcher -->
+      <div class="p-3.5 sm:p-4 border-b border-surface-border flex items-center justify-between bg-surface-card shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <button id="tabBtnManuals" onclick="switchLegalTab('manuals')" class="px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-brand text-surface-base shadow-sm">
+            📖 4-Product Manuals
+          </button>
+          <button id="tabBtnAi" onclick="switchLegalTab('ai')" class="px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-surface-input text-gray-300 border border-surface-border hover:border-brand flex items-center gap-1.5">
+            <span>🤖</span>
+            <span>24/7 AI Assistant</span>
+          </button>
         </div>
         <button onclick="toggleModal('legalModal')" class="text-gray-400 hover:text-white font-mono text-base font-bold">✕</button>
       </div>
 
-      <!-- Modal Content Area -->
-      <div class="p-4 sm:p-5 overflow-y-auto text-xs sm:text-sm text-gray-200 flex flex-col gap-4 sm:gap-5 font-mono">
+      <!-- TAB 1: 4-PRODUCT MANUALS & LEGAL -->
+      <div id="legalTabManuals" class="p-4 sm:p-5 overflow-y-auto text-xs sm:text-sm text-gray-200 flex flex-col gap-4 sm:gap-5 font-mono">
         
         <!-- Official Contact Details -->
         <div class="bg-surface-input/80 p-3.5 rounded-xl border border-surface-border">
@@ -1122,15 +1160,81 @@
 
       </div>
 
+      <!-- TAB 2: INTERACTIVE 24/7 AI OPERATIONAL ASSISTANT -->
+      <div id="legalTabAi" class="hidden p-4 sm:p-5 overflow-y-auto text-xs sm:text-sm text-gray-200 flex flex-col gap-4 font-mono">
+        <div class="bg-gradient-to-r from-brand/20 to-surface-card p-3.5 rounded-xl border border-brand/40 flex items-center gap-3">
+          <span class="text-3xl p-1 bg-surface-base rounded-lg border border-brand/50">🤖</span>
+          <div>
+            <div class="text-white font-bold text-sm">Code-SA™ 24/7 AI Operational Assistant</div>
+            <div class="text-[11px] text-gray-300">Ask any question about setup, tills, shifts, or pricing for instant answers!</div>
+          </div>
+        </div>
+
+        <!-- Quick 1-Tap Prompt Chips -->
+        <div>
+          <div class="text-[11px] text-gray-400 uppercase tracking-wider font-semibold mb-2">Quick Suggested Inquiries:</div>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="askAiQuestion('How do I ring up a cash or card sale?')" class="px-2.5 py-1.5 rounded-lg bg-surface-input text-gray-200 border border-surface-border hover:border-brand text-xs">
+              💰 How to ring up sales?
+            </button>
+            <button onclick="askAiQuestion('How do I send a WhatsApp tax slip?')" class="px-2.5 py-1.5 rounded-lg bg-surface-input text-gray-200 border border-surface-border hover:border-brand text-xs">
+              📲 Sending WhatsApp slips
+            </button>
+            <button onclick="askAiQuestion('Does CodePOS work during loadshedding?')" class="px-2.5 py-1.5 rounded-lg bg-surface-input text-gray-200 border border-surface-border hover:border-brand text-xs">
+              ⚡ Loadshedding offline mode
+            </button>
+            <button onclick="askAiQuestion('How do I add staff 4-digit PINs?')" class="px-2.5 py-1.5 rounded-lg bg-surface-input text-gray-200 border border-surface-border hover:border-brand text-xs">
+              🔒 Adding Cashier PINs
+            </button>
+            <button onclick="askAiQuestion('How does CodeFinder recognize unlabelled food?')" class="px-2.5 py-1.5 rounded-lg bg-surface-input text-gray-200 border border-surface-border hover:border-brand text-xs">
+              🥐 AI camera food scan
+            </button>
+            <button onclick="askAiQuestion('What is the difference between R305/mo rent and outright buy?')" class="px-2.5 py-1.5 rounded-lg bg-surface-input text-gray-200 border border-surface-border hover:border-brand text-xs">
+              💵 Rent vs Buy Outright
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Question Input Bar -->
+        <div class="flex gap-2">
+          <input id="aiQuestionInput" type="text" placeholder="Type your question here (e.g. How do I cash up at night?)..." 
+                 class="w-full p-3 rounded-xl bg-surface-input border border-surface-border text-white text-xs sm:text-sm focus:outline-none focus:border-brand"
+                 onkeydown="if(event.key==='Enter') submitCustomAiQuestion()">
+          <button onclick="submitCustomAiQuestion()" class="px-4 py-2 rounded-xl bg-brand text-surface-base font-bold text-xs uppercase shrink-0 hover:bg-brand-glow">
+            Ask AI
+          </button>
+        </div>
+
+        <!-- AI Response Bubble -->
+        <div id="aiResponseContainer" class="p-4 rounded-xl bg-surface-input/90 border border-brand/50 text-xs sm:text-sm leading-relaxed text-gray-200 space-y-2">
+          <div class="flex items-center gap-1.5 text-brand font-bold text-xs">
+            <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+            <span id="aiResponseTitle">Assistant Ready:</span>
+          </div>
+          <div id="aiResponseBody" class="text-gray-300">
+            Welcome to Code-SA™ &amp; CodePOS™! Ask me any operational question about ringing up sales, table floor plans, sending paperless WhatsApp receipts, kitchen KDS, or staff PINs. I am here 24/7 so you never get stuck.
+          </div>
+        </div>
+
+        <!-- Emergency WhatsApp Escalation -->
+        <div class="p-3 rounded-xl bg-surface-card border border-surface-border flex items-center justify-between">
+          <div class="text-[11px] text-gray-400">Need personalized human assistance or have a custom inquiry?</div>
+          <a href="https://wa.me/27671296177?text=Hi%20Eurica,%20I%20have%20an%20inquiry%20regarding%20CodePOS%20Software" 
+             class="px-3 py-1.5 rounded-lg neon-pill text-xs font-bold hover:bg-brand/20 shrink-0">
+            WhatsApp Eurica (+27 67 129 6177)
+          </a>
+        </div>
+      </div>
+
       <!-- Modal Footer -->
-      <div class="p-3.5 border-t border-surface-border bg-surface-card flex items-center justify-between font-mono">
+      <div class="p-3.5 border-t border-surface-border bg-surface-card flex items-center justify-between font-mono shrink-0">
         <span class="text-[11px] text-gray-400">West Coast, Western Cape, South Africa</span>
         <button onclick="toggleModal('legalModal')" class="px-4 py-1.5 rounded-xl bg-surface-border text-white text-xs sm:text-sm font-bold hover:bg-surface-input">Close</button>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript Screen Switcher Engine -->
+  <!-- JavaScript Screen Switcher & AI Operational Logic -->
   <script>
     function showScreen(screenId) {
       const modals = ['navScreensModal', 'adminModal', 'signInModal', 'legalModal'];
@@ -1179,6 +1283,87 @@
         modal.classList.remove('hidden');
       } else {
         modal.classList.add('hidden');
+      }
+    }
+
+    function switchLegalTab(tab) {
+      const tabManuals = document.getElementById('legalTabManuals');
+      const tabAi = document.getElementById('legalTabAi');
+      const btnManuals = document.getElementById('tabBtnManuals');
+      const btnAi = document.getElementById('tabBtnAi');
+
+      if (tab === 'ai') {
+        tabManuals.classList.add('hidden');
+        tabAi.classList.remove('hidden');
+        btnAi.className = 'px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-brand text-surface-base shadow-sm flex items-center gap-1.5';
+        btnManuals.className = 'px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-surface-input text-gray-300 border border-surface-border hover:border-brand';
+      } else {
+        tabAi.classList.add('hidden');
+        tabManuals.classList.remove('hidden');
+        btnManuals.className = 'px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-brand text-surface-base shadow-sm';
+        btnAi.className = 'px-3 py-1.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-surface-input text-gray-300 border border-surface-border hover:border-brand flex items-center gap-1.5';
+      }
+    }
+
+    function openAiAssistantTab() {
+      const modal = document.getElementById('legalModal');
+      if (modal.classList.contains('hidden')) modal.classList.remove('hidden');
+      switchLegalTab('ai');
+    }
+
+    function askAiQuestion(question) {
+      const input = document.getElementById('aiQuestionInput');
+      input.value = question;
+      submitCustomAiQuestion();
+    }
+
+    function submitCustomAiQuestion() {
+      const q = document.getElementById('aiQuestionInput').value.toLowerCase().trim();
+      const title = document.getElementById('aiResponseTitle');
+      const body = document.getElementById('aiResponseBody');
+
+      if (!q) return;
+
+      title.textContent = `Question: "${q}"`;
+
+      if (q.includes('sale') || q.includes('ring up') || q.includes('tender') || q.includes('card') || q.includes('checkout')) {
+        body.innerHTML = `<b>How to Ring Up Sales in CodePOS™:</b><br>
+        1. Tap items on your screen to add them to your active bill.<br>
+        2. Tap <b>"CHECKOUT / TENDER"</b>.<br>
+        3. If Cash: Type the amount given. CodePOS automatically calculates your exact change in Rand cents!<br>
+        4. If Card: Swipe the customer's card on your speedpoint, then tap "Card Approved".<br>
+        5. Enter customer's cell (e.g. 082 123 4567) to dispatch their official South African 15% VAT tax invoice via WhatsApp!`;
+      } else if (q.includes('whatsapp') || q.includes('slip') || q.includes('receipt') || q.includes('paper')) {
+        body.innerHTML = `<b>Zero-Paper WhatsApp Receipts:</b><br>
+        CodePOS™ eliminates thermal paper rolls completely! At checkout, simply ask the guest: <i>"What is your cell number?"</i>. Type their number and tap <b>"SEND WHATSAPP SLIP"</b>. They instantly receive a formal, legal South African 15% VAT tax slip on their phone. It is 100% loadshedding-proof.`;
+      } else if (q.includes('loadshedding') || q.includes('offline') || q.includes('network') || q.includes('power')) {
+        body.innerHTML = `<b>Loadshedding &amp; Offline Capability:</b><br>
+        CodePOS™ is built on offline PWA IndexedDB memory. If Eskom power cuts or municipal cell towers drop, your cashier can continue ringing up sales, calculating change, and printing Bluetooth slips completely offline! Once connection restores, transactions automatically synchronize to your cloud ledger.`;
+      } else if (q.includes('pin') || q.includes('staff') || q.includes('waiter') || q.includes('permission')) {
+        body.innerHTML = `<b>Staff PINs &amp; Permissions:</b><br>
+        Store owners can assign 4-digit PINs (e.g. 1001, 1002) for each cashier, waiter, or supervisor in the Staff PIN Manager. Cashiers can ring up sales and look up codes, but CANNOT view company turnover, daily takings, or alter catalog pricing!`;
+      } else if (q.includes('cash up') || q.includes('z-report') || q.includes('reconcile') || q.includes('end of day')) {
+        body.innerHTML = `<b>End-of-Day Cash-Up &amp; Daily Z-Report:</b><br>
+        1. Tap <b>"Daily Cash-Up"</b> at shift close.<br>
+        2. Count physical cash notes and coins in your till drawer and type the total into the box.<br>
+        3. Tap <b>"Reconcile Shift"</b>. CodePOS instantly compares counted cash against recorded sales, shows any variance (Balanced / Short / Over), and generates your official Daily Z-Report archive in 1 tap.`;
+      } else if (q.includes('codefinder') || q.includes('photo') || q.includes('camera') || q.includes('scan') || q.includes('barcode')) {
+        body.innerHTML = `<b>CodeFinder™ 3 Search Modes:</b><br>
+        1. <b>Text/Category</b>: Type first few letters (e.g. "Cro") to find bakery, butchery, or produce codes.<br>
+        2. <b>Camera Barcode</b>: Point phone camera at retail barcode (EAN-13) for 200ms recognition.<br>
+        3. <b>Google Vertex AI Vision</b>: Point camera at unpackaged bakery pastries or fresh produce. Neural vision identifies the item with 95%+ confidence in under 600ms!`;
+      } else if (q.includes('roster') || q.includes('shift') || q.includes('smartroster')) {
+        body.innerHTML = `<b>Code SmartRoster™ Weekly Scheduling:</b><br>
+        Drag and drop staff from your bench into Monday-to-Sunday slots. Or tap <b>"AI Smart Auto-Schedule"</b> to populate the entire week in 3 seconds balancing staff rest and BCEA labor caps. Tap "Publish &amp; Broadcast" to dispatch individual rosters directly to employees' phones via WhatsApp!`;
+      } else if (q.includes('time') || q.includes('clock') || q.includes('biometric') || q.includes('face') || q.includes('bcea')) {
+        body.innerHTML = `<b>Code Time Management™ Counter Clock-In:</b><br>
+        Mount any standard Android tablet near your entrance. Staff type their 4-digit PIN. The front camera captures an instantaneous 200ms facial verification token to prevent buddy-punching. The BCEA engine tracks 1.5× standard overtime and 2.0× Sunday double-time, ready for 1-click Sage/VIP payroll export.`;
+      } else if (q.includes('price') || q.includes('cost') || q.includes('rent') || q.includes('buy') || q.includes('outright')) {
+        body.innerHTML = `<b>Simple, Honest Pricing (ZAR):</b><br>
+        • <b>Option A (Monthly Rent)</b>: R 305 / month per product (cancel anytime, 14-day free trial included). Complete 4-App Suite bundle: R 995 / month.<br>
+        • <b>Option B (Buy Once, Own Forever)</b>: R 3,850 to R 4,850 once-off per product (or R 14,500 for the full 4-app suite). Includes Year 1 cloud and updates; renews from Year 2 at R 1,500 / year.`;
+      } else {
+        body.innerHTML = `Thank you for your inquiry! Code-SA™ &amp; CodePOS™ are 100% zero-hardware enterprise systems running on standard smartphones, tablets, and laptops. For personalized setup or custom assistance, tap below to WhatsApp Founder &amp; CEO Eurica Noeth directly at <b>+27 67 129 6177</b>.`;
       }
     }
 
